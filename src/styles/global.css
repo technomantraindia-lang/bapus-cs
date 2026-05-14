@@ -216,6 +216,13 @@ a {
 .about-story-card > .scroll-reveal,
 .why-future-inner > .scroll-reveal {
   min-width: 0;
+  height: 100%;
+}
+
+.why-future-inner .why-panel,
+.why-future-inner .green-panel {
+  height: 100%;
+  min-height: 360px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -885,7 +892,8 @@ a {
 
 .why-future-inner {
   display: grid;
-  grid-template-columns: 1fr 1.14fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr);
+  column-gap: 0;
   width: min(1290px, 100%);
   min-height: 360px;
   margin: 0 auto;
