@@ -114,22 +114,6 @@ export function AboutGroup() {
               managed, asset-backed business group delivering integrated solutions
               across maritime, energy &amp; infrastructure sectors.
             </p>
-
-            <div className="about-pillars">
-              {pillars.map((pillar) => {
-                const Icon = pillar.icon;
-
-                return (
-                  <article key={pillar.title}>
-                    <span>
-                      <Icon size={22} aria-hidden="true" />
-                    </span>
-                    <h3>{pillar.title}</h3>
-                    <p>{pillar.copy}</p>
-                  </article>
-                );
-              })}
-            </div>
           </div>
         </ScrollReveal>
 
@@ -152,6 +136,24 @@ export function AboutGroup() {
             </div>
           </ScrollReveal>
         </div>
+
+        <ScrollReveal direction="up" delay={100} className="about-pillars-wrap">
+          <div className="about-pillars about-pillars--full">
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+
+              return (
+                <article key={pillar.title}>
+                  <span>
+                    <Icon size={24} aria-hidden="true" />
+                  </span>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.copy}</p>
+                </article>
+              );
+            })}
+          </div>
+        </ScrollReveal>
       </div>
 
       <div className="about-story-card">
