@@ -3,8 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 const defaultRootMargin = '0px 0px -10% 0px';
 
 /**
- * Fires once when the block enters the viewport — slide/fade/zoom in.
- * `direction`: left | right | up | down | zoom | fade (opacity only — safe for clipped images)
+ * Reveals when the block enters the viewport; hides again when it leaves,
+ * so scrolling back down replays the animation.
+ *
+ * `direction`: left | right | up | down | zoom | fade
+ *
+ * `once`: if true, only animates in the first time (old behaviour).
  */
 export function ScrollReveal({
   children,
@@ -13,6 +17,7 @@ export function ScrollReveal({
   className = '',
   threshold = 0.08,
   rootMargin = defaultRootMargin,
+  once = false,
 }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -24,9 +29,13 @@ export function ScrollReveal({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.disconnect();
+          if (once) {
+            if (entry.isIntersecting) {
+              setVisible(true);
+              observer.disconnect();
+            }
+          } else {
+            setVisible(entry.isIntersecting);
           }
         });
       },
@@ -35,7 +44,7 @@ export function ScrollReveal({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+  }, [threshold, rootMargin, once]);
 
   const cls = [
     'scroll-reveal',
