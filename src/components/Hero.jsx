@@ -47,15 +47,46 @@ const stats = [
 
 export function Hero() {
   const videoRef = useRef(null);
+  const heroSectionRef = useRef(null);
+  /** `null` = observer abhi start nahi hua; phir `true`/`false` last intersect state */
+  const heroPrevIntersectingRef = useRef(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1.35;
-    }
+    const video = videoRef.current;
+    const section = heroSectionRef.current;
+    if (!video || !section) return;
+
+    video.playbackRate = 1.35;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+
+        const prev = heroPrevIntersectingRef.current;
+        const next = entry.isIntersecting;
+
+        if (next) {
+          // Pehle screen se hat chuka tha (prev === false), ab wapas scroll back = revise
+          if (prev === false) {
+            video.currentTime = 0;
+          }
+          video.play().catch(() => {});
+          heroPrevIntersectingRef.current = true;
+        } else if (prev === true) {
+          video.pause();
+          heroPrevIntersectingRef.current = false;
+        }
+      },
+      { threshold: 0, rootMargin: '0px' }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="hero">
+    <section className="hero" ref={heroSectionRef}>
       <div className="hero-background" aria-hidden="true">
         <video
           ref={videoRef}
