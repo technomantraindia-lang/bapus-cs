@@ -18,7 +18,7 @@ export function Home() {
         <AboutGroup />
       </div>
       <div className="home-band home-band--business">
-        <ScrollReveal direction="right">
+        <ScrollReveal direction="fade" threshold={0.22} rootMargin="0px 0px -28% 0px">
           <CoreBusinesses />
         </ScrollReveal>
       </div>

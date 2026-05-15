@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 const defaultRootMargin = '0px 0px -10% 0px';
 
 /**
- * Reveals when the block enters the viewport; hides again when it leaves,
- * so scrolling back down replays the animation.
+ * Reveals when the block enters the viewport.
+ * By default it can animate twice: once while scrolling forward and once when
+ * the user scrolls back. After that it stays settled to avoid constant replays.
  *
  * `direction`: left | right | up | down | zoom | fade
  *
@@ -18,8 +19,10 @@ export function ScrollReveal({
   threshold = 0.08,
   rootMargin = defaultRootMargin,
   once = false,
+  replayLimit = 2,
 }) {
   const ref = useRef(null);
+  const playCountRef = useRef(0);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -34,8 +37,19 @@ export function ScrollReveal({
               setVisible(true);
               observer.disconnect();
             }
+            return;
+          }
+
+          if (entry.isIntersecting) {
+            setVisible(true);
+
+            if (playCountRef.current < replayLimit) {
+              playCountRef.current += 1;
+            }
+          } else if (playCountRef.current < replayLimit) {
+            setVisible(false);
           } else {
-            setVisible(entry.isIntersecting);
+            setVisible(true);
           }
         });
       },
@@ -44,7 +58,7 @@ export function ScrollReveal({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold, rootMargin, once]);
+  }, [threshold, rootMargin, once, replayLimit]);
 
   const cls = [
     'scroll-reveal',

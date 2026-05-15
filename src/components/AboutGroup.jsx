@@ -5,7 +5,6 @@ import {
   Globe2,
   Handshake,
   Lightbulb,
-  Play,
   ShieldCheck,
   Sparkles,
   Target,
@@ -13,8 +12,7 @@ import {
 } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal.jsx';
 import aboutVideo from '../assets/hero/about.jpg';
-import heroImage from '../assets/hero/hero2.png';
-import storyImage from '../assets/hero/feet/seap1.png';
+import storyVideo from '../assets/hero/cargo-ships-moored-near-urban-coastline-at-sunrise-2026-01-21-12-14-11-utc.mp4';
 
 const pillars = [
   {
@@ -119,12 +117,12 @@ export function AboutGroup() {
 
         <div className="about-hero-visual">
           <div className="about-image-panel">
-            <ScrollReveal direction="fade" delay={100} className="about-image-inner">
+            <ScrollReveal direction="right" delay={100} className="about-image-inner">
               <img src={aboutVideo} alt="About Bapu's Group" />
             </ScrollReveal>
           </div>
 
-          <ScrollReveal direction="up" delay={170} className="about-stat-wrap">
+          <ScrollReveal direction="up" delay={3900} className="about-stat-wrap">
             <div className="about-stat-panel" aria-label="Company statistics">
               {stats.map(([value, label]) => (
                 <article key={label}>
@@ -159,11 +157,20 @@ export function AboutGroup() {
       <div className="about-story-card">
         <ScrollReveal direction="left">
           <div className="about-story-image">
-          <img src={storyImage} alt="Bapu's marine vessel at sea" />
-          <button type="button" aria-label="Play company story">
-            <Play size={28} fill="currentColor" aria-hidden="true" />
-          </button>
-        </div>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Cargo ships moored near an urban coastline"
+              onLoadedMetadata={(event) => {
+                event.currentTarget.playbackRate = 1.35;
+              }}
+            >
+              <source src={storyVideo} type="video/mp4" />
+            </video>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal direction="right" delay={90}>
