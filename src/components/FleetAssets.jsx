@@ -9,6 +9,7 @@ import {
   Ship,
   Waves,
 } from 'lucide-react';
+import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 import seap1 from '../assets/hero/feet/seap1.png';
 import seap2 from '../assets/hero/feet/seap2.png';
 import seap3 from '../assets/hero/feet/seap3.png';
@@ -61,10 +62,8 @@ export function FleetAssets() {
   return (
     <section className="fleet-section">
       <div className="fleet-heading">
-        <span className="fleet-mini-title">
-          <Anchor size={18} aria-hidden="true" />
-          Marine Assets
-        </span>
+        <SectionAnchorRule />
+        <span className="fleet-mini-title">Marine Assets</span>
         <h2>Our fleet &amp; marine assets</h2>
         <p>
           Explore our integrated marine fleet supporting bunkering, offshore

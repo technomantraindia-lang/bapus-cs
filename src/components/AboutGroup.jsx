@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { AboutPillarsPin } from './AboutPillarsPin.jsx';
 import { ScrollReveal } from './ScrollReveal.jsx';
+import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 import aboutVideo from '../assets/hero/about.jpg';
 import storyVideo from '../assets/hero/cargo-ships-moored-near-urban-coastline-at-sunrise-2026-01-21-12-14-11-utc.mp4';
 
@@ -40,7 +41,7 @@ const pillars = [
 
 const stats = [
   ['20+', 'Years of excellence'],
-  ['1000+', 'Vessels chartered'],
+  ['25000+', 'Vessels chartered'],
   ['24/7', 'Operational support'],
   ['100%', 'Commitment to safety & quality'],
 ];
@@ -98,6 +99,7 @@ export function AboutGroup() {
         <ScrollReveal direction="left">
           <div className="about-intro">
             <p className="about-kicker">About Bapu&apos;s Group</p>
+            <SectionAnchorRule className="section-anchor-rule--align-start" />
             <h2 className="about-hero-title">
               <span className="about-hero-title__line">Building India&apos;s</span>
               <span className="about-hero-title__line">
@@ -105,12 +107,6 @@ export function AboutGroup() {
                 <span className="about-hero-title__line--accent">Future</span>
               </span>
             </h2>
-
-            <div className="about-divider" aria-hidden="true">
-              <span />
-              <Anchor size={18} />
-              <span />
-            </div>
 
             <p className="about-lead">
             Bapu’s Group of Companies is a diversified, asset-backed business group delivering integrated solutions across maritime, energy, logistics, infrastructure and allied sectors. Headquartered in Gujarat, the Group has built a trusted presence in marine bunkering, ship chandling, offshore support, tug operations, engineering, lubricants, automotive dealerships and commercial leasing.
@@ -162,6 +158,7 @@ export function AboutGroup() {
 
         <ScrollReveal direction="right" delay={90}>
           <div className="about-story-copy">
+          <SectionAnchorRule className="section-anchor-rule--align-start" />
           <p className="about-kicker">Our Story</p>
           <h3>
             A Legacy of Trust. <br />
@@ -202,6 +199,7 @@ export function AboutGroup() {
 
       <ScrollReveal direction="zoom">
         <div className="about-values-card">
+        <SectionAnchorRule />
         <p className="about-kicker">Our Values</p>
         <h3>
           The Principles That <span>Power</span> Our Purpose

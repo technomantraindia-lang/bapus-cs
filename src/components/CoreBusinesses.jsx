@@ -1,5 +1,4 @@
 import {
-  Anchor,
   Building2,
   Car,
   Construction,
@@ -7,6 +6,7 @@ import {
   Ship,
   Waves,
 } from 'lucide-react';
+import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 
 const businesses = [
   {
@@ -55,11 +55,7 @@ export function CoreBusinesses() {
   return (
     <section className="business-section">
       <div className="section-heading">
-        <div className="section-heading-mark" aria-hidden="true">
-          <span />
-          <Anchor size={28} />
-          <span />
-        </div>
+        <SectionAnchorRule />
         <h2>Our core businesses</h2>
         <p>
           Delivering end-to-end solutions across the maritime and infrastructure

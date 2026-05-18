@@ -8,6 +8,7 @@ import {
   Users,
 } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal.jsx';
+import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 
 const reasons = [
   {
@@ -50,6 +51,7 @@ export function WhyChooseFuture() {
       <div className="why-future-inner">
         <ScrollReveal direction="left">
           <div className="why-panel">
+            <SectionAnchorRule className="section-anchor-rule--align-start" />
             <h2>Why choose us</h2>
             <div className="why-reasons">
             {reasons.map((reason) => {
@@ -69,6 +71,7 @@ export function WhyChooseFuture() {
         <ScrollReveal direction="right" delay={100}>
           <div className="green-panel">
             <div className="green-copy">
+            <SectionAnchorRule className="section-anchor-rule--align-start" />
             <h2>Green future. Sustainable tomorrow.</h2>
             <ul>
               {futurePoints.map((point) => (

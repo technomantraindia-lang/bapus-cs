@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
 import bharatLogo from '../assets/hero/client/bharat.png';
 import gspcLogo from '../assets/hero/client/gspc.png';
@@ -73,6 +74,7 @@ export function GroupCompanies() {
   return (
     <section className="group-section">
       <div className="group-heading">
+        <SectionAnchorRule />
         <h2>Our group companies</h2>
       </div>
 

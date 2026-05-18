@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
 import ctaImage from '../assets/hero/hero2.png';
+import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 
 const quickLinks = [
   'Home',
@@ -39,6 +40,7 @@ export function FooterCta() {
           <img src={ctaImage} alt="" aria-hidden="true" />
         </div>
         <div className="footer-cta-copy">
+          <SectionAnchorRule className="section-anchor-rule--align-start" />
           <h2>Let&apos;s build a stronger maritime future together.</h2>
           <p>
             Partner with Bapu&apos;s Group for reliable, sustainable and
