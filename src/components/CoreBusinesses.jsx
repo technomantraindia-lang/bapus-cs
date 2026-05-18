@@ -21,12 +21,12 @@ const businesses = [
   {
     icon: Waves,
     title: 'Offshore support services',
-    text: 'Freshwater supply, crew transfer, offshore logistics and emergency support.',
+    text: 'Offshore logistics and emergency support.',
   },
   {
     icon: Ship,
     title: 'Tug, barge & marine transporters',
-    text: 'Owned and operated fleet for towing, transportation and marine operations.',
+    text: 'Freshwater supply, crew transfer, Owned and operated fleet for towing, transportation and marine operations.',
   },
   {
     icon: Construction,

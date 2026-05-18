@@ -35,7 +35,7 @@ const stats = [
   },
   {
     icon: Users,
-    value: '500+',
+    value: '200+',
     label: 'Skilled professionals',
   },
   {
@@ -105,7 +105,7 @@ export function Hero() {
 
       <div className="hero-content">
         <div className="hero-copy">
-          <p className="hero-kicker">Integrated maritime solutions</p>
+          <p className="hero-kicker">Delivering success with values</p>
           <h1>
             <span className="heading-line">Integrated maritime,</span>
             <br />
@@ -135,9 +135,12 @@ export function Hero() {
           const Icon = item.icon;
 
           return (
-            <article className="stat-item" key={item.label}>
-              <Icon size={25} aria-hidden="true" />
-              <div>
+            <article
+              className={`stat-item${item.value ? '' : ' stat-item--text-only'}`}
+              key={item.label}
+            >
+              <Icon size={26} aria-hidden="true" />
+              <div className="stat-item__body">
                 {item.value && <strong>{item.value}</strong>}
                 <span>{item.label}</span>
               </div>

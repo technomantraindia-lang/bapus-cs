@@ -10,6 +10,7 @@ import {
   Target,
   Users,
 } from 'lucide-react';
+import { AboutPillarsPin } from './AboutPillarsPin.jsx';
 import { ScrollReveal } from './ScrollReveal.jsx';
 import aboutVideo from '../assets/hero/about.jpg';
 import storyVideo from '../assets/hero/cargo-ships-moored-near-urban-coastline-at-sunrise-2026-01-21-12-14-11-utc.mp4';
@@ -97,8 +98,12 @@ export function AboutGroup() {
         <ScrollReveal direction="left">
           <div className="about-intro">
             <p className="about-kicker">About Bapu&apos;s Group</p>
-            <h2>
-              Building India&apos;s Maritime <span>Future</span>
+            <h2 className="about-hero-title">
+              <span className="about-hero-title__line">Building India&apos;s</span>
+              <span className="about-hero-title__line">
+                Maritime{' '}
+                <span className="about-hero-title__line--accent">Future</span>
+              </span>
             </h2>
 
             <div className="about-divider" aria-hidden="true">
@@ -108,9 +113,7 @@ export function AboutGroup() {
             </div>
 
             <p className="about-lead">
-              Bapu&apos;s Group of Companies is a diversified, professionally
-              managed, asset-backed business group delivering integrated solutions
-              across maritime, energy &amp; infrastructure sectors.
+            Bapu’s Group of Companies is a diversified, asset-backed business group delivering integrated solutions across maritime, energy, logistics, infrastructure and allied sectors. Headquartered in Gujarat, the Group has built a trusted presence in marine bunkering, ship chandling, offshore support, tug operations, engineering, lubricants, automotive dealerships and commercial leasing.
             </p>
           </div>
         </ScrollReveal>
@@ -135,26 +138,10 @@ export function AboutGroup() {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal direction="up" delay={100} className="about-pillars-wrap">
-          <div className="about-pillars about-pillars--full">
-            {pillars.map((pillar) => {
-              const Icon = pillar.icon;
-
-              return (
-                <article key={pillar.title}>
-                  <span>
-                    <Icon size={24} aria-hidden="true" />
-                  </span>
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.copy}</p>
-                </article>
-              );
-            })}
-          </div>
-        </ScrollReveal>
+        <AboutPillarsPin pillars={pillars} lockBleedPx={80} />
       </div>
 
-      <div className="about-story-card">
+      <div className="about-story-card" id="about-story-anchor">
         <ScrollReveal direction="left">
           <div className="about-story-image">
             <video
