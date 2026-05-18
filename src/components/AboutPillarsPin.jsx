@@ -35,6 +35,7 @@ export function AboutPillarsPin({
   const progressRef = useRef(0);
   const autoScrolledRef = useRef(false);
   const lastStepAtRef = useRef(0);
+  const shouldOpenStoryRef = useRef(false);
 
   const n = pillars?.length ?? 0;
 
@@ -43,6 +44,15 @@ export function AboutPillarsPin({
     if (!el) return 0;
     return Math.max(0, pinDocumentTop(el) - lockBleedPx);
   }, [lockBleedPx]);
+
+  const isInPinPath = useCallback((y, lockY) => {
+    const anchor = document.getElementById('about-story-anchor');
+    const storyY = anchor
+      ? Math.round(anchor.getBoundingClientRect().top + getScrollY())
+      : lockY + window.innerHeight;
+
+    return y >= lockY - 4 && y <= storyY - 8;
+  }, []);
 
   useEffect(() => {
     progressRef.current = progress;
@@ -53,6 +63,9 @@ export function AboutPillarsPin({
       const next = clamp01(prev + delta);
       if (next < 0.998) {
         autoScrolledRef.current = false;
+        shouldOpenStoryRef.current = false;
+      } else if (delta > 0 && prev < 0.998) {
+        shouldOpenStoryRef.current = true;
       }
       return next;
     });
@@ -70,6 +83,9 @@ export function AboutPillarsPin({
     lastStepAtRef.current = now;
     if (next < 0.998) {
       autoScrolledRef.current = false;
+      shouldOpenStoryRef.current = false;
+    } else if (direction > 0 && nextStep === totalScrollSteps) {
+      shouldOpenStoryRef.current = true;
     }
     setProgress(next);
     return true;
@@ -79,11 +95,11 @@ export function AboutPillarsPin({
     if (reduceMotion || n === 0) return undefined;
 
     const clampScrollDown = () => {
-      if (progressRef.current >= 0.999) return;
+      if (progressRef.current <= 0.003 || progressRef.current >= 0.999) return;
       const lockY = getLockY();
       if (lockY <= 0) return;
       const y = getScrollY();
-      if (y > lockY + 2) {
+      if (isInPinPath(y, lockY) && y > lockY + 2) {
         window.scrollTo({ top: lockY, behavior: 'auto' });
       }
     };
@@ -91,24 +107,26 @@ export function AboutPillarsPin({
     const onScroll = () => clampScrollDown();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [getLockY, reduceMotion, n]);
+  }, [getLockY, isInPinPath, reduceMotion, n]);
 
   useEffect(() => {
     if (reduceMotion || n === 0) return undefined;
 
     function clampScrollDown() {
-      if (progressRef.current >= 0.999) return;
+      if (progressRef.current <= 0.003 || progressRef.current >= 0.999) return;
       const lockY = getLockY();
       if (lockY <= 0) return;
       const y = getScrollY();
-      if (y > lockY + 2) window.scrollTo({ top: lockY, behavior: 'auto' });
+      if (isInPinPath(y, lockY) && y > lockY + 2) {
+        window.scrollTo({ top: lockY, behavior: 'auto' });
+      }
     }
 
     const onWheel = (e) => {
       const lockY = getLockY();
       const y = getScrollY();
 
-      if (y < lockY - 4) return;
+      if (!isInPinPath(y, lockY)) return;
 
       if (e.deltaY > 0) {
         if (progressRef.current < 0.999) {
@@ -127,7 +145,7 @@ export function AboutPillarsPin({
 
     window.addEventListener('wheel', onWheel, { passive: false });
     return () => window.removeEventListener('wheel', onWheel);
-  }, [bumpCardStep, getLockY, reduceMotion, n]);
+  }, [bumpCardStep, getLockY, isInPinPath, reduceMotion, n]);
 
   useEffect(() => {
     if (reduceMotion || n === 0) return undefined;
@@ -141,7 +159,7 @@ export function AboutPillarsPin({
     const onTouchMove = (e) => {
       const lockY = getLockY();
       const y = getScrollY();
-      if (y < lockY - 4) return;
+      if (!isInPinPath(y, lockY)) return;
 
       const cy = e.touches[0]?.clientY ?? lastY;
       const dy = lastY - cy;
@@ -163,7 +181,7 @@ export function AboutPillarsPin({
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove', onTouchMove);
     };
-  }, [bumpProgress, getLockY, reduceMotion, n]);
+  }, [bumpProgress, getLockY, isInPinPath, reduceMotion, n]);
 
   useEffect(() => {
     if (reduceMotion || n === 0) return undefined;
@@ -174,6 +192,7 @@ export function AboutPillarsPin({
         if (progressRef.current > 0) {
           setProgress(0);
           autoScrolledRef.current = false;
+          shouldOpenStoryRef.current = false;
         }
       }
     };
@@ -184,6 +203,7 @@ export function AboutPillarsPin({
 
   useEffect(() => {
     if (reduceMotion || autoScrolledRef.current || n === 0) return;
+    if (!shouldOpenStoryRef.current) return;
     if (progressToStep(progress) < totalScrollSteps) return;
 
     const anchor = document.getElementById('about-story-anchor');
