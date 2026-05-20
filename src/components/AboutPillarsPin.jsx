@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 function getScrollY() {
   return window.scrollY ?? document.documentElement.scrollTop ?? 0;
@@ -13,8 +13,10 @@ export function AboutPillarsPin({
   pillars,
   reduceMotion = false,
   lockBleedPx = 72,
+  staticRow = false,
 }) {
   const rootRef = useRef(null);
+  const connectorUid = useId().replace(/:/g, '');
   const [step, setStep] = useState(0);
   const stepRef = useRef(0);
   const lastStepAtRef = useRef(0);
@@ -26,7 +28,7 @@ export function AboutPillarsPin({
   }, [step]);
 
   useEffect(() => {
-    if (reduceMotion || n === 0) return undefined;
+    if (staticRow || reduceMotion || n === 0) return undefined;
 
     const getLockY = () => {
       const el = rootRef.current;
@@ -105,19 +107,22 @@ export function AboutPillarsPin({
       window.removeEventListener('wheel', onWheel, { capture: true });
       window.removeEventListener('scroll', onScroll);
     };
-  }, [lockBleedPx, reduceMotion, n]);
+  }, [lockBleedPx, reduceMotion, staticRow, n]);
 
   useEffect(() => {
-    if (reduceMotion) setStep(n);
-  }, [n, reduceMotion]);
+    if (staticRow || reduceMotion) setStep(n);
+  }, [n, reduceMotion, staticRow]);
 
   if (!pillars?.length) return null;
 
-  const currentStep = reduceMotion ? n : step;
+  const currentStep = staticRow || reduceMotion ? n : step;
   const p = currentStep / Math.max(n, 1);
 
   return (
-    <div ref={rootRef} className="about-pillars-pin">
+    <div
+      ref={rootRef}
+      className={`about-pillars-pin${staticRow ? ' about-pillars-pin--static-row about-pillars-pin--editorial' : ''}`}
+    >
       <div className="about-pillars-pin__sticky">
         <div className="about-pillars-wrap about-pillars-wrap--pin">
           <div className="about-pillars-progress" aria-hidden="true">
@@ -128,9 +133,62 @@ export function AboutPillarsPin({
           </div>
 
           <div className="about-pillars about-pillars--full" role="list">
+            {staticRow ? (
+              <svg
+                className="about-pillars-connector"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <defs>
+                  <linearGradient
+                    id={`about-pillars-connector-grad-${connectorUid}`}
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stopColor="#9e7028" />
+                    <stop offset="35%" stopColor="#f5c86a" />
+                    <stop offset="100%" stopColor="#b8872a" />
+                  </linearGradient>
+                  <marker
+                    id={`about-pillars-connector-arrow-${connectorUid}`}
+                    markerUnits="userSpaceOnUse"
+                    markerWidth="7"
+                    markerHeight="7"
+                    refX="6"
+                    refY="3.5"
+                    orient="auto"
+                  >
+                    <path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#b07820" />
+                  </marker>
+                </defs>
+                <path
+                  className="about-pillars-connector__path"
+                  pathLength="100"
+                  d="M 12.5 50 L 37.5 50 L 62.5 50 L 87.5 50"
+                  fill="none"
+                  stroke={`url(#about-pillars-connector-grad-${connectorUid})`}
+                  markerEnd={`url(#about-pillars-connector-arrow-${connectorUid})`}
+                />
+              </svg>
+            ) : null}
             {pillars.map((item, i) => {
               const Icon = item.icon;
               const revealed = reduceMotion || currentStep > i;
+
+              const icon = (
+                <span>
+                  <Icon size={staticRow ? 26 : 28} aria-hidden="true" />
+                </span>
+              );
+              const index = (
+                <strong className="about-pillars-index" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </strong>
+              );
 
               return (
                 <article
@@ -138,12 +196,17 @@ export function AboutPillarsPin({
                   className={revealed ? 'is-revealed' : ''}
                   role="listitem"
                 >
-                  <strong className="about-pillars-index" aria-hidden="true">
-                    {String(i + 1).padStart(2, '0')}
-                  </strong>
-                  <span>
-                    <Icon size={28} aria-hidden="true" />
-                  </span>
+                  {staticRow ? (
+                    <>
+                      {icon}
+                      {index}
+                    </>
+                  ) : (
+                    <>
+                      {index}
+                      {icon}
+                    </>
+                  )}
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
                 </article>

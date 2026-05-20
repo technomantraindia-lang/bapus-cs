@@ -2,7 +2,12 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote, Sparkles } from 'lucide-react';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
+import bapusShippingJamnagarImage from '../assets/hero/BAPUS SHIPPING JAMNAGAR PVT LTD.jpg.jpeg';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
+import bsaLogo from '../assets/hero/BSA & BSAPL -1997 & 2007.jpg.jpeg';
+import bsjplLogo from '../assets/hero/BSJPL LOGO-  -2007 & 2010.jpg.jpeg';
+import bssgLogo from '../assets/hero/BSSG OFSHORE - 2022.jpg.jpeg';
+import malaraLogo from '../assets/hero/MALARA SEA LOGISTICS - 2012.jpg.jpeg';
 import bharatLogo from '../assets/hero/client/bharat.png';
 import gspcLogo from '../assets/hero/client/gspc.png';
 import hpLogo from '../assets/hero/client/hp.png';
@@ -15,31 +20,65 @@ import bhupendrasinhImage from '../assets/hero/directors/Bhupendrasinh.png';
 import vishalbhaiImage from '../assets/hero/directors/Vishalbhai.png';
 
 const companies = [
-  'BAPUS SHIPPING AGENCY',
-  'BAPUS SHIPPING AGENCY PVT LTD',
-  'BAPUS SHIPPING JAMNAGAR PVT LTD',
-  'BAPUS ENTERPRISE',
-  'BAPUS SHIPPING SOUTH GUJARAT',
-  'MALARA SEA LOGISTICS',
-  'APEX OFFSHORE LLP',
-  'BAPUS VENTURE',
-  'APEX ENGINEERS',
-  'APEX LUBRICANT',
-  'APEX AUTOLINKS PVT LTD (RENAULT CAR DEALERSHIP)',
-  'APEX RENEWABLE',
-  'BAPUS AUTOBIZ PVT LTD (TOYOTA CAR DEALERSHIP)',
-  'APEX ENTERPRISE',
+  {
+    name: 'BAPUS SHIPPING AGENCY',
+    logo: bsaLogo,
+  },
+  {
+    name: 'BAPUS SHIPPING AGENCY PVT LTD',
+    logo: bsaLogo,
+  },
+  {
+    name: 'BAPUS SHIPPING JAMNAGAR PVT LTD',
+    logo: bsjplLogo,
+  },
+  {
+    name: 'BAPUS ENTERPRISE',
+    logo: bapusShippingJamnagarImage,
+  },
+  {
+    name: 'BAPUS SHIPPING SOUTH GUJARAT',
+    logo: bssgLogo,
+  },
+  {
+    name: 'MALARA SEA LOGISTICS',
+    logo: malaraLogo,
+  },
+  {
+    name: 'APEX OFFSHORE LLP',
+  },
+  {
+    name: 'BAPUS VENTURE',
+  },
+  {
+    name: 'APEX ENGINEERS',
+  },
+  {
+    name: 'APEX LUBRICANT',
+  },
+  {
+    name: 'APEX AUTOLINKS PVT LTD (RENAULT CAR DEALERSHIP)',
+  },
+  {
+    name: 'APEX RENEWABLE',
+  },
+  {
+    name: 'BAPUS AUTOBIZ PVT LTD (TOYOTA CAR DEALERSHIP)',
+  },
+  {
+    name: 'APEX ENTERPRISE',
+  },
 ];
 
 const directors = [
   {
     image: vishalbhaiImage,
-    name: 'Mr. Vishalbhai Jadeja',
+    name: 'Mr. Vishalsinh Jadeja',
   },
 
   {
     image: arjunabhImage,
-    name: 'Mr. Arjunabh Jadeja',
+    name: 'Mr. Hiren Joshi',
   },
 ];
 
@@ -87,9 +126,9 @@ export function GroupCompanies() {
         </button>
         <div className="company-list">
           {companyTrack.map((company, index) => (
-            <article className="company-card" key={`${company}-${index}`}>
-              <img src={bapusLogo} alt="" aria-hidden="true" />
-              <span>{company}</span>
+            <article className="company-card" key={`${company.name}-${index}`}>
+              <img src={company.logo ?? bapusLogo} alt={`${company.name} logo`} />
+              <span>{company.name}</span>
             </article>
           ))}
         </div>

@@ -1,12 +1,15 @@
+import { useEffect, useRef, useState } from 'react';
 import { Headphones, Ship, ShipWheel, ShieldCheck } from 'lucide-react';
-import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 import mapImage from '../assets/hero/map.png';
+import { AnimatedStatValue } from './AnimatedStatValue.jsx';
+import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 
 const presenceStats = [
   {
     icon: Ship,
-    value: '20+',
+    value: '30+',
     label: 'PORTS &\nLOCATIONS',
+    countUp: false,
   },
   {
     icon: ShipWheel,
@@ -40,6 +43,27 @@ const mapHotspots = [
 ];
 
 export function PresenceSection() {
+  const statsRef = useRef(null);
+  const [statsActive, setStatsActive] = useState(false);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.28, rootMargin: '0px 0px -8% 0px' },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="presence-section">
       <div className="presence-card">
@@ -73,8 +97,8 @@ export function PresenceSection() {
           </a>
         </div>
 
-        <div className="presence-stats" aria-label="Presence statistics">
-          {presenceStats.map((stat) => {
+        <div ref={statsRef} className="presence-stats" aria-label="Presence statistics">
+          {presenceStats.map((stat, index) => {
             const Icon = stat.icon;
 
             return (
@@ -85,7 +109,14 @@ export function PresenceSection() {
                   strokeWidth={1.65}
                   aria-hidden="true"
                 />
-                <strong>{stat.value}</strong>
+                <strong>
+                  <AnimatedStatValue
+                    value={stat.value}
+                    active={statsActive}
+                    delayMs={index * 110}
+                    countUp={stat.countUp !== false}
+                  />
+                </strong>
                 <span className="presence-stat-label">{stat.label}</span>
               </article>
             );

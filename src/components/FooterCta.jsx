@@ -30,7 +30,7 @@ const businesses = [
   'Lubricants, Automotive & Leasing',
 ];
 
-const locations = ['Kandla', 'Mundra', 'Sikka', 'Vessels', 'Delhi', 'Other Locations'];
+const locations = ['Kandla', 'Mumbai', 'Jamnagar'];
 
 export function FooterCta() {
   return (
@@ -98,8 +98,8 @@ export function FooterCta() {
           ))}
         </nav>
 
-        <nav className="footer-column" aria-label="Our presence">
-          <h3>Our presence</h3>
+        <nav className="footer-column" aria-label="Our Branch">
+          <h3>Our Branch</h3>
           {locations.map((location) => (
             <a href="/" key={location}>
               {location}

@@ -24,12 +24,7 @@ const fleetItems = [
     detail:
       'Reliable bunker barges for efficient fuel supply and vessel-to-vessel marine bunkering operations.',
   },
-  {
-    image: seap2,
-    title: 'Bunker Tankers',
-    detail:
-      'High-capacity tankers supporting marine fuel transportation across strategic port locations.',
-  },
+ 
   {
     image: seap3,
     title: 'Tug Boats',

@@ -50,7 +50,7 @@ const values = [
 const presenceStats = [
   {
     icon: MapPin,
-    value: '20+',
+    value: '30+',
     label: 'Ports & locations',
   },
   {

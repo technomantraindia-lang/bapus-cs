@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import {
   Anchor,
   ChevronRight,
@@ -10,6 +11,7 @@ import {
   Target,
   Users,
 } from 'lucide-react';
+import { AnimatedStatValue } from './AnimatedStatValue.jsx';
 import { AboutPillarsPin } from './AboutPillarsPin.jsx';
 import { ScrollReveal } from './ScrollReveal.jsx';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
@@ -40,7 +42,7 @@ const pillars = [
 ];
 
 const stats = [
-  ['20+', 'Years of excellence'],
+  ['30+', 'Years of excellence'],
   ['25000+', 'Vessels chartered'],
   ['24/7', 'Operational support'],
   ['100%', 'Commitment to safety & quality'],
@@ -93,6 +95,27 @@ const values = [
 ];
 
 export function AboutGroup() {
+  const statsRef = useRef(null);
+  const [statsActive, setStatsActive] = useState(false);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25, rootMargin: '0px 0px -10% 0px' },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="about-section about-showcase">
       <div className="about-hero-card">
@@ -121,20 +144,28 @@ export function AboutGroup() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal direction="up" delay={3900} className="about-stat-wrap">
-            <div className="about-stat-panel" aria-label="Company statistics">
-              {stats.map(([value, label]) => (
+          <div className="about-stat-wrap">
+            <div ref={statsRef} className="about-stat-panel" aria-label="Company statistics">
+              {stats.map(([value, label], index) => (
                 <article key={label}>
                   <Anchor size={28} aria-hidden="true" />
-                  <strong>{value}</strong>
+                  <strong>
+                    <AnimatedStatValue
+                      value={value}
+                      active={statsActive}
+                      delayMs={index * 110}
+                    />
+                  </strong>
                   <span>{label}</span>
                 </article>
               ))}
             </div>
-          </ScrollReveal>
+          </div>
         </div>
 
-        <AboutPillarsPin pillars={pillars} lockBleedPx={80} />
+        <ScrollReveal direction="up" className="about-pillars-band" threshold={0.14} rootMargin="0px 0px -12% 0px">
+          <AboutPillarsPin pillars={pillars} lockBleedPx={80} staticRow />
+        </ScrollReveal>
       </div>
 
       <div className="about-story-card" id="about-story-anchor">
