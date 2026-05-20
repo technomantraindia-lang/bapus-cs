@@ -2,6 +2,11 @@ import { Award, CheckCircle2, Phone } from 'lucide-react';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
 
 export function Header() {
+  const path = window.location.pathname.toLowerCase();
+  const isAbout = path === '/about' || path === '/about-us';
+  const isBusinesses = path === '/businesses' || path === '/category' || path === '/categories';
+  const isContact = path === '/contact' || path === '/contact-us';
+
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -22,19 +27,19 @@ export function Header() {
           </a>
 
           <nav aria-label="Main navigation">
-            <a className="active" href="/">
+            <a className={!isAbout && !isBusinesses && !isContact ? 'active' : undefined} href="/">
               Home
             </a>
-            <a href="/">About Us</a>
-            <a href="/businesses">Businesses</a>
+            <a className={isAbout ? 'active' : undefined} href="/about">About Us</a>
+            <a className={isBusinesses ? 'active' : undefined} href="/businesses">Businesses</a>
             <a href="/">Group Companies</a>
             <a href="/">Fleet</a>
             <a href="/">Sustainability</a>
 
-            <a href="/">Contact Us</a>
+            <a className={isContact ? 'active' : undefined} href="/contact">Contact Us</a>
           </nav>
 
-          <a className="touch-button" href="/">
+          <a className="touch-button" href="/contact">
             <Phone size={14} aria-hidden="true" />
             Get in touch
           </a>

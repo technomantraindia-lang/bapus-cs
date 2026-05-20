@@ -1,0 +1,264 @@
+import {
+  ArrowRight,
+  Building2,
+  Clock3,
+  Globe2,
+  Headphones,
+  LockKeyhole,
+  Mail,
+  MapPin,
+  MessageCircle,
+  PencilLine,
+  Phone,
+  ShieldCheck,
+} from 'lucide-react';
+import { FooterCta } from '../components/FooterCta.jsx';
+import { Header } from '../components/Header.jsx';
+import { ScrollReveal } from '../components/ScrollReveal.jsx';
+import heroImage from '../assets/hero/hero2.png';
+
+const contactDetails = [
+  {
+    icon: Phone,
+    title: 'Phone',
+    lines: ['+91 22 1234 5678', '+91 22 8765 4321'],
+  },
+  {
+    icon: Mail,
+    title: 'Email',
+    lines: ['info@bapusgroup.com', 'operations@bapusgroup.com'],
+  },
+  {
+    icon: MapPin,
+    title: 'Head Office',
+    lines: ['123 Marine Drive, Nariman Point,', 'Mumbai, Maharashtra - 400021, India'],
+  },
+  {
+    icon: Globe2,
+    title: 'Website',
+    lines: ['www.bapusgroup.com'],
+  },
+];
+
+const offices = [
+  {
+    icon: Building2,
+    title: 'Mumbai',
+    accent: '(Head Office)',
+    address: '123 Marine Drive, Nariman Point, Mumbai, Maharashtra - 400021 India',
+  },
+  {
+    icon: Building2,
+    title: 'Port of Kandla',
+    address: 'Kandla Port, Gandhidham, Kutch, Gujarat - 370210 India',
+  },
+  {
+    icon: Building2,
+    title: 'Chennai',
+    address: '25, Harbour Estate, Chennai Port, Chennai, Tamil Nadu - 600001 India',
+  },
+  {
+    icon: Building2,
+    title: 'Offshore Operations',
+    address: 'Offshore Support Base, Arabian Sea, India',
+  },
+];
+
+export function Contact() {
+  return (
+    <main className="app-shell contact-page">
+      <Header />
+
+      <section className="contact-hero">
+        <img src={heroImage} alt="" aria-hidden="true" />
+        <div className="contact-hero__overlay" aria-hidden="true" />
+        <div className="contact-hero__content">
+          <nav className="contact-breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <strong>Contact Us</strong>
+          </nav>
+          <h1>Contact Us</h1>
+          <p>
+            We&apos;re here to help and answer any questions you may have. Reach
+            out to us for partnerships, services, or any inquiries. Our team
+            will get back to you shortly.
+          </p>
+
+          <div className="contact-hero-points" aria-label="Contact highlights">
+            <span>
+              <Clock3 size={30} aria-hidden="true" />
+              <b>24/7</b>
+              Support
+            </span>
+            <span>
+              <Headphones size={30} aria-hidden="true" />
+              <b>Quick</b>
+              Response
+            </span>
+            <span>
+              <ShieldCheck size={30} aria-hidden="true" />
+              <b>Trusted</b>
+              Partnerships
+            </span>
+          </div>
+        </div>
+        <div className="contact-wave" aria-hidden="true" />
+      </section>
+
+      <section className="contact-main-section">
+        <div className="contact-info-column">
+          <p className="contact-kicker">Get in touch</p>
+          <h2>Let&apos;s Start a Conversation</h2>
+          <span className="contact-squiggle" aria-hidden="true" />
+          <p>
+            Fill out the form or contact us directly using the details below.
+            We look forward to hearing from you.
+          </p>
+
+          <div className="contact-detail-list">
+            {contactDetails.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article key={item.title} className="contact-detail-card">
+                  <span>
+                    <Icon size={28} aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    {item.lines.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+
+        <form className="contact-form-card">
+          <div className="contact-form-ribbon" aria-hidden="true">
+            Operations Desk
+          </div>
+          <div className="contact-form-heading">
+            <span>
+              <PencilLine size={30} aria-hidden="true" />
+            </span>
+            <div>
+              <h2>Send Us a Message</h2>
+              <i aria-hidden="true" />
+              <p>Our team will get back to you as soon as possible.</p>
+            </div>
+          </div>
+
+          <div className="contact-form-grid">
+            <label>
+              First Name *
+              <input type="text" name="firstName" placeholder="Your first name" />
+            </label>
+            <label>
+              Last Name *
+              <input type="text" name="lastName" placeholder="Your last name" />
+            </label>
+            <label>
+              Email Address *
+              <input type="email" name="email" placeholder="your@email.com" />
+            </label>
+            <label>
+              Phone Number *
+              <input type="tel" name="phone" placeholder="+91 98765 43210" />
+            </label>
+            <label className="contact-form-wide">
+              Subject *
+              <input type="text" name="subject" placeholder="How can we help you?" />
+            </label>
+            <label className="contact-form-wide">
+              Message *
+              <textarea name="message" placeholder="Type your message here..." rows="6" />
+            </label>
+          </div>
+
+          <div className="contact-form-actions">
+            <button type="button">
+              Send Message
+              <ArrowRight size={15} aria-hidden="true" />
+            </button>
+            <p>
+              <LockKeyhole size={14} aria-hidden="true" />
+              Your information is safe with us.
+            </p>
+          </div>
+
+          <div className="contact-form-tags" aria-label="Service areas">
+            <span>Marine Services</span>
+            <span>Partnerships</span>
+            <span>Urgent Support</span>
+          </div>
+        </form>
+      </section>
+
+      <section className="contact-offices-section">
+        <p className="contact-kicker">Our offices</p>
+        <h2>Our Global Presence</h2>
+        <p>Operating across key ports and offshore locations to serve you better.</p>
+
+        <div className="contact-office-grid">
+          {offices.map((office) => {
+            const Icon = office.icon;
+
+            return (
+              <article key={office.title}>
+                <span>
+                  <Icon size={34} aria-hidden="true" />
+                </span>
+                <h3>
+                  {office.title}
+                  {office.accent ? <em> {office.accent}</em> : null}
+                </h3>
+                <p>{office.address}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="contact-help-strip">
+        <div className="contact-help-image">
+          <img src={heroImage} alt="" aria-hidden="true" />
+        </div>
+        <div className="contact-help-copy">
+          <MessageCircle size={30} aria-hidden="true" />
+          <div>
+            <h2>Need Immediate Assistance?</h2>
+            <p>Our support team is available 24/7 for urgent requirements.</p>
+            <a href="/contact">
+              Contact our team
+              <ArrowRight size={15} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+        <div className="contact-help-details">
+          <article>
+            <Phone size={27} aria-hidden="true" />
+            <div>
+              <h3>24/7 Helpline</h3>
+              <p>+91 22 1234 5678</p>
+            </div>
+          </article>
+          <article>
+            <Mail size={27} aria-hidden="true" />
+            <div>
+              <h3>Email Support</h3>
+              <p>support@bapusgroup.com</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <ScrollReveal direction="up">
+        <FooterCta />
+      </ScrollReveal>
+    </main>
+  );
+}

@@ -15,17 +15,20 @@ import bhupendrasinhImage from '../assets/hero/directors/Bhupendrasinh.png';
 import vishalbhaiImage from '../assets/hero/directors/Vishalbhai.png';
 
 const companies = [
-  "Bapu's Seaways Jamnagar Pvt. Ltd.",
-  'Bapus Seaways Kutch Pvt. Ltd.',
-  'Apex Offshore LLP',
-  'Malara Sea Logistics',
-  "Bapu's Shipping South Gujarat",
-  'ASK Tankers India Pvt. Ltd.',
-  'ASK Tankers DMCC Dubai',
-  'Navoccan Maritime Pvt. Ltd.',
-  'Apex HPS Lubricants',
-  'Apex Hind Uni Pvt.',
-  'Apex Membranes & Tech',
+  'BAPUS SHIPPING AGENCY',
+  'BAPUS SHIPPING AGENCY PVT LTD',
+  'BAPUS SHIPPING JAMNAGAR PVT LTD',
+  'BAPUS ENTERPRISE',
+  'BAPUS SHIPPING SOUTH GUJARAT',
+  'MALARA SEA LOGISTICS',
+  'APEX OFFSHORE LLP',
+  'BAPUS VENTURE',
+  'APEX ENGINEERS',
+  'APEX LUBRICANT',
+  'APEX AUTOLINKS PVT LTD (RENAULT CAR DEALERSHIP)',
+  'APEX RENEWABLE',
+  'BAPUS AUTOBIZ PVT LTD (TOYOTA CAR DEALERSHIP)',
+  'APEX ENTERPRISE',
 ];
 
 const directors = [
