@@ -1,8 +1,9 @@
 import { Award, CheckCircle2, Phone } from 'lucide-react';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
+import { appHref, getAppPath } from '../lib/routePath.js';
 
 export function Header() {
-  const path = window.location.pathname.toLowerCase();
+  const path = getAppPath();
   const isAbout = path === '/about' || path === '/about-us';
   const isBusinesses = path === '/businesses' || path === '/category' || path === '/categories';
   const isContact = path === '/contact' || path === '/contact-us';
@@ -22,24 +23,33 @@ export function Header() {
         </div>
 
         <div className="main-nav">
-          <a className="brand" href="/" aria-label="Bapu's Group of Companies">
+          <a className="brand" href={appHref('/')} aria-label="Bapu's Group of Companies">
             <img src={bapusLogo} alt="Bapu's Group of Companies" />
           </a>
 
           <nav aria-label="Main navigation">
-            <a className={!isAbout && !isBusinesses && !isContact ? 'active' : undefined} href="/">
+            <a
+              className={!isAbout && !isBusinesses && !isContact ? 'active' : undefined}
+              href={appHref('/')}
+            >
               Home
             </a>
-            <a className={isAbout ? 'active' : undefined} href="/about">About Us</a>
-            <a className={isBusinesses ? 'active' : undefined} href="/businesses">Businesses</a>
-            <a href="/">Group Companies</a>
-            <a href="/">Fleet</a>
-            <a href="/">Sustainability</a>
+            <a className={isAbout ? 'active' : undefined} href={appHref('/about')}>
+              About Us
+            </a>
+            <a className={isBusinesses ? 'active' : undefined} href={appHref('/businesses')}>
+              Businesses
+            </a>
+            <a href={appHref('/')}>Group Companies</a>
+            <a href={appHref('/')}>Fleet</a>
+            <a href={appHref('/')}>Sustainability</a>
 
-            <a className={isContact ? 'active' : undefined} href="/contact">Contact Us</a>
+            <a className={isContact ? 'active' : undefined} href={appHref('/contact')}>
+              Contact Us
+            </a>
           </nav>
 
-          <a className="touch-button" href="/contact">
+          <a className="touch-button" href={appHref('/contact')}>
             <Phone size={14} aria-hidden="true" />
             Get in touch
           </a>

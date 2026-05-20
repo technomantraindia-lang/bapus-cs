@@ -20,6 +20,7 @@ import {
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { ScrollReveal } from '../components/ScrollReveal.jsx';
+import { appHref } from '../lib/routePath.js';
 import aboutImage from '../assets/hero/about.jpg';
 import mapImage from '../assets/hero/map.png';
 import storyVideo from '../assets/hero/cargo-ships-moored-near-urban-coastline-at-sunrise-2026-01-21-12-14-11-utc.mp4';
@@ -135,7 +136,7 @@ export function About() {
         <div className="about-page-hero__overlay" aria-hidden="true" />
         <div className="about-page-hero__content">
           <nav className="about-breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
+            <a href={appHref('/')}>Home</a>
             <span>/</span>
             <strong>About Us</strong>
           </nav>
@@ -200,7 +201,7 @@ export function About() {
             Operating across key ports and offshore locations along the Indian
             coastline, ensuring seamless service and support.
           </p>
-          <a href="/" className="about-page-button">
+          <a href={appHref('/')} className="about-page-button">
             Explore our presence
             <ChevronRight size={16} aria-hidden="true" />
           </a>

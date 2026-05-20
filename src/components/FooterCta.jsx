@@ -6,17 +6,18 @@ import {
 } from 'lucide-react';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
 import ctaImage from '../assets/hero/hero2.png';
+import { appHref } from '../lib/routePath.js';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 
 const quickLinks = [
-  'Home',
-  'About Us',
-  'Our Businesses',
-  'Sustainability',
-  'Our Presence',
-  'Insights',
-  'Careers',
-  'Contact Us',
+  ['Home', '/'],
+  ['About Us', '/about'],
+  ['Our Businesses', '/businesses'],
+  ['Sustainability', '/'],
+  ['Our Presence', '/'],
+  ['Insights', '/'],
+  ['Careers', '/'],
+  ['Contact Us', '/contact'],
 ];
 
 const businesses = [
@@ -47,7 +48,7 @@ export function FooterCta() {
             future-ready solutions.
           </p>
         </div>
-        <a className="footer-cta-button" href="/">
+        <a className="footer-cta-button" href={appHref('/contact')}>
           Get in touch
           <ChevronRight size={18} aria-hidden="true" />
         </a>
@@ -82,8 +83,8 @@ export function FooterCta() {
 
         <nav className="footer-column" aria-label="Quick links">
           <h3>Quick links</h3>
-          {quickLinks.map((link) => (
-            <a href="/" key={link}>
+          {quickLinks.map(([link, href]) => (
+            <a href={appHref(href)} key={link}>
               {link}
             </a>
           ))}
@@ -119,7 +120,7 @@ export function FooterCta() {
             <Mail size={17} />
             info@bapusgroup.com
           </a>
-          <a className="footer-enquiry" href="/">
+          <a className="footer-enquiry" href={appHref('/contact')}>
             Send enquiry
             <ChevronRight size={17} />
           </a>

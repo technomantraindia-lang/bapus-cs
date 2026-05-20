@@ -15,6 +15,7 @@ import {
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { ScrollReveal } from '../components/ScrollReveal.jsx';
+import { appHref } from '../lib/routePath.js';
 import heroImage from '../assets/hero/hero2.png';
 
 const contactDetails = [
@@ -74,7 +75,7 @@ export function Contact() {
         <div className="contact-hero__overlay" aria-hidden="true" />
         <div className="contact-hero__content">
           <nav className="contact-breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
+            <a href={appHref('/')}>Home</a>
             <span>/</span>
             <strong>Contact Us</strong>
           </nav>
@@ -232,7 +233,7 @@ export function Contact() {
           <div>
             <h2>Need Immediate Assistance?</h2>
             <p>Our support team is available 24/7 for urgent requirements.</p>
-            <a href="/contact">
+            <a href={appHref('/contact')}>
               Contact our team
               <ArrowRight size={15} aria-hidden="true" />
             </a>
