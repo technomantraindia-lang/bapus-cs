@@ -29,19 +29,6 @@ const presenceStats = [
 ];
 
 /** Approximate % positions on map graphic — gold = key ports, cyan = offshore */
-const mapHotspots = [
-  { kind: 'port', top: '34%', left: '29%' },
-  { kind: 'port', top: '42%', left: '33%' },
-  { kind: 'port', top: '50%', left: '46%' },
-  { kind: 'port', top: '48%', left: '54%' },
-  { kind: 'port', top: '40%', left: '70%' },
-  { kind: 'port', top: '58%', left: '62%' },
-  { kind: 'offshore', top: '44%', left: '41%' },
-  { kind: 'offshore', top: '52%', left: '38%' },
-  { kind: 'offshore', top: '60%', left: '50%' },
-  { kind: 'offshore', top: '32%', left: '56%' },
-];
-
 export function PresenceSection() {
   const statsRef = useRef(null);
   const [statsActive, setStatsActive] = useState(false);
@@ -126,25 +113,6 @@ export function PresenceSection() {
         <div className="presence-map-panel">
           <div className="presence-map-visual">
             <img className="presence-map" src={mapImage} alt="" />
-            <div className="presence-map-hotspots">
-              {mapHotspots.map((dot, i) => (
-                <span
-                  key={i}
-                  className={`presence-dot presence-dot--${dot.kind}`}
-                  style={{ top: dot.top, left: dot.left }}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="presence-map-legend">
-            <span className="presence-map-legend__item">
-              <i className="presence-legend-swatch presence-legend-swatch--port" />
-              Key ports
-            </span>
-            <span className="presence-map-legend__item">
-              <i className="presence-legend-swatch presence-legend-swatch--offshore" />
-              Offshore locations
-            </span>
           </div>
         </div>
       </div>

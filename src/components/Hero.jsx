@@ -107,11 +107,9 @@ export function Hero() {
         <div className="hero-copy">
           <p className="hero-kicker">Delivering success with values</p>
           <h1>
-            <span className="heading-line">Integrated maritime,</span>
+            <span className="heading-line">Integrated Maritime</span>
             <br />
-            <span className="heading-line">energy &amp; infrastructure</span>
-            <br />
-            <span className="heading-line highlight">solutions</span>
+            <span className="heading-line highlight">Solutions</span>
           </h1>
           <p>
             A diversified, asset-backed business group delivering excellence in

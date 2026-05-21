@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import { Award, CheckCircle2, Phone } from 'lucide-react';
+import { ContactPopup } from './ContactPopup.jsx';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
 import { appHref, getAppPath } from '../lib/routePath.js';
 
 export function Header() {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const path = getAppPath();
   const isAbout = path === '/about' || path === '/about-us';
   const isBusinesses = path === '/businesses' || path === '/category' || path === '/categories';
   const isContact = path === '/contact' || path === '/contact-us';
+  const isFleet = path === '/fleet' || path === '/marine-assets';
 
   return (
     <header className="site-header">
@@ -29,7 +33,7 @@ export function Header() {
 
           <nav aria-label="Main navigation">
             <a
-              className={!isAbout && !isBusinesses && !isContact ? 'active' : undefined}
+              className={!isAbout && !isBusinesses && !isContact && !isFleet ? 'active' : undefined}
               href={appHref('/')}
             >
               Home
@@ -41,7 +45,9 @@ export function Header() {
               Businesses
             </a>
             <a href={appHref('/')}>Group Companies</a>
-            <a href={appHref('/')}>Fleet</a>
+            <a className={isFleet ? 'active' : undefined} href={appHref('/fleet')}>
+              Fleet
+            </a>
             <a href={appHref('/')}>Sustainability</a>
 
             <a className={isContact ? 'active' : undefined} href={appHref('/contact')}>
@@ -49,12 +55,13 @@ export function Header() {
             </a>
           </nav>
 
-          <a className="touch-button" href={appHref('/contact')}>
+          <button className="touch-button" type="button" onClick={() => setIsContactPopupOpen(true)}>
             <Phone size={14} aria-hidden="true" />
             Get in touch
-          </a>
+          </button>
         </div>
       </div>
+      <ContactPopup isOpen={isContactPopupOpen} onClose={() => setIsContactPopupOpen(false)} />
     </header>
   );
 }
