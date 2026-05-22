@@ -11,6 +11,10 @@ export function Header() {
   const isBusinesses = path === '/businesses' || path === '/category' || path === '/categories';
   const isContact = path === '/contact' || path === '/contact-us';
   const isFleet = path === '/fleet' || path === '/marine-assets';
+  const isGroupCompany =
+    path === '/group-company' ||
+    path === '/group-companies' ||
+    path === '/groupcompany';
 
   return (
     <header className="site-header">
@@ -33,7 +37,11 @@ export function Header() {
 
           <nav aria-label="Main navigation">
             <a
-              className={!isAbout && !isBusinesses && !isContact && !isFleet ? 'active' : undefined}
+              className={
+                !isAbout && !isBusinesses && !isContact && !isFleet && !isGroupCompany
+                  ? 'active'
+                  : undefined
+              }
               href={appHref('/')}
             >
               Home
@@ -44,7 +52,9 @@ export function Header() {
             <a className={isBusinesses ? 'active' : undefined} href={appHref('/businesses')}>
               Businesses
             </a>
-            <a href={appHref('/')}>Group Companies</a>
+            <a className={isGroupCompany ? 'active' : undefined} href={appHref('/group-company')}>
+              Group Companies
+            </a>
             <a className={isFleet ? 'active' : undefined} href={appHref('/fleet')}>
               Fleet
             </a>

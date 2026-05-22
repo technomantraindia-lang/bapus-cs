@@ -4,6 +4,7 @@ import { Category } from './pages/Category.jsx';
 import { About } from './pages/About.jsx';
 import { Contact } from './pages/Contact.jsx';
 import { Fleet } from './pages/Fleet.jsx';
+import { GroupCompanyPage } from './pages/GroupCompanyPage.jsx';
 import { getAppPath } from './lib/routePath.js';
 
 const Journey = lazy(() => import('./pages/Journey.jsx').then((module) => ({ default: module.Journey })));
@@ -76,6 +77,14 @@ export default function App() {
 
   if (path === '/fleet' || path === '/marine-assets') {
     return <Fleet />;
+  }
+
+  if (
+    path === '/group-company' ||
+    path === '/group-companies' ||
+    path === '/groupcompany'
+  ) {
+    return <GroupCompanyPage />;
   }
 
   return <Home />;

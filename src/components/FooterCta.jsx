@@ -12,6 +12,7 @@ import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 const quickLinks = [
   ['Home', '/'],
   ['About Us', '/about'],
+  ['Group Companies', '/group-company'],
   ['Our Businesses', '/businesses'],
   ['Sustainability', '/'],
   ['Our Presence', '/'],
