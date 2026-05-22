@@ -318,6 +318,12 @@ const rangeGroups = [
   },
 ];
 
+/** Thin horizontal band (~8vh) centered near the timeline read line (~42%); only one milestone card crosses it per scroll beat. */
+const journeyCardRevealIO = {
+  threshold: 0,
+  rootMargin: '-38% 0px -54% 0px',
+};
+
 export function Journey() {
   const groupRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -331,6 +337,12 @@ export function Journey() {
       })),
     []
   );
+
+  useEffect(() => {
+    const rootEl = document.documentElement;
+    rootEl.classList.add('journey-page-scroll-snap');
+    return () => rootEl.classList.remove('journey-page-scroll-snap');
+  }, []);
 
   useEffect(() => {
     let frameId = 0;
@@ -472,16 +484,21 @@ export function Journey() {
                   <div className="journey-timeline-era__line" aria-hidden="true" />
 
                   {era.items.length === 0 ? (
-                    <ScrollReveal direction="zoom" threshold={0.08} delay={80} once>
-                      <article className="journey-milestone journey-milestone--hero journey-milestone--ref">
-                        <div className="journey-milestone__pillar">
-                          <div className="journey-milestone__year-pin" aria-hidden="true">
-                            {era.years}
-                          </div>
+                    <article className="journey-milestone journey-milestone--hero journey-milestone--ref">
+                      <div className="journey-milestone__pillar">
+                        <div className="journey-milestone__year-pin" aria-hidden="true">
+                          {era.years}
                         </div>
-                        <div className="journey-milestone__rail-slot">
-                          <span className="journey-milestone__marker" />
-                        </div>
+                      </div>
+                      <div className="journey-milestone__rail-slot">
+                        <span className="journey-milestone__marker" />
+                      </div>
+                      <ScrollReveal
+                        direction="fade"
+                        once
+                        {...journeyCardRevealIO}
+                        className="journey-milestone-card-reveal"
+                      >
                         <div className="journey-milestone__card">
                           <div className="journey-milestone__main">
                             <h3 className="journey-milestone__title-line">
@@ -493,28 +510,27 @@ export function Journey() {
                             </div>
                           </div>
                         </div>
-                      </article>
-                    </ScrollReveal>
+                      </ScrollReveal>
+                    </article>
                   ) : null}
 
-                  {era.items.map((item, itemIdx) => {
+                  {era.items.map((item) => {
                     return (
-                      <ScrollReveal
-                        key={`${era.id}-${item.title}`}
-                        direction="up"
-                        delay={Math.min(itemIdx * 55, 360)}
-                        once
-                        threshold={0.05}
-                      >
-                        <article className="journey-milestone journey-milestone--ref">
-                          <div className="journey-milestone__pillar">
-                            <div className="journey-milestone__year-pin" aria-hidden="true">
-                              {item.years}
-                            </div>
+                      <article className="journey-milestone journey-milestone--ref" key={`${era.id}-${item.title}`}>
+                        <div className="journey-milestone__pillar">
+                          <div className="journey-milestone__year-pin" aria-hidden="true">
+                            {item.years}
                           </div>
-                          <div className="journey-milestone__rail-slot">
-                            <span className="journey-milestone__marker" />
-                          </div>
+                        </div>
+                        <div className="journey-milestone__rail-slot">
+                          <span className="journey-milestone__marker" />
+                        </div>
+                        <ScrollReveal
+                          direction="fade"
+                          once
+                          {...journeyCardRevealIO}
+                          className="journey-milestone-card-reveal"
+                        >
                           <div className="journey-milestone__card">
                             <div className="journey-milestone__main">
                               <h3 className="journey-milestone__title-line">
@@ -539,8 +555,8 @@ export function Journey() {
                               <img src={item.image} alt="" loading="lazy" />
                             </figure>
                           </div>
-                        </article>
-                      </ScrollReveal>
+                        </ScrollReveal>
+                      </article>
                     );
                   })}
                 </div>

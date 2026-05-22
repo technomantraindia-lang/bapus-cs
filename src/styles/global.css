@@ -13359,6 +13359,53 @@ html {
   width: 100%;
 }
 
+.journey-page .journey-milestone-card-reveal.scroll-reveal {
+  min-width: 0;
+  transition:
+    opacity 0.78s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.82s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.journey-page .journey-milestone-card-reveal.scroll-reveal--fade:not(.scroll-reveal--visible) {
+  opacity: 0;
+  transform: translate3d(34px, 20px, 0);
+}
+
+.journey-page .journey-milestone-card-reveal.scroll-reveal--fade.scroll-reveal--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html.journey-page-scroll-snap {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: clamp(140px, 22vh, 210px);
+}
+
+html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
+  scroll-margin-top: clamp(160px, 24vh, 220px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (pointer: coarse) {
+  html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
+    scroll-snap-stop: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.journey-page-scroll-snap {
+    scroll-snap-type: none;
+    scroll-padding-top: unset;
+  }
+
+  html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
+    scroll-margin-top: unset;
+    scroll-snap-align: unset;
+    scroll-snap-stop: unset;
+  }
+}
+
 .journey-page .site-header {
   position: fixed;
   top: 0;
@@ -13850,6 +13897,36 @@ html {
   justify-self: stretch;
 }
 
+.journey-milestone__pillar::after {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 4px);
+  z-index: 2;
+  width: calc(var(--journey-rail-slot, 32px) * 0.55 + 10px);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(152, 73, 232, 0.55), var(--journey-purple-solid));
+  transform: translateY(-50%);
+  content: "";
+  pointer-events: none;
+}
+
+.journey-milestone__pillar::before {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 4px + var(--journey-rail-slot, 32px) * 0.55 + 4px);
+  z-index: 3;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent var(--journey-purple-solid);
+  border-style: solid;
+  border-width: 5px 0 5px 7px;
+  transform: translateY(-50%);
+  content: "";
+  opacity: 0.95;
+  pointer-events: none;
+}
+
 .journey-milestone__year-pin {
   display: flex;
   align-items: center;
@@ -14061,6 +14138,11 @@ html {
   .journey-milestone__pillar {
     justify-self: center;
     width: min(100%, 88px);
+  }
+
+  .journey-milestone__pillar::before,
+  .journey-milestone__pillar::after {
+    display: none;
   }
 }
 
