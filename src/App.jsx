@@ -1,11 +1,35 @@
-import { useEffect, useState } from 'react';
+import { Component, lazy, Suspense, useEffect, useState } from 'react';
 import { Home } from './pages/Home.jsx';
 import { Category } from './pages/Category.jsx';
 import { About } from './pages/About.jsx';
 import { Contact } from './pages/Contact.jsx';
 import { Fleet } from './pages/Fleet.jsx';
-import { Journey } from './pages/Journey.jsx';
 import { getAppPath } from './lib/routePath.js';
+
+const Journey = lazy(() => import('./pages/Journey.jsx').then((module) => ({ default: module.Journey })));
+
+class RouteErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+
+  render() {
+    if (this.state.error) {
+      return (
+        <main className="app-shell route-loading">
+          <span>Page error: {this.state.error.message}</span>
+        </main>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 export default function App() {
   const [path, setPath] = useState(getAppPath);
@@ -31,7 +55,19 @@ export default function App() {
   }
 
   if (path === '/our-journey' || path === '/journey') {
-    return <Journey />;
+    return (
+      <RouteErrorBoundary>
+        <Suspense
+          fallback={
+            <main className="app-shell route-loading">
+              <span>Loading journey...</span>
+            </main>
+          }
+        >
+          <Journey />
+        </Suspense>
+      </RouteErrorBoundary>
+    );
   }
 
   if (path === '/contact' || path === '/contact-us') {

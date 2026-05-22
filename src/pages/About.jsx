@@ -150,143 +150,151 @@ export function About() {
         <div className="about-wave" aria-hidden="true" />
       </section>
 
-      <section className="about-legacy-section">
-        <div className="about-legacy-image">
-          <img src={aboutImage} alt="Marine vessel at sea" />
-          <div className="about-trust-badge">
-            <Anchor size={25} aria-hidden="true" />
-            <strong>Built on Trust.</strong>
-            <span>Driven by Excellence.</span>
+      <ScrollReveal direction="up" className="about-page-reveal about-page-reveal--legacy">
+        <section className="about-legacy-section">
+          <div className="about-legacy-image">
+            <img src={aboutImage} alt="Marine vessel at sea" />
+            <div className="about-trust-badge">
+              <Anchor size={25} aria-hidden="true" />
+              <strong>Built on Trust.</strong>
+              <span>Driven by Excellence.</span>
+            </div>
           </div>
-        </div>
 
-        <div className="about-legacy-copy">
-          <p className="about-page-kicker">Who we are</p>
+          <div className="about-legacy-copy">
+            <p className="about-page-kicker">Who we are</p>
+            <h2>
+              A Legacy of Trust. <br />
+              A Future of Possibilities.
+            </h2>
+            <p>
+              We are a diversified maritime and infrastructure company offering
+              end-to-end solutions across the maritime value chain. With a strong
+              foundation built on integrity, innovation and operational
+              excellence, we continue to create value for our clients, partners
+              and communities.
+            </p>
+
+            <div className="about-values-row">
+              {values.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <article key={item.title}>
+                    <Icon size={28} aria-hidden="true" />
+                    <h3>{item.title}</h3>
+                    <p>{item.copy}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal direction="left" className="about-page-reveal about-page-reveal--presence">
+        <section className="about-presence-panel">
+          <div className="about-presence-copy">
+            <p className="about-page-kicker">Our presence</p>
+            <h2>
+              Strategic Presence. <br />
+              Stronger Connections.
+            </h2>
+            <p>
+              Operating across key ports and offshore locations along the Indian
+              coastline, ensuring seamless service and support.
+            </p>
+            <a href={appHref('/')} className="about-page-button">
+              Explore our presence
+              <ChevronRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="about-presence-stats">
+            {presenceStats.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article key={item.label}>
+                  <Icon size={30} aria-hidden="true" />
+                  <div>
+                    <strong>{item.value}</strong>
+                    <span>{item.label}</span>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="about-presence-map">
+            <img src={mapImage} alt="" aria-hidden="true" />
+          </div>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal direction="right" className="about-page-reveal about-page-reveal--services">
+        <section className="about-services-section">
+          <p className="about-page-kicker">What we do</p>
           <h2>
-            A Legacy of Trust. <br />
-            A Future of Possibilities.
+            Comprehensive Solutions. <br />
+            Enduring Value.
           </h2>
           <p>
-            We are a diversified maritime and infrastructure company offering
-            end-to-end solutions across the maritime value chain. With a strong
-            foundation built on integrity, innovation and operational
-            excellence, we continue to create value for our clients, partners
-            and communities.
+            From marine fuel supply to offshore support and infrastructure
+            development, we deliver integrated solutions tailored to our clients'
+            evolving needs.
           </p>
 
-          <div className="about-values-row">
-            {values.map((item) => {
+          <div className="about-service-grid">
+            {services.map((item) => {
               const Icon = item.icon;
 
               return (
                 <article key={item.title}>
-                  <Icon size={28} aria-hidden="true" />
+                  <span>
+                    <Icon size={38} aria-hidden="true" />
+                  </span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
                 </article>
               );
             })}
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <section className="about-presence-panel">
-        <div className="about-presence-copy">
-          <p className="about-page-kicker">Our presence</p>
-          <h2>
-            Strategic Presence. <br />
-            Stronger Connections.
-          </h2>
-          <p>
-            Operating across key ports and offshore locations along the Indian
-            coastline, ensuring seamless service and support.
-          </p>
-          <a href={appHref('/')} className="about-page-button">
-            Explore our presence
-            <ChevronRight size={16} aria-hidden="true" />
-          </a>
-        </div>
+      <ScrollReveal direction="up" className="about-page-reveal about-page-reveal--commitment">
+        <section className="about-commitment-section">
+          <div className="about-commitment-bg" aria-hidden="true">
+            <img src={aboutImage} alt="" />
+          </div>
+          <div className="about-commitment-copy">
+            <p className="about-page-kicker">Our commitment</p>
+            <h2>
+              Committed to Building <br />
+              Stronger Tomorrows.
+            </h2>
+            <p>
+              We are committed to delivering sustainable solutions that drive
+              progress, protect the environment and empower communities.
+            </p>
+          </div>
 
-        <div className="about-presence-stats">
-          {presenceStats.map((item) => {
-            const Icon = item.icon;
+          <div className="about-commitment-grid">
+            {commitments.map((item) => {
+              const Icon = item.icon;
 
-            return (
-              <article key={item.label}>
-                <Icon size={30} aria-hidden="true" />
-                <div>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        <div className="about-presence-map">
-          <img src={mapImage} alt="" aria-hidden="true" />
-        </div>
-      </section>
-
-      <section className="about-services-section">
-        <p className="about-page-kicker">What we do</p>
-        <h2>
-          Comprehensive Solutions. <br />
-          Enduring Value.
-        </h2>
-        <p>
-          From marine fuel supply to offshore support and infrastructure
-          development, we deliver integrated solutions tailored to our clients'
-          evolving needs.
-        </p>
-
-        <div className="about-service-grid">
-          {services.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <article key={item.title}>
-                <span>
-                  <Icon size={38} aria-hidden="true" />
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="about-commitment-section">
-        <div className="about-commitment-bg" aria-hidden="true">
-          <img src={aboutImage} alt="" />
-        </div>
-        <div className="about-commitment-copy">
-          <p className="about-page-kicker">Our commitment</p>
-          <h2>
-            Committed to Building <br />
-            Stronger Tomorrows.
-          </h2>
-          <p>
-            We are committed to delivering sustainable solutions that drive
-            progress, protect the environment and empower communities.
-          </p>
-        </div>
-
-        <div className="about-commitment-grid">
-          {commitments.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <article key={item.title}>
-                <Icon size={42} aria-hidden="true" />
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
+              return (
+                <article key={item.title}>
+                  <Icon size={42} aria-hidden="true" />
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      </ScrollReveal>
 
       <ScrollReveal direction="up">
         <FooterCta />
