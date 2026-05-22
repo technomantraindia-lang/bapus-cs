@@ -380,7 +380,8 @@ export function Journey() {
   }, []);
 
   useEffect(() => {
-    const footer = document.querySelector('.journey-page > .footer-cta');
+    /** Direct child is <footer.site-footer>; .footer-cta is nested inside (selector was broken before). */
+    const footer = document.querySelector('.journey-page > footer.site-footer');
     if (!footer) return undefined;
 
     const observer = new IntersectionObserver(
@@ -390,8 +391,8 @@ export function Journey() {
       {
         root: null,
         threshold: 0,
-        /** Fire while footer still below-fold so fixed nav fades before overlapping the footer block */
-        rootMargin: '0px 0px 22vh 0px',
+        /** Fade nav before footer enters (IO rootMargin: only px or % — not vh). */
+        rootMargin: '0px 0px 28% 0px',
       }
     );
 
