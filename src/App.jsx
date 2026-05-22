@@ -4,6 +4,7 @@ import { Category } from './pages/Category.jsx';
 import { About } from './pages/About.jsx';
 import { Contact } from './pages/Contact.jsx';
 import { Fleet } from './pages/Fleet.jsx';
+import { Journey } from './pages/Journey.jsx';
 import { getAppPath } from './lib/routePath.js';
 
 export default function App() {
@@ -27,6 +28,10 @@ export default function App() {
 
   if (path === '/about' || path === '/about-us') {
     return <About />;
+  }
+
+  if (path === '/our-journey' || path === '/journey') {
+    return <Journey />;
   }
 
   if (path === '/contact' || path === '/contact-us') {

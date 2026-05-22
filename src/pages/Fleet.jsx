@@ -11,7 +11,6 @@ import {
   Globe2,
   Leaf,
   LifeBuoy,
-  Phone,
   Ruler,
   ShieldCheck,
   Ship,
@@ -20,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Header } from '../components/Header.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
+import { ScrollReveal } from '../components/ScrollReveal.jsx';
 import { appHref } from '../lib/routePath.js';
 import heroImage from '../assets/hero/hero2.png';
 import seap1 from '../assets/hero/feet/seap1.png';
@@ -41,31 +41,31 @@ const fleetCategories = [
     icon: Ship,
     image: seap1,
     title: 'Bunker Barges',
-    text: 'Reliable fuel supply solutions for vessel-to-vessel operations.',
+    text: 'Reliable fuel supply for vessel-to-vessel operations.',
   },
   {
     icon: LifeBuoy,
     image: seap3,
     title: 'Tug Boats',
-    text: 'Powerful tug support for berthing, towing and manoeuvring.',
+    text: 'Strong tug support for berthing and towing.',
   },
   {
     icon: Droplets,
     image: seap4,
     title: 'Freshwater Barges',
-    text: 'Freshwater supply supporting offshore and anchored vessels.',
+    text: 'Freshwater supply for offshore and anchored vessels.',
   },
   {
     icon: Waves,
     image: seap5,
     title: 'Offshore Vessels',
-    text: 'Versatile vessels for crew transfer, cargo and field support operations.',
+    text: 'Crew transfer, cargo and field support vessels.',
   },
   {
     icon: Cog,
     image: seap6,
     title: 'Dry Dock Facility',
-    text: 'World-class dry dock for repair, maintenance and conversions.',
+    text: 'Dry dock support for repair and conversions.',
   },
 ];
 
@@ -135,7 +135,7 @@ export function Fleet() {
                 <strong>Fleet</strong>
               </nav>
 
-              <h1>Our Fleet &amp; Marine Assets</h1>
+              <h1>Our Fleet</h1>
               <p>
                 A diversified fleet built for reliability, safety and round-the-clock maritime
                 support—trusted across major ports and offshore corridors.
@@ -164,72 +164,72 @@ export function Fleet() {
         <div className="contact-wave" aria-hidden="true" />
       </section>
 
-      <section className="fleet-page-categories">
-        <p className="fleet-page-kicker">Our Fleet Categories</p>
-        <h2>Built for Every Maritime Need</h2>
-        <p>
-          From bunkering to offshore support and dry dock services, our fleet is
-          equipped to deliver performance across every operation.
-        </p>
-
-        <div className="fleet-page-card-grid">
-          {fleetCategories.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <article
-                className={`fleet-page-card${index === 0 ? ' fleet-page-card--active' : ''}`}
-                key={item.title}
-              >
-                <img src={item.image} alt={item.title} />
-                <span>
-                  <Icon size={34} aria-hidden="true" />
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <ChevronRight size={22} aria-hidden="true" />
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="fleet-page-selected">
-        <div className="fleet-page-selected__copy">
-          <p className="fleet-page-kicker">Selected Asset</p>
-          <h2>Bunker Barges</h2>
-          <span className="fleet-page-squiggle" aria-hidden="true" />
+      <ScrollReveal direction="up" className="fleet-page-reveal fleet-page-reveal--categories">
+        <section className="fleet-page-categories">
+          <p className="fleet-page-kicker">Our Fleet Categories</p>
+          <h2>Built for Every Maritime Need</h2>
           <p>
-            Purpose-built bunker barges for efficient ship-to-ship fuel transfer,
-            with robust safety systems and compliance with international
-            standards at every port call.
+            From bunkering to offshore support and dry dock services, our fleet is
+            equipped to deliver performance across every operation.
           </p>
 
-          <div className="fleet-page-feature-row">
-            {selectedFeatures.map((feature) => {
-              const Icon = feature.icon;
+          <div className="fleet-page-card-grid">
+            {fleetCategories.map((item) => {
+              const Icon = item.icon;
 
-                return (
-                  <article key={feature.title}>
-                    <span className="fleet-page-feature-icon">
-                      <Icon size={26} strokeWidth={1.75} aria-hidden="true" />
-                    </span>
-                    <h3>{feature.title}</h3>
-                    <p>{feature.text}</p>
-                  </article>
-                );
+              return (
+                <article className="fleet-page-card" key={item.title}>
+                  <img src={item.image} alt={item.title} />
+                  <span>
+                    <Icon size={34} aria-hidden="true" />
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                  <ChevronRight size={22} aria-hidden="true" />
+                </article>
+              );
             })}
           </div>
+        </section>
+      </ScrollReveal>
 
-          <a className="fleet-page-button" href={appHref('/contact')}>
-            View all details
-            <ArrowRight size={18} aria-hidden="true" />
-          </a>
-        </div>
+      <ScrollReveal direction="left" className="fleet-page-reveal fleet-page-reveal--selected">
+        <section className="fleet-page-selected">
+          <div className="fleet-page-selected__copy">
+            <p className="fleet-page-kicker">Selected Asset</p>
+            <h2>Bunker Barges</h2>
+            <span className="fleet-page-squiggle" aria-hidden="true" />
+            <p>
+              Purpose-built bunker barges for efficient ship-to-ship fuel transfer,
+              with robust safety systems and compliance with international
+              standards at every port call.
+            </p>
 
-        <div className="fleet-page-selected__image" aria-hidden="true">
-          <img src={seap2} alt="" />
-        </div>
+            <div className="fleet-page-feature-row">
+              {selectedFeatures.map((feature) => {
+                const Icon = feature.icon;
+
+                  return (
+                    <article key={feature.title}>
+                      <span className="fleet-page-feature-icon">
+                        <Icon size={26} strokeWidth={1.75} aria-hidden="true" />
+                      </span>
+                      <h3>{feature.title}</h3>
+                      <p>{feature.text}</p>
+                    </article>
+                  );
+              })}
+            </div>
+
+            <a className="fleet-page-button" href={appHref('/contact')}>
+              View all details
+              <ArrowRight size={18} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="fleet-page-selected__image" aria-hidden="true">
+            <img src={seap2} alt="" />
+          </div>
 
           <div className="fleet-page-specs">
             {specs.map((spec) => {
@@ -248,53 +248,36 @@ export function Fleet() {
               );
             })}
           </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <section className="fleet-page-capabilities">
-        <div className="fleet-page-capabilities__intro">
-          <p className="fleet-page-kicker">Our Capabilities</p>
-          <h2>Driven by Safety. Defined by Performance.</h2>
-          <span className="fleet-page-squiggle" aria-hidden="true" />
-          <p>
-            We combine advanced assets, skilled people and robust processes to
-            deliver dependable maritime solutions every day.
-          </p>
-        </div>
-
-        {capabilities.map((capability) => {
-          const Icon = capability.icon;
-
-          return (
-            <article key={capability.title}>
-              <span>
-                <Icon size={34} aria-hidden="true" />
-              </span>
-              <h3>{capability.title}</h3>
-              <p>{capability.text}</p>
-            </article>
-          );
-        })}
-      </section>
-
-      <section className="fleet-page-cta">
-        <div className="fleet-page-cta__image" aria-hidden="true">
-          <img src={seap6} alt="" />
-        </div>
-        <div className="fleet-page-cta__copy">
-          <span>
-            <Phone size={34} aria-hidden="true" />
-          </span>
-          <div>
-            <h2>Need a Reliable Maritime Partner?</h2>
-            <p>Let&apos;s work together to power your operations with trust and excellence.</p>
-            <a href={appHref('/contact')}>
-              Get in Touch
-              <ChevronRight size={16} aria-hidden="true" />
-            </a>
+      <ScrollReveal direction="right" className="fleet-page-reveal fleet-page-reveal--capabilities">
+        <section className="fleet-page-capabilities">
+          <div className="fleet-page-capabilities__intro">
+            <p className="fleet-page-kicker">Our Capabilities</p>
+            <h2>Driven by Safety. Defined by Performance.</h2>
+            <span className="fleet-page-squiggle" aria-hidden="true" />
+            <p>
+              We combine advanced assets, skilled people and robust processes to
+              deliver dependable maritime solutions every day.
+            </p>
           </div>
-        </div>
-        <Anchor className="fleet-page-cta__mark" size={180} aria-hidden="true" />
-      </section>
+
+          {capabilities.map((capability) => {
+            const Icon = capability.icon;
+
+            return (
+              <article key={capability.title}>
+                <span>
+                  <Icon size={34} aria-hidden="true" />
+                </span>
+                <h3>{capability.title}</h3>
+                <p>{capability.text}</p>
+              </article>
+            );
+          })}
+        </section>
+      </ScrollReveal>
 
       <FooterCta />
     </main>

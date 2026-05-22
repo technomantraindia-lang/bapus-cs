@@ -15,6 +15,7 @@ import { AnimatedStatValue } from './AnimatedStatValue.jsx';
 import { AboutPillarsPin } from './AboutPillarsPin.jsx';
 import { ScrollReveal } from './ScrollReveal.jsx';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
+import { appHref } from '../lib/routePath.js';
 import aboutVideo from '../assets/hero/about.jpg';
 import storyVideo from '../assets/hero/cargo-ships-moored-near-urban-coastline-at-sunrise-2026-01-21-12-14-11-utc.mp4';
 
@@ -200,7 +201,7 @@ export function AboutGroup() {
             maritime and infrastructure landscape, our journey has been guided
             by trust, innovation, and a relentless commitment to excellence.
           </p>
-          <a className="section-button" href="/">
+          <a className="section-button" href={appHref('/our-journey')}>
             Discover our journey
             <ChevronRight size={17} aria-hidden="true" />
           </a>
