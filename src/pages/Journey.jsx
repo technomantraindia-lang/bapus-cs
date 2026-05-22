@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
+import { ScrollReveal } from '../components/ScrollReveal.jsx';
 import journeyImage from '../assets/hero/BAPUS SHIPPING JAMNAGAR PVT LTD.jpg.jpeg';
 import bsaImage from '../assets/hero/BSA & BSAPL -1997 & 2007.jpg.jpeg';
 import logoImage from '../assets/hero/BSJPL LOGO-  -2007 & 2010.jpg.jpeg';
@@ -118,7 +119,7 @@ const timeline = [
     title: 'Major Bunker Transportation Contracts Are Secured.',
     copy: [
       'A bunker sea transportation contract for the Kandla and Sikka region was secured from Indian Oil Corporation Limited, a Fortune 500 company.',
-      'The bunker barge fleet was further strengthened with MT SUCCESS DIGNITY by Bapu’s Shipping Jamnagar Pvt. Ltd.',
+      "The bunker barge fleet was further strengthened with MT SUCCESS DIGNITY by Bapu's Shipping Jamnagar Pvt. Ltd.",
     ],
   },
   {
@@ -193,8 +194,8 @@ const timeline = [
     image: seap6,
     title: 'MS Class Barges and Tug Add to Fleet Strength.',
     copy: [
-      'The group added MS Class barges DWARKESH by Bapu’s Shipping Jamnagar Pvt. Ltd. and SONAL by Shree Krishna Quarry Pvt. Ltd.',
-      'MS Class tug TULIP-1 was added by Bapu’s Shipping South Gujarat.',
+      "The group added MS Class barges DWARKESH by Bapu's Shipping Jamnagar Pvt. Ltd. and SONAL by Shree Krishna Quarry Pvt. Ltd.",
+      "MS Class tug TULIP-1 was added by Bapu's Shipping South Gujarat.",
     ],
   },
   {
@@ -226,7 +227,7 @@ const timeline = [
     image: seap2,
     title: 'High Bollard Pull Tug IVY Joins the Fleet.',
     copy: [
-      'Bapu’s Shipping South Gujarat inducted its highest towing capacity 32 MT Bollard Pull MS Class tug IVY, further enhancing maritime capability.',
+      "Bapu's Shipping South Gujarat inducted its highest towing capacity 32 MT Bollard Pull MS Class tug IVY, further enhancing maritime capability.",
     ],
   },
   {
@@ -236,7 +237,7 @@ const timeline = [
     image: offshoreImage,
     title: 'Tug Mahadev Adds More Marine Capability.',
     copy: [
-      'Bapu’s Shipping South Gujarat expanded its maritime fleet with the addition of the 20 MT Bollard Pull tug vessel MAHADEV.',
+      "Bapu's Shipping South Gujarat expanded its maritime fleet with the addition of the 20 MT Bollard Pull tug vessel MAHADEV.",
     ],
   },
   {
@@ -320,6 +321,7 @@ const rangeGroups = [
 export function Journey() {
   const groupRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   const navItems = useMemo(
     () =>
@@ -365,112 +367,188 @@ export function Journey() {
     };
   }, []);
 
+  useEffect(() => {
+    const footer = document.querySelector('.journey-page > .footer-cta');
+    if (!footer) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0,
+        /** Fire while footer still below-fold so fixed nav fades before overlapping the footer block */
+        rootMargin: '0px 0px 22vh 0px',
+      }
+    );
+
+    observer.observe(footer);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <main className="journey-page">
+    <main className={isFooterVisible ? 'journey-page journey-page--footer-visible' : 'journey-page'}>
       <Header />
 
-      <aside className="journey-era-nav" aria-label="Journey years">
-        <nav className="journey-era-list" aria-label="Journey timeline">
-          {navItems.map((era, index) => (
-            <a
-              key={era.id}
-              className={index === activeIndex ? 'journey-era-link journey-era-link--active' : 'journey-era-link'}
-              href={`#${era.id}`}
-            >
-              <strong>{era.years}</strong>
-              <span>{era.label}</span>
-            </a>
-          ))}
-        </nav>
-      </aside>
+      <div className="journey-body">
+        <aside
+          className="journey-era-nav"
+          aria-label="Journey years"
+          aria-hidden={isFooterVisible}
+        >
+          <nav className="journey-era-list" aria-label="Journey timeline">
+            {navItems.map((era, index) => (
+              <a
+                key={era.id}
+                className={index === activeIndex ? 'journey-era-link journey-era-link--active' : 'journey-era-link'}
+                href={`#${era.id}`}
+              >
+                <span className="journey-era-link__indicator" aria-hidden="true" />
+                <span className="journey-era-link__text">
+                  <strong>{era.years}</strong>
+                  <span className="journey-era-link__subtitle">{era.label}</span>
+                </span>
+              </a>
+            ))}
+          </nav>
+        </aside>
 
-      <section className="journey-scroll">
-        <section className="journey-hero" id="journey-top">
-          <img className="journey-hero__image" src={journeyImage} alt="" aria-hidden="true" />
-          <div className="journey-hero__veil" aria-hidden="true" />
+        <section className="journey-scroll">
+          <section className="journey-hero" id="journey-top">
+            <img className="journey-hero__image" src={journeyImage} alt="" aria-hidden="true" />
+            <div className="journey-hero__veil" aria-hidden="true" />
 
-          <div className="journey-hero__content">
-            <p className="journey-hero__year">Bapu&apos;s Group of Companies</p>
-            <h1>OUR JOURNEY</h1>
-            <h2>BAPU&apos;S GROUP OF COMPANIES</h2>
-            <p>{journeyIntro}</p>
-          </div>
-
-          <a className="journey-scroll-cue" href="#journey-era-0">
-            <span>Scroll to reveal era</span>
-            <ChevronDown size={38} aria-hidden="true" />
-          </a>
-        </section>
-
-        <section className="journey-era-details" aria-label="Journey timeline">
-          {navItems.map((era, index) => (
-            <section
-              id={era.id}
-              className={index === activeIndex ? 'journey-era-group journey-era-group--active' : 'journey-era-group'}
-              data-index={index}
-              key={era.id}
-              ref={(node) => {
-                groupRefs.current[index] = node;
-              }}
-            >
-              <div className="journey-era-card__year">
-                <span>{era.years}</span>
-                <small>{era.label}</small>
+            <ScrollReveal direction="up" threshold={0.12} delay={70} once>
+              <div className="journey-hero__content">
+                <p className="journey-hero__year">Bapu&apos;s Group of Companies</p>
+                <h1>OUR JOURNEY</h1>
+                <h2>BAPU&apos;S GROUP OF COMPANIES</h2>
+                <p>{journeyIntro}</p>
               </div>
+            </ScrollReveal>
 
-              <div className="journey-era-group__cards">
-                {era.items.length === 0 ? (
-                  <article className="journey-era-card journey-era-card--text-only">
-                    <div className="journey-era-card__body">
-                      <span className="journey-era-card__icon">
-                        <Anchor size={28} aria-hidden="true" />
-                      </span>
-                      <p>{era.label}</p>
-                      <h2>{era.years === '1988' ? 'A Vision That Set the Course.' : 'The Next Horizon.'}</h2>
-                      <div className="journey-era-card__copy">
-                        <p>{era.summary}</p>
-                      </div>
-                    </div>
-                  </article>
-                ) : null}
+            <ScrollReveal direction="fade" threshold={0.08} delay={240} once className="journey-hero-scroll-cue-wrap">
+              <a className="journey-scroll-cue" href="#journey-era-0">
+                <span>Scroll to reveal era</span>
+                <ChevronDown size={38} aria-hidden="true" />
+              </a>
+            </ScrollReveal>
+          </section>
 
-                {era.items.map((item) => {
-                  const Icon = item.icon;
+          <section className="journey-era-details journey-timeline-v2" aria-label="Journey timeline">
+            {navItems.map((era, index) => (
+              <section
+                id={era.id}
+                className={`journey-timeline-era${
+                  index === activeIndex ? ' journey-timeline-era--active' : ''
+                }${index % 2 === 1 ? ' journey-timeline-era--band' : ''}`}
+                data-index={index}
+                key={era.id}
+                ref={(node) => {
+                  groupRefs.current[index] = node;
+                }}
+              >
+                <ScrollReveal
+                  direction="fade"
+                  once
+                  threshold={0.08}
+                  className="journey-era-header-scroll"
+                >
+                  <header
+                    className="journey-timeline-era__header"
+                    style={{ zIndex: 42 + index }}
+                  >
+                    <p className="journey-timeline-era__range">{era.years}</p>
+                    <h2>{era.label}</h2>
+                    <p className="journey-timeline-era__lede">{era.summary}</p>
+                  </header>
+                </ScrollReveal>
 
-                  return (
-                    <article className="journey-era-card" key={`${era.id}-${item.title}`}>
-                      <div className="journey-era-card__item-year">
-                        <span>{item.years}</span>
-                      </div>
+                <div className="journey-timeline-era__items">
+                  <div className="journey-timeline-era__line" aria-hidden="true" />
 
-                      <div className="journey-era-card__body">
-                        <span className="journey-era-card__icon">
-                          <Icon size={28} aria-hidden="true" />
-                        </span>
-                        <p>{item.label}</p>
-                        <h2>{item.title}</h2>
-                        <div className="journey-era-card__copy">
-                          {item.copy.map((paragraph) => (
-                            <p key={paragraph}>{paragraph}</p>
-                          ))}
+                  {era.items.length === 0 ? (
+                    <ScrollReveal direction="zoom" threshold={0.08} delay={80} once>
+                      <article className="journey-milestone journey-milestone--hero journey-milestone--ref">
+                        <div className="journey-milestone__pillar">
+                          <div className="journey-milestone__year-pin" aria-hidden="true">
+                            {era.years}
+                          </div>
                         </div>
-                      </div>
+                        <div className="journey-milestone__rail-slot">
+                          <span className="journey-milestone__marker" />
+                        </div>
+                        <div className="journey-milestone__card">
+                          <div className="journey-milestone__main">
+                            <h3 className="journey-milestone__title-line">
+                              {era.years} –{' '}
+                              {era.years === '1988' ? 'A Vision That Set the Course.' : 'The Next Horizon.'}
+                            </h3>
+                            <div className="journey-milestone__copy">
+                              <p>{era.summary}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </ScrollReveal>
+                  ) : null}
 
-                      <figure className="journey-era-card__media">
-                        <img src={item.image} alt="" aria-hidden="true" />
-                      </figure>
-                    </article>
-                  );
-                })}
-
-                {era.items.length > 0 ? (
-                  <p className="journey-era-summary">{era.summary}</p>
-                ) : null}
-              </div>
-            </section>
-          ))}
+                  {era.items.map((item, itemIdx) => {
+                    return (
+                      <ScrollReveal
+                        key={`${era.id}-${item.title}`}
+                        direction="up"
+                        delay={Math.min(itemIdx * 55, 360)}
+                        once
+                        threshold={0.05}
+                      >
+                        <article className="journey-milestone journey-milestone--ref">
+                          <div className="journey-milestone__pillar">
+                            <div className="journey-milestone__year-pin" aria-hidden="true">
+                              {item.years}
+                            </div>
+                          </div>
+                          <div className="journey-milestone__rail-slot">
+                            <span className="journey-milestone__marker" />
+                          </div>
+                          <div className="journey-milestone__card">
+                            <div className="journey-milestone__main">
+                              <h3 className="journey-milestone__title-line">
+                                {item.years} – {item.label}
+                              </h3>
+                              <p className="journey-milestone__dek">{item.title}</p>
+                              {item.copy.length > 1 ? (
+                                <ul className="journey-milestone__bullet-list">
+                                  {item.copy.map((paragraph) => (
+                                    <li key={paragraph}>{paragraph}</li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <div className="journey-milestone__copy">
+                                  {item.copy.map((paragraph) => (
+                                    <p key={paragraph}>{paragraph}</p>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                            <figure className="journey-milestone__figure">
+                              <img src={item.image} alt="" loading="lazy" />
+                            </figure>
+                          </div>
+                        </article>
+                      </ScrollReveal>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </section>
         </section>
-      </section>
+      </div>
 
       <FooterCta />
     </main>

@@ -59,7 +59,7 @@ export function FleetAssets() {
       <div className="fleet-heading">
         <SectionAnchorRule />
         <span className="fleet-mini-title">Marine Assets</span>
-        <h2>Our fleet & marine assets</h2>
+        <h2>Our fleet</h2>
         <p>
           Explore our integrated marine fleet supporting bunkering, offshore
           logistics, tug operations and dry dock services.
