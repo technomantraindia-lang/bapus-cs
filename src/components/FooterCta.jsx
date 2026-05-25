@@ -33,6 +33,8 @@ const businesses = [
 const locations = ['Kandla', 'Mumbai', 'Jamnagar'];
 
 export function FooterCta({ showCta = true }) {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       {showCta ? (
@@ -132,7 +134,7 @@ export function FooterCta({ showCta = true }) {
         <div className="footer-bottom">
           <p>
             <Waves size={16} aria-hidden="true" />
-            &copy; 2026 Bapu&apos;s Group of Companies. All Rights Reserved.
+            &copy; {currentYear} <span className="footer-credit-brand">Technomantra India</span>. All Rights Reserved.
           </p>
          
         </div>
