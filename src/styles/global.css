@@ -1476,6 +1476,26 @@ a {
       linear-gradient(180deg, rgba(4, 34, 62, 0.99) 0%, rgba(3, 24, 45, 1) 100%);
   }
 
+  .menu-toggle,
+  .touch-button {
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+  }
+
+  .touch-button {
+    order: 2;
+    justify-self: end !important;
+  }
+
+  .menu-toggle {
+    order: 3;
+    justify-self: end;
+  }
+
   .main-nav {
     grid-template-columns: minmax(0, 1fr) auto auto !important;
     gap: 8px !important;
@@ -15126,9 +15146,12 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
   .touch-button {
     justify-self: end;
     margin-left: auto;
+    width: 42px;
     min-width: 42px;
-    min-height: 38px;
-    padding: 0 12px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+    border-radius: 10px;
     font-size: 0;
   }
 
