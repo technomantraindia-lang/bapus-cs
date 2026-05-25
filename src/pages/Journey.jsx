@@ -8,7 +8,6 @@ import {
   HardHat,
   Leaf,
   Ship,
-  ShipWheel,
   TrendingUp,
   Wrench,
 } from 'lucide-react';
@@ -23,7 +22,6 @@ import offshoreImage from '../assets/hero/BSSG OFSHORE - 2022.jpg.jpeg';
 import heroImage from '../assets/hero/hero2.png';
 import seap2 from '../assets/hero/feet/seap2.png';
 import seap4 from '../assets/hero/feet/seap4.png';
-import seap5 from '../assets/hero/feet/seap5.png';
 import seap6 from '../assets/hero/feet/seap6.png';
 
 const timeline = [
@@ -32,19 +30,10 @@ const timeline = [
     label: 'The Voyage Begins',
     icon: Anchor,
     image: bsaImage,
-    title: "The Journey of Bapu's Shipping Agency Begins.",
+    title: "The journey of Bapu's Shipping Agency commenced.",
     copy: [
-      'Founded by Shri Bhupendrasinh Jadeja and Shri Hiren Joshi, the company specialized in ship chandling, container work and ship repairing.',
-    ],
-  },
-  {
-    years: '1997',
-    label: 'The Voyage Begins',
-    icon: ShipWheel,
-    image: bsaImage,
-    title: 'Apex Engineer Strengthens the Foundation.',
-    copy: [
-      'Another enterprise, Apex Engineer, was born under the leadership of Shri Bhupendrasinh Jadeja and Shri Vishalsinh Jadeja, solidifying the foundation for a successful future.',
+      'The journey of "BAPU\'S SHIPPING AGENCY" commenced under the leadership of Shri Bhupendrasinh Jadeja and Shri Hiren Joshi, specializing in ship chandling, container, and ship repairing.',
+      '"APEX ENGINEER" was established by Shri Bhupendrasinh Jadeja and Shri Vishalsinh Jadeja, solidifying the foundation for a successful future.',
     ],
   },
   {
@@ -52,20 +41,11 @@ const timeline = [
     label: 'Gathering Knots',
     icon: Ship,
     image: journeyImage,
-    title: "Bapu's Shipping Jamnagar Opens a New Chapter.",
+    title: 'A new chapter unfolded with fleet and bonded products expansion.',
     copy: [
-      "Bapu's Shipping Jamnagar was established by Shri Bhupendrasinh and a consortium of like-minded entrepreneurs with the objective of creating a fleet of tugs and barges.",
-      'The acquisition of the first fresh water barge, SUCCESS LINE, marked a new era of growth and success.',
-    ],
-  },
-  {
-    years: '2007',
-    label: 'Gathering Knots',
-    icon: Fuel,
-    image: logoImage,
-    title: "Bapu's Shipping Agency Pvt. Ltd. Is Formed.",
-    copy: [
-      "The formation of Bapu's Shipping Agency Pvt. Ltd. facilitated the import, storage and re-export of bonded products, expanding the company's presence in the shipping industry.",
+      '"BAPU\'S SHIPPING JAMNAGAR" was established by Shri Bhupendrasinh and a consortium of entrepreneurs, aiming to build a specialized fleet of tugs and barges.',
+      'This era marked a significant milestone with the acquisition of our first fresh water barge, "SUCCESS LINE".',
+      'To facilitate the import, storage, and re-export of bonded products, "BAPU\'S SHIPPING AGENCY PVT LTD" was formed, expanding our operational footprint.',
     ],
   },
   {
@@ -73,10 +53,10 @@ const timeline = [
     label: 'Expanding Presence',
     icon: Ship,
     image: seap2,
-    title: 'Fleet Capabilities Expand Across the Gulf of Kutch.',
+    title: 'The maritime fleet expanded significantly.',
     copy: [
-      'The fleet expanded with the addition of two tugs, VIKRANTA and VISHNU, and two barges, SAMBA PRASAD and SUCCESS GLORY.',
-      'This increased the capability to provide expeditious services including fresh water supplies and tug assistance at all ports of the Gulf of Kutch.',
+      'The maritime fleet expanded significantly with the induction of tugs "VIKRANTA" and "VISHNU," alongside barges "SAMBA PRASAD" and "SUCCESS GLORY".',
+      'This enhanced our capability to deliver expeditious fresh water and tug assistance to coastal and foreign vessels across the ports of the Gulf of Kutch.',
     ],
   },
   {
@@ -84,20 +64,11 @@ const timeline = [
     label: 'Testing Newer Waters',
     icon: TrendingUp,
     image: heroImage,
-    title: 'Apex Lubricant Diversifies the Group.',
+    title: 'The Group diversified operations and strengthened key partnerships.',
     copy: [
-      'Apex Lubricant was established as CFA of Hindustan Petroleum Corporation Limited for Kutch and Jamnagar districts for storage and distribution of lubes.',
-    ],
-  },
-  {
-    years: '2009',
-    label: 'Testing Newer Waters',
-    icon: ShipWheel,
-    image: seap2,
-    title: 'Fresh Water and Tug Services Grow Stronger.',
-    copy: [
-      'The fleet grew with the addition of the barge SUCCESS QUEEN and the tug SUCCESS NETRAVATI.',
-      'The company also secured a sea transportation and launch hire contract from the Shipping Corporation of India for the Gulf of Kutch region.',
+      '"APEX LUBRICANT" was established to operate as the Clearing and Forwarding Agent (CFA) for Hindustan Petroleum Corporation Limited, managing the storage and distribution of lubes for the Kutch and Jamnagar districts.',
+      'Our fleet grew with the addition of the barge "SUCCESS QUEEN" and the tug "SUCCESS NETRAVATI".',
+      'We forged a pivotal partnership with the Shipping Corporation of India, being entrusted with a sea transportation and launch hire agreement for the Gulf of Kutch region.',
     ],
   },
   {
@@ -105,21 +76,21 @@ const timeline = [
     label: 'Navigating Further',
     icon: Fuel,
     image: logoImage,
-    title: "Bapu's Shipping Jamnagar Becomes a Private Limited Company.",
+    title: 'A stronger corporate framework supported expanding operations.',
     copy: [
-      "Bapu's Shipping Jamnagar was transformed into Bapu's Shipping Jamnagar Pvt. Ltd.",
-      'The first bunkering barge, MT SUCCESS PRIDE, and the tug MT SUCCESS KING were added, strengthening the company with a wider range of client services.',
+      "To support our expanding operations and establish a stronger corporate framework, the firm transitioned into Bapu's Shipping Jamnagar Pvt. Ltd.",
+      'We acquired our first bunkering barge, MT "SUCCESS PRIDE," and the tug MT "SUCCESS KING," allowing us to offer a more diverse range of services to our clients.',
     ],
   },
   {
     years: '2011',
-    label: 'Charting Success',
+    label: 'Charting a Course for Success',
     icon: Award,
     image: seap4,
-    title: 'Major Bunker Transportation Contracts Are Secured.',
+    title: 'Indian Oil Corporation Limited selected the company as maritime transport partner.',
     copy: [
-      'A bunker sea transportation contract for the Kandla and Sikka region was secured from Indian Oil Corporation Limited, a Fortune 500 company.',
-      "The bunker barge fleet was further strengthened with MT SUCCESS DIGNITY by Bapu's Shipping Jamnagar Pvt. Ltd.",
+      'The company was chosen as the maritime transport partner by Fortune 500 company Indian Oil Corporation Limited for bunker sea transportation in the Kandla and Sikka region.',
+      'Our logistical capabilities were further strengthened with the inclusion of the MT "SUCCESS DIGNITY" to our bunker barge fleet.',
     ],
   },
   {
@@ -127,10 +98,10 @@ const timeline = [
     label: 'Exploring New Frontiers',
     icon: TrendingUp,
     image: malaraImage,
-    title: 'Fresh Water Contracts and Malara Sea Logistics Add Scale.',
+    title: 'Service portfolio and maritime logistics capabilities expanded.',
     copy: [
-      'The company secured its first-ever fresh water supply contract from Indian Oil Corporation Limited.',
-      'The maritime fleet grew with the addition of the tug MALARA PRIDE by taking over Malara Sea Logistics.',
+      'Our service portfolio expanded by securing a primary fresh water supply agreement with Indian Oil Corporation Limited.',
+      'We further enhanced our maritime logistics capabilities by taking over M/s Malara Sea Logistics and integrating the tug "MALARA PRIDE" into our fleet.',
     ],
   },
   {
@@ -138,22 +109,22 @@ const timeline = [
     label: 'Making Waves',
     icon: Globe2,
     image: logoImage,
-    title: 'Storage, Agency and Fleet Strength Increase.',
+    title: 'Wilhelmsen Maritime Products appointed the company across Gujarat ports.',
     copy: [
-      'The company was appointed as official clearing and forwarding agent for Wilhelmsen Maritime Products for the ports of Gujarat.',
-      'Storage capability grew with a 20,000 square feet bonded storage facility within the KASEZ area.',
-      'The tug SUCCESS JASMINE was acquired to respond to increasing service demand.',
+      'The company was honored to be appointed as the official Clearing and Forwarding Agent for Wilhelmsen Maritime Products across Gujarat ports.',
+      'This appointment included the operational launch of a 20,000 square-foot bonded storage facility within the KASEZ area.',
+      'Responding to increasing industry demand, the tug "SUCCESS JASMINE" was successfully acquired.',
     ],
   },
   {
     years: '2014',
-    label: 'Bold Beginnings',
+    label: 'Bold New Beginnings',
     icon: Fuel,
     image: heroImage,
-    title: 'New Contracts and South Gujarat Expansion.',
+    title: 'The Group expanded service coverage along the Gulf of Khambhat.',
     copy: [
-      "Bapu's Shipping Jamnagar Pvt. Ltd. secured a sea transportation contract for bunker supplies from Hindustan Petroleum Corporation Limited.",
-      "Bapu's Shipping South Gujarat was established to serve customers across the Gulf of Khambhat.",
+      'We continued to demonstrate our commitment to high-quality service by partnering with Hindustan Petroleum Corporation Limited for bunker sea transportation.',
+      'To provide comprehensive services along the entire Gulf of Khambhat, Shri Bhupendrasinh Jadeja and a consortium of prominent entrepreneurs established a new subsidiary, "BAPU\'S SHIPPING SOUTH GUJARAT".',
     ],
   },
   {
@@ -161,73 +132,44 @@ const timeline = [
     label: 'Steaming Ahead',
     icon: Ship,
     image: seap2,
-    title: 'Fleet Expansion Supports Growing Demand.',
+    title: 'Strategic fleet additions positioned the company for robust growth.',
     copy: [
-      "Bapu's Shipping Jamnagar Pvt. Ltd. acquired the RSV class bunker barge VAILANKINNI and the RSV-IV tug ADINATH-8.",
-      "This pivotal acquisition positioned the company for continued growth and reliable service.",
+      'Accommodating growing business requirements, we acquired the RSV class bunker barge "VAILANKINNI" and the RSV-IV tug "ADINATH-8".',
+      'These strategic additions positioned the company for continued robust growth.',
     ],
   },
   {
     years: '2016',
     label: 'Evolution with Growth',
-    icon: ShipWheel,
-    image: seap5,
-    title: 'Bunker Barge Vidyalaxmi Joins the Fleet.',
-    copy: [
-      'Shree Krishna Quarry Pvt. Ltd. added the RSV class bunker barge VIDYALAXMI to meet rising operational demand.',
-    ],
-  },
-  {
-    years: '2016',
-    label: 'Evolution with Growth',
-    icon: Wrench,
     image: heroImage,
-    title: 'Apex Autolinks Pvt. Ltd. Diversifies the Group.',
+    icon: Wrench,
+    title: 'The Group diversified into the automotive sector.',
     copy: [
-      'The group diversified by establishing Apex Autolinks Pvt. Ltd. after acquiring the Renault car dealership in Kutch district, managed by Shri Vishalsinh Jadeja and Shri Bhupendrasinh Jadeja.',
+      '"APEX AUTOLINKS PVT.LTD." was established following the acquisition of a RENAULT Car Dealership in the Kutch district, managed by Shri Vishalsinh Jadeja and Shri Bhupendrasinh Jadeja.',
     ],
   },
   {
-    years: '2018-20',
+    years: '2018-2020',
     label: 'Cruising Along',
     icon: Ship,
     image: seap6,
-    title: 'MS Class Barges and Tug Add to Fleet Strength.',
+    title: 'Fleet growth and strategic alliances created Apex Offshore LLP.',
     copy: [
-      "The group added MS Class barges DWARKESH by Bapu's Shipping Jamnagar Pvt. Ltd. and SONAL by Shree Krishna Quarry Pvt. Ltd.",
-      "MS Class tug TULIP-1 was added by Bapu's Shipping South Gujarat.",
-    ],
-  },
-  {
-    years: '2018-20',
-    label: 'Cruising Along',
-    icon: TrendingUp,
-    image: offshoreImage,
-    title: 'Apex Offshore LLP Creates a Larger Operating Platform.',
-    copy: [
-      'The group joined hands with two-decade-old competitors and formed Apex Offshore LLP.',
-      'Fresh water supply barges RAMA and tugs MANALI-II, MANALI-III, MANALI-V and DULDUL were included in the fleet for higher business volume and better administrative control.',
+      'The Group expanded its fleet with the acquisition of the MS Class barge "DWARKESH" and the MS Class tug "TULIP-1".',
+      'In a major strategic leap to capture voluminous business and optimize administrative control, we formed key industry alliances to create a new firm, "APEX OFFSHORE LLP".',
+      'This strategic move brought the fresh water supply barge "RAMA" and tugs "MANALI-II," "MANALI-III," "MANALI-V," and "DULDUL" into our fleet.',
     ],
   },
   {
     years: '2021',
-    label: 'New Dawn',
+    label: 'Sailing into a New Dawn',
     icon: HardHat,
     image: seap6,
-    title: 'State-of-the-Art Graving Dry Dock Facility Is Established.',
+    title: 'A major milestone was achieved with a state-of-the-art dry dock facility.',
     copy: [
-      'A 100m x 50m graving dry dock facility was established in the Gulf of Kachchh at Kandla.',
-      'The facility supports self-sufficient docking services for the expanding fleet and demonstrates the group’s commitment to seaworthiness and operational excellence.',
-    ],
-  },
-  {
-    years: '2021',
-    label: 'New Dawn',
-    icon: ShipWheel,
-    image: seap2,
-    title: 'High Bollard Pull Tug IVY Joins the Fleet.',
-    copy: [
-      "Bapu's Shipping South Gujarat inducted its highest towing capacity 32 MT Bollard Pull MS Class tug IVY, further enhancing maritime capability.",
+      'A major milestone was achieved with the establishment of a state-of-the-art Graving Dry Dock Facility (100M x 50M) in the Gulf of Kachchh at Kandla.',
+      'This self-sufficient docking service showcases our dedication to maintaining the highest seaworthiness of our floating assets and achieving industry excellence.',
+      'Furthermore, M/s Bapu\'s Shipping South Gujarat inducted its highest towing capacity asset, the 32 MT Bollard Pull MS class Tug "IVY".',
     ],
   },
   {
@@ -235,97 +177,43 @@ const timeline = [
     label: 'Riding the Waves',
     icon: Ship,
     image: offshoreImage,
-    title: 'Tug Mahadev Adds More Marine Capability.',
+    title: 'The Group expanded its fleet and moved toward vehicle fitness infrastructure.',
     copy: [
-      "Bapu's Shipping South Gujarat expanded its maritime fleet with the addition of the 20 MT Bollard Pull tug vessel MAHADEV.",
-    ],
-  },
-  {
-    years: '2022',
-    label: 'Riding the Waves',
-    icon: Wrench,
-    image: heroImage,
-    title: 'D S Infraport & Logistics Moves Toward ATS.',
-    copy: [
-      'Under the Gujarat Government PPP Scheme and Ministry of Road Transport, approval was received for setting up an Automatic Testing Station in D S Infraport & Logistics.',
-      'Fitness test ATS is being made mandatory for vehicles under the new law.',
+      'The maritime fleet was expanded again with the addition of the 20 MT Bollard Pull Tug vessel "MAHADEV".',
+      'Under the Gujarat Government PPP Scheme and Ministry of Road and Transport, our firm D S Infraport & Logistics received approval to set up an Automatic Testing Station (ATS) to meet new mandatory vehicle fitness laws.',
     ],
   },
   {
     years: '2023',
-    label: 'New Seas',
-    icon: Globe2,
-    image: seap2,
-    title: 'ASK Tanker India Pvt. Ltd. Expands the Bunker Platform.',
-    copy: [
-      'With the participation of professional promoters and directors, the group formed an international JV with ASK Tankers Group under ASK Tanker (India) Pvt. Ltd.',
-      'The induction of the 2000 MT bunker barge SAGAR URMIKA was aimed at capturing VLCC bunker demand along the western coast of India.',
-    ],
-  },
-  {
-    years: '2023',
-    label: 'New Seas',
+    label: 'New Seas of Opportunity Beckon',
     icon: Leaf,
     image: heroImage,
-    title: 'Apex Renewable Moves Toward an Authorized Scrap Yard.',
+    title: 'Apex Renewable advanced sustainable infrastructure plans.',
     copy: [
-      'Apex Renewable is in process under the Gujarat Government PPP Scheme and Ministry of Road Transport.',
-      'The group plans to establish an automated authorized scrap yard as mandatory vehicle scrapping requirements come into force from 2024.',
+      'Focusing on sustainable infrastructure, Apex Renewable initiated processes under the Gujarat Government PPP Scheme to establish an Authorized Automated Scrap Yard, seamlessly aligning with upcoming mandatory vehicle scrapping laws.',
     ],
   },
 ];
 
 const journeyIntro =
-  "Bapu's Group of Companies is the embodiment of the grand vision of late Shri Dilipsinhji Narendrasinhji Jadeja, whose dream to establish a formidable presence in the shipping industry continues to inspire us today. His mentorship, guidance and oversight laid the foundation for our success. With a relentless pursuit of excellence and unwavering commitment to core values, we remain steadfast in our mission to be the trusted partner of choice for owners and operators around the world.";
+  "Bapu's Group of Companies is the embodiment of the grand vision of late Shri Dilipsinhji Narendrasinhji Jadeja, whose dream to establish a formidable presence in the shipping industry continues to inspire us today. His unwavering mentorship, guidance, and oversight were instrumental in laying the foundation for our success. Our relentless pursuit of excellence and unwavering commitment to core values have charted a path of creativity, consistency, and determination towards achieving greatness in the maritime sector. The principles and values instilled by our founder serve as our compass, guiding us towards our ultimate goal of becoming a beacon of reliability and trust. We remain steadfast in our mission to be the trusted partner of choice for owners and operators around the world.";
 
-const rangeGroups = [
-  {
-    years: '1988',
-    label: 'Inception',
-    summary:
-      "The founding vision of late Shri Dilipsinhji Narendrasinhji Jadeja became the compass for Bapu's Group: reliability, trust and an unwavering commitment to the shipping industry.",
-    items: [],
-  },
-  {
-    years: '1994-1999',
-    label: 'Evolution',
-    summary:
-      "This period shaped the group's entrepreneurial foundation, bringing Bapu's Shipping Agency and Apex Engineer into the early operating platform.",
-    items: timeline.filter((item) => item.years === '1997'),
-  },
-  {
-    years: '2001-2010',
-    label: 'Breakthrough',
-    summary:
-      'The group moved from early operations into stronger fleet ownership, bonded products, lubrication distribution, fresh water services and bunkering capability.',
-    items: timeline.filter((item) => ['2007', '2008', '2009', '2010'].includes(item.years)),
-  },
-  {
-    years: '2011-2023',
-    label: 'Expansion',
-    summary:
-      'From major oil company contracts to dry dock infrastructure, offshore support, ATS and international JV growth, this era expanded scale, capability and market reach.',
-    items: timeline.filter((item) =>
-      ['2011', '2012', '2013', '2014', '2015', '2016', '2018-20', '2021', '2022', '2023'].includes(item.years)
-    ),
-  },
-  {
-    years: '2024-2025',
-    label: 'Ascension',
-    summary:
-      'The journey continues with future-ready services, authorized vehicle scrapping initiatives and a broader commitment to sustainable, reliable operations.',
-    items: [],
-  },
-];
+const rangeGroups = timeline.map((item) => ({
+  years: item.years,
+  label: item.label,
+  summary: item.title,
+  items: [item],
+}));
 
 /** Thin horizontal band (~8vh) centered near the timeline read line (~42%); only one milestone card crosses it per scroll beat. */
 const journeyCardRevealIO = {
-  threshold: 0,
-  rootMargin: '-38% 0px -54% 0px',
+  threshold: 0.04,
+  rootMargin: '0px 0px -18% 0px',
 };
 
 export function Journey() {
   const groupRefs = useRef([]);
+  const navListRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
 
@@ -403,6 +291,18 @@ export function Journey() {
     };
   }, []);
 
+  useEffect(() => {
+    const list = navListRef.current;
+    const activeLink = list?.querySelector(`[data-nav-index="${activeIndex}"]`);
+    if (!list || !activeLink) return;
+
+    activeLink.scrollIntoView({
+      block: 'nearest',
+      inline: 'nearest',
+      behavior: 'smooth',
+    });
+  }, [activeIndex]);
+
   return (
     <main className={isFooterVisible ? 'journey-page journey-page--footer-visible' : 'journey-page'}>
       <Header />
@@ -413,12 +313,13 @@ export function Journey() {
           aria-label="Journey years"
           aria-hidden={isFooterVisible}
         >
-          <nav className="journey-era-list" aria-label="Journey timeline">
+          <nav className="journey-era-list" aria-label="Journey timeline" ref={navListRef}>
             {navItems.map((era, index) => (
               <a
                 key={era.id}
                 className={index === activeIndex ? 'journey-era-link journey-era-link--active' : 'journey-era-link'}
                 href={`#${era.id}`}
+                data-nav-index={index}
               >
                 <span className="journey-era-link__indicator" aria-hidden="true" />
                 <span className="journey-era-link__text">
@@ -504,7 +405,7 @@ export function Journey() {
                           <div className="journey-milestone__main">
                             <h3 className="journey-milestone__title-line">
                               {era.years} –{' '}
-                              {era.years === '1988' ? 'A Vision That Set the Course.' : 'The Next Horizon.'}
+                              The Next Horizon.
                             </h3>
                             <div className="journey-milestone__copy">
                               <p>{era.summary}</p>
