@@ -17320,3 +17320,261 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
     mask-position: 100% 100%;
   }
 }
+
+/* Mobile polish pass */
+@media (max-width: 720px) {
+  html,
+  body,
+  #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    min-height: 96px;
+  }
+
+  .brand-lockup img {
+    max-width: min(54vw, 260px);
+    height: auto;
+  }
+
+  .nav-toggle,
+  .touch-button {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    min-height: 54px;
+    border-radius: 12px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-bottom: 22px;
+  }
+
+  .hero-content {
+    width: min(100% - 40px, 420px);
+    padding-top: 132px;
+    padding-bottom: 28px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero-kicker {
+    gap: 12px;
+    font-size: 0.72rem;
+    line-height: 1.25;
+  }
+
+  .hero-kicker::before {
+    width: 36px;
+  }
+
+  .hero-copy h1 {
+    max-width: 100%;
+    margin-bottom: 28px;
+    font-size: clamp(2.65rem, 13vw, 3.2rem);
+    line-height: 0.98;
+    text-wrap: balance;
+    overflow-wrap: normal;
+  }
+
+  .hero-copy h1 .heading-line {
+    display: block;
+    max-width: 100%;
+  }
+
+  .hero-copy h1 .heading-line:first-child {
+    font-size: clamp(2.35rem, 11.2vw, 2.85rem);
+  }
+
+  .hero-copy > p:not(.hero-kicker) {
+    font-size: 0.95rem;
+    line-height: 1.58;
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .primary-action,
+  .secondary-action {
+    min-height: 56px;
+    padding-inline: 18px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+  }
+
+  .stats-bar {
+    width: min(100% - 40px, 420px);
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .stat-item {
+    min-height: 96px;
+    padding: 22px 24px;
+  }
+
+  .footer-cta {
+    width: min(100% - 34px, 430px);
+    margin-top: 34px;
+    margin-bottom: 36px;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .footer-cta::before {
+    inset: 10px;
+  }
+
+  .footer-cta-image {
+    height: 190px;
+    min-height: 190px;
+    border-radius: 14px;
+  }
+
+  .footer-cta-image img {
+    min-height: 190px;
+  }
+
+  .footer-cta-copy {
+    padding: 30px 20px 16px;
+  }
+
+  .footer-cta h2 {
+    font-size: clamp(2rem, 9.6vw, 2.65rem);
+    line-height: 1.06;
+  }
+
+  .footer-cta p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .footer-cta-button {
+    min-height: 58px;
+    margin: 10px 20px 28px;
+    border-radius: 999px;
+  }
+
+  .group-section {
+    width: min(100% - 32px, 430px);
+  }
+
+  .group-panels {
+    gap: 22px;
+  }
+
+  .chairman-card,
+  .directors-card,
+  .partners-card {
+    padding: 24px 20px;
+  }
+
+  .chairman-card {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-image.large {
+    height: 270px;
+    object-position: center 12%;
+  }
+
+  .director-list {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 28px;
+  }
+
+  .director-profile {
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .director-profile .portrait-image {
+    height: 260px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  .director-profile strong {
+    margin-top: 14px;
+    font-size: 0.92rem;
+  }
+
+  .director-profile span {
+    font-size: 0.82rem;
+  }
+
+  .why-future-section {
+    padding: 36px 16px 48px;
+  }
+
+  .why-future-inner {
+    width: min(100%, 430px);
+  }
+
+  .why-panel,
+  .green-panel {
+    min-height: 0;
+    padding: 38px 24px;
+    clip-path: none;
+  }
+
+  .why-panel h2,
+  .green-panel h2 {
+    margin-bottom: 28px;
+    font-size: clamp(2.35rem, 11vw, 3.15rem);
+    line-height: 1.02;
+  }
+
+  .why-reasons {
+    grid-template-columns: 1fr;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .why-reasons article,
+  .why-reasons article:first-child,
+  .why-reasons article:last-child {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+    min-height: 104px;
+    padding: 22px 0;
+  }
+
+  .why-reasons svg {
+    margin-bottom: 0;
+  }
+
+  .why-reasons p {
+    max-width: none;
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-copy h1 {
+    font-size: 2.45rem;
+  }
+
+  .hero-copy h1 .heading-line:first-child {
+    font-size: 2.15rem;
+  }
+
+  .footer-cta h2 {
+    font-size: 1.95rem;
+  }
+
+  .director-profile .portrait-image {
+    height: 235px;
+  }
+}
