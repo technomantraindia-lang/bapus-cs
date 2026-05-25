@@ -18415,6 +18415,15 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
     text-wrap: balance;
   }
 
+  .category-businesses-hero h1 span {
+    display: block;
+  }
+
+  .category-businesses-hero h1 span:first-child {
+    white-space: nowrap;
+    font-size: 0.82em;
+  }
+
   .category-businesses-hero h1::after {
     bottom: -13px;
     width: 78px;
