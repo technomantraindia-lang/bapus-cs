@@ -1411,6 +1411,65 @@ a {
   }
 }
 
+@media (max-width: 720px) {
+  .category-businesses-hero .contact-hero__overlay,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__overlay,
+  .contact-page:not(.category-businesses-page) .contact-hero__overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 16, 31, 0.74) 0%, rgba(2, 17, 32, 0.78) 42%, rgba(2, 15, 28, 0.94) 100%),
+      linear-gradient(90deg, rgba(2, 16, 31, 0.76), rgba(2, 16, 31, 0.42)) !important;
+  }
+
+  .category-businesses-hero .contact-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content,
+  .contact-page:not(.category-businesses-page) .contact-hero__content {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .category-businesses-hero h1,
+  .fleet-page .contact-hero.fleet-page-hero h1,
+  .contact-page:not(.category-businesses-page) .contact-hero h1,
+  .category-businesses-hero p,
+  .fleet-page .contact-hero.fleet-page-hero p,
+  .contact-page:not(.category-businesses-page) .contact-hero p,
+  .category-businesses-hero .contact-breadcrumb,
+  .fleet-page .contact-hero.fleet-page-hero .contact-breadcrumb,
+  .contact-page:not(.category-businesses-page) .contact-breadcrumb {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.58);
+  }
+
+  .category-businesses-hero p,
+  .fleet-page .contact-hero.fleet-page-hero p,
+  .contact-page:not(.category-businesses-page) .contact-hero p {
+    padding-right: 8px;
+    color: rgba(255, 255, 255, 0.96) !important;
+  }
+
+  .category-businesses-hero .contact-hero-points,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero-points,
+  .contact-page:not(.category-businesses-page) .contact-hero-points {
+    padding: 6px 4px 0 !important;
+    background: rgba(2, 16, 31, 0.26);
+    border-radius: 14px;
+  }
+
+  .category-businesses-hero .contact-hero-points span,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero-points span,
+  .contact-page:not(.category-businesses-page) .contact-hero-points span {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+  }
+
+  .category-businesses-hero .contact-hero-points b,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero-points b,
+  .contact-page:not(.category-businesses-page) .contact-hero-points b {
+    color: #ffffff;
+  }
+}
+
 @media (max-width: 640px) {
   .site-header {
     background:

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import {
   Anchor,
   ArrowRight,
@@ -200,7 +200,27 @@ const capabilities = [
 
 export function Fleet() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedSectionRef = useRef(null);
   const selectedAsset = fleetCategories[selectedIndex];
+
+  const selectFleetCategory = useCallback((index) => {
+    setSelectedIndex(index);
+
+    window.requestAnimationFrame(() => {
+      const section = selectedSectionRef.current;
+      if (!section) return;
+
+      const isMobile = window.matchMedia('(max-width: 720px)').matches;
+      const offset = isMobile ? 92 : 112;
+      const targetTop = section.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        left: 0,
+        behavior: 'smooth',
+      });
+    });
+  }, []);
 
   return (
     <main className="app-shell fleet-page">
@@ -268,11 +288,11 @@ export function Fleet() {
                   role="button"
                   tabIndex={0}
                   aria-pressed={isActive}
-                  onClick={() => setSelectedIndex(index)}
+                  onClick={() => selectFleetCategory(index)}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter' || event.key === ' ') {
                       event.preventDefault();
-                      setSelectedIndex(index);
+                      selectFleetCategory(index);
                     }
                   }}
                 >
@@ -291,7 +311,7 @@ export function Fleet() {
       </ScrollReveal>
 
       <ScrollReveal direction="left" className="fleet-page-reveal fleet-page-reveal--selected">
-        <section className="fleet-page-selected">
+        <section className="fleet-page-selected" ref={selectedSectionRef} tabIndex={-1}>
           <div className="fleet-page-selected__copy">
             <p className="fleet-page-kicker">Selected Asset</p>
             <h2>{selectedAsset.title}</h2>
