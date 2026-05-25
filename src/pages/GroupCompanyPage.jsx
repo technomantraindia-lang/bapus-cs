@@ -22,7 +22,7 @@ import { Header } from '../components/Header.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { appHref } from '../lib/routePath.js';
 import heroImage from '../assets/hero/hero2.png';
-import mapImage from '../assets/hero/map.png';
+import presenceImage from '../assets/hero/presence-across-india.png';
 
 const heroPillars = [
   { icon: Award, lead: 'Trusted', rest: 'Leadership' },
@@ -33,8 +33,8 @@ const heroPillars = [
 
 const aboutStats = [
   { icon: Building2, value: '12+', label: 'Group Companies' },
-  { icon: Anchor, value: '50+', label: 'Marine Assets' },
-  { icon: Landmark, value: '20+', label: 'Ports & Locations' },
+  { icon: Anchor, value: '30+', label: 'Marine Assets' },
+  { icon: Landmark, value: '25+', label: 'Ports & Locations' },
   { icon: Users, value: '1500+', label: 'Professionals Worldwide' },
   { icon: Ship, value: '25K+', label: 'Vessels Served' },
   { icon: Globe2, value: '30+', label: 'Years of Operations' },
@@ -97,8 +97,8 @@ const values = [
 ];
 
 const globalStats = [
-  { icon: Globe2, value: '20+', label: 'Countries & regions served' },
-  { icon: Anchor, value: '20+', label: 'Ports & locations' },
+  { icon: Globe2, value: '25+', label: 'Countries & regions served' },
+  { icon: Anchor, value: '25+', label: 'Ports & locations' },
   { icon: Ship, value: '200+', label: 'Assets managed' },
   { icon: Users, value: '1500+', label: 'Employees & associates' },
 ];
@@ -396,38 +396,14 @@ export function GroupCompanyPage() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        <motion.div className="gcp-global__aurora" aria-hidden="true" initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration: 0.9 } }} viewport={{ once: true }} />
-
-        <div className="gcp-global__grid">
+        <div className="gcp-global__grid gcp-global__grid--image-only">
           <motion.div
-            className="gcp-global__map"
+            className="gcp-global__presence-image"
             initial={{ opacity: reduce ? 1 : 0, x: reduce ? 0 : -28 }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 0.62, ease: easeSmooth } }}
             viewport={{ once: true, amount: 0.25 }}
           >
-            <img src={mapImage} alt="" loading="lazy" />
-            {mapPins.map((pos, i) => (
-              <span key={i} className={`gcp-map-pin gcp-map-pin--delay-${i % 5}`} style={{ top: pos.top, left: pos.left }} aria-hidden="true" />
-            ))}
-          </motion.div>
-          <motion.div className="gcp-global__copy" variants={staggerChildren} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.35 }}>
-            <motion.p className="gcp-kicker-line gcp-kicker-line--on-dark" variants={childFade}>
-              <span>Our global presence</span>
-            </motion.p>
-            <motion.h2 id="gcp-global-heading" variants={childFade}>
-              Expanding horizons. Strengthening connections.
-            </motion.h2>
-            <motion.ul className="gcp-global__stats" variants={listStagger}>
-              {globalStats.map(({ icon: Icon, value, label }) => (
-                <motion.li key={label} variants={childFade} whileHover={reduce ? undefined : { x: 6 }}>
-                  <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
-                  <div>
-                    <strong>{value}</strong>
-                    <span>{label}</span>
-                  </div>
-                </motion.li>
-              ))}
-            </motion.ul>
+            <img src={presenceImage} alt="Our Presence Across India" loading="lazy" />
           </motion.div>
         </div>
       </motion.section>

@@ -12,12 +12,10 @@ import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 const quickLinks = [
   ['Home', '/'],
   ['About Us', '/about'],
-  ['Group Companies', '/group-company'],
   ['Our Businesses', '/businesses'],
-  ['Sustainability', '/'],
-  ['Our Presence', '/'],
-  ['Insights', '/'],
-  ['Careers', '/'],
+  ['Group Companies', '/group-company'],
+  ['Fleet', '/fleet'],
+  ['Our Journey', '/our-journey'],
   ['Contact Us', '/contact'],
 ];
 
@@ -34,26 +32,28 @@ const businesses = [
 
 const locations = ['Kandla', 'Mumbai', 'Jamnagar'];
 
-export function FooterCta() {
+export function FooterCta({ showCta = true }) {
   return (
     <>
-      <section className="footer-cta">
-        <div className="footer-cta-image">
-          <img src={ctaImage} alt="" aria-hidden="true" />
-        </div>
-        <div className="footer-cta-copy">
-          <SectionAnchorRule className="section-anchor-rule--align-start" />
-          <h2>Let&apos;s build a stronger maritime future together.</h2>
-          <p>
-            Partner with Bapu&apos;s Group for reliable, sustainable and
-            future-ready solutions.
-          </p>
-        </div>
-        <a className="footer-cta-button" href={appHref('/contact')}>
-          Get in touch
-          <ChevronRight size={18} aria-hidden="true" />
-        </a>
-      </section>
+      {showCta ? (
+        <section className="footer-cta">
+          <div className="footer-cta-image">
+            <img src={ctaImage} alt="" aria-hidden="true" />
+          </div>
+          <div className="footer-cta-copy">
+            <SectionAnchorRule className="section-anchor-rule--align-start" />
+            <h2>Let&apos;s build a stronger maritime future together.</h2>
+            <p>
+              Partner with Bapu&apos;s Group for reliable, sustainable and
+              future-ready solutions.
+            </p>
+          </div>
+          <a className="footer-cta-button" href={appHref('/contact')}>
+            Get in touch
+            <ChevronRight size={18} aria-hidden="true" />
+          </a>
+        </section>
+      ) : null}
 
       <footer className="site-footer">
         <div className="footer-main">

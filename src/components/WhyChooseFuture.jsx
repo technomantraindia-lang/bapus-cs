@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal.jsx';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
+import { appHref } from '../lib/routePath.js';
 
 const reasons = [
   {
@@ -81,7 +82,7 @@ export function WhyChooseFuture() {
                 </li>
               ))}
             </ul>
-            <a href="/" className="green-learn-button">
+            <a href={appHref('/businesses')} className="green-learn-button">
               Learn more
               <ChevronRight size={16} aria-hidden="true" />
             </a>

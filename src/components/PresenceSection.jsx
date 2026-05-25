@@ -3,6 +3,7 @@ import { Headphones, Ship, ShipWheel, ShieldCheck } from 'lucide-react';
 import mapImage from '../assets/hero/map.png';
 import { AnimatedStatValue } from './AnimatedStatValue.jsx';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
+import { appHref } from '../lib/routePath.js';
 
 const presenceStats = [
   {
@@ -76,7 +77,7 @@ export function PresenceSection() {
           <p className="presence-lede">
             Operating across key ports and offshore locations along the Indian coastline.
           </p>
-          <a className="presence-button" href="/">
+          <a className="presence-button" href={appHref('/group-company')}>
             Explore ports
             <span className="presence-button__arrow" aria-hidden="true">
               →

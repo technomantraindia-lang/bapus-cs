@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
-import { ScrollReveal } from '../components/ScrollReveal.jsx';
 import { appHref } from '../lib/routePath.js';
 import heroImage from '../assets/hero/hero2.png';
 
@@ -257,9 +256,7 @@ export function Contact() {
         </div>
       </section>
 
-      <ScrollReveal direction="up">
-        <FooterCta />
-      </ScrollReveal>
+      <FooterCta showCta={false} />
     </main>
   );
 }

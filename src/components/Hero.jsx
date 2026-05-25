@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import heroVideo from '../assets/hero/aerial-follow-footage-of-a-feeder-type-container-s-2025-12-17-04-25-16-utc.mp4';
 import { Header } from './Header.jsx';
+import { appHref } from '../lib/routePath.js';
 
 const stats = [
   {
@@ -116,11 +117,11 @@ export function Hero() {
             marine bunkering, offshore logistics, infrastructure, and beyond.
           </p>
           <div className="hero-actions">
-            <a className="primary-action" href="/">
+            <a className="primary-action" href={appHref('/businesses')}>
               Our businesses
               <ChevronRight size={15} aria-hidden="true" />
             </a>
-            <a className="secondary-action" href="/">
+            <a className="secondary-action" href={appHref('/about')}>
               About us
               <Anchor size={15} aria-hidden="true" />
             </a>

@@ -11,7 +11,8 @@ export function Header() {
   const isAbout = path === '/about' || path === '/about-us';
   const isBusinesses = path === '/businesses' || path === '/category' || path === '/categories';
   const isContact = path === '/contact' || path === '/contact-us';
-  const isFleet = path === '/fleet' || path === '/marine-assets';
+  const isFleet = path === '/fleet' || path === '/marine-assets' || path.startsWith('/fleet/');
+  const isJourney = path === '/our-journey' || path === '/journey';
   const isGroupCompany =
     path === '/group-company' ||
     path === '/group-companies' ||
@@ -50,6 +51,7 @@ export function Header() {
             <a
               className={
                 !isAbout && !isBusinesses && !isContact && !isFleet && !isGroupCompany
+                  && !isJourney
                   ? 'active'
                   : undefined
               }
@@ -70,8 +72,9 @@ export function Header() {
             <a className={isFleet ? 'active' : undefined} href={appHref('/fleet')} onClick={() => setIsMenuOpen(false)}>
               Fleet
             </a>
-            <a href={appHref('/')} onClick={() => setIsMenuOpen(false)}>Sustainability</a>
-
+            <a className={isJourney ? 'active' : undefined} href={appHref('/our-journey')} onClick={() => setIsMenuOpen(false)}>
+              Our Journey
+            </a>
             <a className={isContact ? 'active' : undefined} href={appHref('/contact')} onClick={() => setIsMenuOpen(false)}>
               Contact Us
             </a>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Anchor,
   ArrowRight,
@@ -27,72 +28,151 @@ import seap2 from '../assets/hero/feet/seap2.png';
 import seap3 from '../assets/hero/feet/seap3.png';
 import seap4 from '../assets/hero/feet/seap4.png';
 import seap5 from '../assets/hero/feet/seap5.png';
-import seap6 from '../assets/hero/feet/seap6.png';
 
 const fleetStats = [
-  { icon: Ship, value: '50+', label: 'Marine Assets' },
-  { icon: Globe2, value: '20+', label: 'Ports & Locations' },
+  { icon: Ship, value: '30+', label: 'Marine Assets' },
+  { icon: Globe2, value: '25+', label: 'Ports & Locations' },
   { icon: Clock3, value: '24/7', label: 'Operations' },
   { icon: ShieldCheck, value: '100%', label: 'Safety Commitment' },
 ];
 
 const fleetCategories = [
   {
+    slug: 'bunker-barges',
     icon: Ship,
     image: seap1,
+    detailImage: seap2,
     title: 'Bunker Barges',
     text: 'Reliable fuel supply for vessel-to-vessel operations.',
+    description:
+      'Purpose-built bunker barges for efficient ship-to-ship fuel transfer, with robust safety systems and compliance with international standards at every port call.',
+    features: [
+      {
+        icon: ShieldCheck,
+        title: 'High Safety Standards',
+        text: 'Rigorous protocols, trained crews and systems designed for safe bunkering every voyage.',
+      },
+      {
+        icon: Leaf,
+        title: 'Efficient & Environmentally Responsible',
+        text: 'Operations aligned with environmental compliance and efficient fuel handling.',
+      },
+      {
+        icon: BadgeCheck,
+        title: 'Operational Excellence',
+        text: 'Reliable schedules, maintenance discipline and port-ready readiness across our fleet.',
+      },
+    ],
+    specs: [
+      { icon: CircleGauge, title: 'Capacity', value: 'Up to 5,000 KL' },
+      { icon: Ruler, title: 'Length Overall', value: '70 - 100 m' },
+      { icon: Waves, title: 'Breadth', value: '18 - 25 m' },
+      { icon: Flag, title: 'Flag', value: 'International / Compliant' },
+      { icon: Anchor, title: 'Class', value: 'IRS / IMO Compliant' },
+    ],
   },
   {
+    slug: 'tug-boats',
     icon: LifeBuoy,
     image: seap3,
+    detailImage: seap3,
     title: 'Tug Boats',
     text: 'Strong tug support for berthing and towing.',
+    description:
+      'Powerful tug boats built for berthing, unberthing, towing and emergency support, helping vessels move safely and efficiently across port waters.',
+    features: [
+      {
+        icon: LifeBuoy,
+        title: 'Reliable Towage Support',
+        text: 'Responsive tug assistance for vessel movement, berthing and towing requirements.',
+      },
+      {
+        icon: UsersRound,
+        title: 'Experienced Crew',
+        text: 'Skilled marine teams trained for safe close-quarter vessel handling.',
+      },
+      {
+        icon: BadgeCheck,
+        title: 'Port-Ready Operations',
+        text: 'Maintained assets available for dependable support during critical port calls.',
+      },
+    ],
+    specs: [
+      { icon: CircleGauge, title: 'Bollard Pull', value: 'Up to 32 MT' },
+      { icon: Ruler, title: 'Length Overall', value: '20 - 35 m' },
+      { icon: Waves, title: 'Operations', value: 'Berthing / Towing' },
+      { icon: Flag, title: 'Flag', value: 'Indian / Compliant' },
+      { icon: Anchor, title: 'Class', value: 'MS / RSV Class' },
+    ],
   },
   {
+    slug: 'freshwater-barges',
     icon: Droplets,
     image: seap4,
+    detailImage: seap4,
     title: 'Freshwater Barges',
     text: 'Freshwater supply for offshore and anchored vessels.',
+    description:
+      'Freshwater barges designed to supply clean water to coastal, offshore and anchored vessels with dependable scheduling and safe transfer practices.',
+    features: [
+      {
+        icon: Droplets,
+        title: 'Freshwater Supply',
+        text: 'Efficient water delivery for vessels at anchorage, offshore locations and port limits.',
+      },
+      {
+        icon: Clock3,
+        title: 'Timely Coordination',
+        text: 'Planned operations to match vessel schedules and reduce waiting time.',
+      },
+      {
+        icon: ShieldCheck,
+        title: 'Safe Transfer Process',
+        text: 'Controlled handling practices for consistent and secure freshwater supply.',
+      },
+    ],
+    specs: [
+      { icon: CircleGauge, title: 'Capacity', value: 'High-volume supply' },
+      { icon: Ruler, title: 'Service Area', value: 'Port / Anchorage' },
+      { icon: Waves, title: 'Use Case', value: 'Freshwater Delivery' },
+      { icon: Flag, title: 'Flag', value: 'Compliant Operations' },
+      { icon: Anchor, title: 'Class', value: 'Marine Supply Asset' },
+    ],
   },
   {
+    slug: 'offshore-vessels',
     icon: Waves,
     image: seap5,
+    detailImage: seap5,
     title: 'Offshore Vessels',
     text: 'Crew transfer, cargo and field support vessels.',
+    description:
+      'Offshore support vessels equipped for crew transfer, cargo movement and field support across demanding marine operating environments.',
+    features: [
+      {
+        icon: UsersRound,
+        title: 'Crew Transfer',
+        text: 'Safe and coordinated movement of crew between shore, vessels and offshore sites.',
+      },
+      {
+        icon: Ship,
+        title: 'Cargo Support',
+        text: 'Flexible support for stores, equipment and operational cargo movement.',
+      },
+      {
+        icon: Globe2,
+        title: 'Field Operations',
+        text: 'Dependable marine support across offshore and coastal project needs.',
+      },
+    ],
+    specs: [
+      { icon: CircleGauge, title: 'Capability', value: 'Crew / Cargo Support' },
+      { icon: Ruler, title: 'Range', value: 'Coastal / Offshore' },
+      { icon: Waves, title: 'Operations', value: 'Field Support' },
+      { icon: Flag, title: 'Flag', value: 'Compliant Fleet' },
+      { icon: Anchor, title: 'Class', value: 'Offshore Support' },
+    ],
   },
-  {
-    icon: Cog,
-    image: seap6,
-    title: 'Dry Dock Facility',
-    text: 'Dry dock support for repair and conversions.',
-  },
-];
-
-const selectedFeatures = [
-  {
-    icon: ShieldCheck,
-    title: 'High Safety Standards',
-    text: 'Rigorous protocols, trained crews and systems designed for safe bunkering every voyage.',
-  },
-  {
-    icon: Leaf,
-    title: 'Efficient & Environmentally Responsible',
-    text: 'Operations aligned with environmental compliance and efficient fuel handling.',
-  },
-  {
-    icon: BadgeCheck,
-    title: 'Operational Excellence',
-    text: 'Reliable schedules, maintenance discipline and port-ready readiness across our fleet.',
-  },
-];
-
-const specs = [
-  { icon: CircleGauge, title: 'Capacity', value: 'Up to 5,000 KL' },
-  { icon: Ruler, title: 'Length Overall', value: '70 - 100 m' },
-  { icon: Waves, title: 'Breadth', value: '18 - 25 m' },
-  { icon: Flag, title: 'Flag', value: 'International / Compliant' },
-  { icon: Anchor, title: 'Class', value: 'IRS / IMO Compliant' },
 ];
 
 const capabilities = [
@@ -119,6 +199,9 @@ const capabilities = [
 ];
 
 export function Fleet() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedAsset = fleetCategories[selectedIndex];
+
   return (
     <main className="app-shell fleet-page">
       <Header />
@@ -169,16 +252,30 @@ export function Fleet() {
           <p className="fleet-page-kicker">Our Fleet Categories</p>
           <h2>Built for Every Maritime Need</h2>
           <p>
-            From bunkering to offshore support and dry dock services, our fleet is
+            From bunkering to offshore support services, our fleet is
             equipped to deliver performance across every operation.
           </p>
 
           <div className="fleet-page-card-grid">
-            {fleetCategories.map((item) => {
+            {fleetCategories.map((item, index) => {
               const Icon = item.icon;
+              const isActive = index === selectedIndex;
 
               return (
-                <article className="fleet-page-card" key={item.title}>
+                <article
+                  className={isActive ? 'fleet-page-card fleet-page-card--active' : 'fleet-page-card'}
+                  key={item.title}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isActive}
+                  onClick={() => setSelectedIndex(index)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setSelectedIndex(index);
+                    }
+                  }}
+                >
                   <img src={item.image} alt={item.title} />
                   <span>
                     <Icon size={34} aria-hidden="true" />
@@ -197,16 +294,12 @@ export function Fleet() {
         <section className="fleet-page-selected">
           <div className="fleet-page-selected__copy">
             <p className="fleet-page-kicker">Selected Asset</p>
-            <h2>Bunker Barges</h2>
+            <h2>{selectedAsset.title}</h2>
             <span className="fleet-page-squiggle" aria-hidden="true" />
-            <p>
-              Purpose-built bunker barges for efficient ship-to-ship fuel transfer,
-              with robust safety systems and compliance with international
-              standards at every port call.
-            </p>
+            <p>{selectedAsset.description}</p>
 
             <div className="fleet-page-feature-row">
-              {selectedFeatures.map((feature) => {
+              {selectedAsset.features.map((feature) => {
                 const Icon = feature.icon;
 
                   return (
@@ -221,18 +314,18 @@ export function Fleet() {
               })}
             </div>
 
-            <a className="fleet-page-button" href={appHref('/contact')}>
+            <a className="fleet-page-button" href={appHref(`/fleet/${selectedAsset.slug}`)}>
               View all details
               <ArrowRight size={18} aria-hidden="true" />
             </a>
           </div>
 
           <div className="fleet-page-selected__image" aria-hidden="true">
-            <img src={seap2} alt="" />
+            <img src={selectedAsset.detailImage} alt="" />
           </div>
 
           <div className="fleet-page-specs">
-            {specs.map((spec) => {
+            {selectedAsset.specs.map((spec) => {
               const Icon = spec.icon;
 
               return (

@@ -89,8 +89,8 @@ const services = [
   },
   {
     icon: ShipWheel,
-    title: 'Ship Repairs & Dry Dock',
-    copy: 'World-class ship repair, maintenance and dry dock services.',
+    title: 'Ship Repairs & Maintenance',
+    copy: 'World-class ship repair and maintenance services.',
   },
   {
     icon: Wrench,

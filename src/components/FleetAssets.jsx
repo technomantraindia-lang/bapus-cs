@@ -10,15 +10,16 @@ import {
   Waves,
 } from 'lucide-react';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
+import { appHref } from '../lib/routePath.js';
 import seap1 from '../assets/hero/feet/seap1.png';
 import seap2 from '../assets/hero/feet/seap2.png';
 import seap3 from '../assets/hero/feet/seap3.png';
 import seap4 from '../assets/hero/feet/seap4.png';
 import seap5 from '../assets/hero/feet/seap5.png';
-import seap6 from '../assets/hero/feet/seap6.png';
 
 const fleetItems = [
   {
+    slug: 'bunker-barges',
     image: seap1,
     title: 'Bunker Barges',
     detail:
@@ -26,28 +27,25 @@ const fleetItems = [
   },
  
   {
+    slug: 'tug-boats',
     image: seap3,
     title: 'Tug Boats',
     detail:
       'Powerful tug boats for towing, berthing assistance, harbour support and emergency operations.',
   },
   {
+    slug: 'freshwater-barges',
     image: seap4,
     title: 'Freshwater Barges',
     detail:
       'Freshwater barges supporting offshore platforms, anchored vessels and marine logistics needs.',
   },
   {
+    slug: 'offshore-vessels',
     image: seap5,
     title: 'Offshore Vessels',
     detail:
       'Offshore support vessels for crew transfer, light cargo movement and marine field operations.',
-  },
-  {
-    image: seap6,
-    title: 'Dry Dock Facility',
-    detail:
-      'Dry dock facility for vessel repair, maintenance, inspection, conversion and shipbuilding support.',
   },
 ];
 
@@ -62,7 +60,7 @@ export function FleetAssets() {
         <h2>Our fleet</h2>
         <p>
           Explore our integrated marine fleet supporting bunkering, offshore
-          logistics, tug operations and dry dock services.
+          logistics, tug operations and freshwater supply services.
         </p>
       </div>
 
@@ -161,10 +159,10 @@ export function FleetAssets() {
                   </span>
                 </div>
 
-                <button className="fleet-detail-btn" type="button">
+                <a className="fleet-detail-btn" href={appHref(`/fleet/${active.slug}`)}>
                   View Asset Details
                   <ArrowRight size={18} aria-hidden="true" />
-                </button>
+                </a>
               </div>
             </motion.div>
           )}

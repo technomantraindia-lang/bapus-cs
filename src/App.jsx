@@ -4,6 +4,7 @@ import { Category } from './pages/Category.jsx';
 import { About } from './pages/About.jsx';
 import { Contact } from './pages/Contact.jsx';
 import { Fleet } from './pages/Fleet.jsx';
+import { FleetDetail } from './pages/FleetDetail.jsx';
 import { GroupCompanyPage } from './pages/GroupCompanyPage.jsx';
 import { getAppPath } from './lib/routePath.js';
 
@@ -47,6 +48,10 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [path]);
+
   if (path === '/category' || path === '/categories' || path === '/businesses') {
     return <Category />;
   }
@@ -73,6 +78,10 @@ export default function App() {
 
   if (path === '/contact' || path === '/contact-us') {
     return <Contact />;
+  }
+
+  if (path.startsWith('/fleet/') || path.startsWith('/marine-assets/')) {
+    return <FleetDetail />;
   }
 
   if (path === '/fleet' || path === '/marine-assets') {

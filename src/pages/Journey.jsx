@@ -165,10 +165,10 @@ const timeline = [
     label: 'Sailing into a New Dawn',
     icon: HardHat,
     image: seap6,
-    title: 'A major milestone was achieved with a state-of-the-art dry dock facility.',
+    title: 'A major marine infrastructure milestone was achieved.',
     copy: [
-      'A major milestone was achieved with the establishment of a state-of-the-art Graving Dry Dock Facility (100M x 50M) in the Gulf of Kachchh at Kandla.',
-      'This self-sufficient docking service showcases our dedication to maintaining the highest seaworthiness of our floating assets and achieving industry excellence.',
+      'A major milestone was achieved with the establishment of a self-sufficient marine support facility in the Gulf of Kachchh at Kandla.',
+      'This infrastructure showcases our dedication to maintaining the highest seaworthiness of our floating assets and achieving industry excellence.',
       'Furthermore, M/s Bapu\'s Shipping South Gujarat inducted its highest towing capacity asset, the 32 MT Bollard Pull MS class Tug "IVY".',
     ],
   },
