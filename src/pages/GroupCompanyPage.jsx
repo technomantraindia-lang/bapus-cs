@@ -1,4 +1,5 @@
 import '../styles/groupCompanyPage.css';
+import { useRef } from 'react';
 import {
   Anchor,
   ArrowRight,
@@ -17,9 +18,10 @@ import {
   TrendingUp,
   Users,
 } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Header } from '../components/Header.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
+import { AnimatedStatValue } from '../components/AnimatedStatValue.jsx';
 import { appHref } from '../lib/routePath.js';
 import heroImage from '../assets/hero/hero2.png';
 import presenceImage from '../assets/hero/presence-across-india.png';
@@ -119,6 +121,8 @@ const viewportOnce = { once: true, margin: '0px 0px -12% 0px', amount: 0.2 };
 
 export function GroupCompanyPage() {
   const reduce = useReducedMotion();
+  const statsCardRef = useRef(null);
+  const statsInView = useInView(statsCardRef, { once: true, amount: 0.28 });
 
   const yOff = reduce ? 0 : 22;
   const ySection = reduce ? 0 : 44;
@@ -271,7 +275,7 @@ export function GroupCompanyPage() {
             </motion.a>
           </motion.div>
 
-          <motion.div className="gcp-about__stats-card" variants={childFade}>
+          <motion.div className="gcp-about__stats-card" variants={childFade} ref={statsCardRef}>
             <div className="gcp-stats-grid">
               {aboutStats.map(({ icon: Icon, value, label }, i) => (
                 <motion.div
@@ -289,7 +293,9 @@ export function GroupCompanyPage() {
                   <span className="gcp-stat__icon">
                     <Icon size={26} strokeWidth={1.5} aria-hidden="true" />
                   </span>
-                  <strong className="gcp-stat__value">{value}</strong>
+                  <strong className="gcp-stat__value">
+                    <AnimatedStatValue value={value} active={statsInView} delayMs={i * 90} />
+                  </strong>
                   <span className="gcp-stat__label">{label}</span>
                 </motion.div>
               ))}

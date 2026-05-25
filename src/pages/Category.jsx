@@ -24,7 +24,10 @@ export function Category() {
             <span>/</span>
             <strong>Businesses</strong>
           </nav>
-          <h1>Integrated Maritime Solutions</h1>
+          <h1>
+            <span>Integrated Maritime</span>
+            <span>Solutions</span>
+          </h1>
           <p>
            Marine, energy and infrastructure services built on reliability, safety and operational excellence.
           </p>

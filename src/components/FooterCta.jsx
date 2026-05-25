@@ -95,7 +95,7 @@ export function FooterCta({ showCta = true }) {
           <nav className="footer-column footer-column-wide" aria-label="Our businesses">
             <h3>Our businesses</h3>
             {businesses.map((business) => (
-              <a href="/" key={business}>
+              <a href={appHref('/businesses')} key={business}>
                 {business}
               </a>
             ))}
@@ -134,11 +134,7 @@ export function FooterCta({ showCta = true }) {
             <Waves size={16} aria-hidden="true" />
             &copy; 2026 Bapu&apos;s Group of Companies. All Rights Reserved.
           </p>
-          <div>
-            <a href="/">Privacy Policy</a>
-            <span>|</span>
-            <a href="/">Terms of Use</a>
-          </div>
+         
         </div>
       </footer>
     </>

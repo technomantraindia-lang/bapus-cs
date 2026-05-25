@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Anchor,
   Award,
@@ -228,8 +228,21 @@ export function Journey() {
 
   useEffect(() => {
     const rootEl = document.documentElement;
-    rootEl.classList.add('journey-page-scroll-snap');
-    return () => rootEl.classList.remove('journey-page-scroll-snap');
+    const desktopQuery = window.matchMedia('(min-width: 721px)');
+
+    const syncScrollSnap = () => {
+      rootEl.classList.toggle('journey-page-scroll-snap', desktopQuery.matches);
+    };
+
+    rootEl.classList.add('journey-page-active');
+    syncScrollSnap();
+    desktopQuery.addEventListener('change', syncScrollSnap);
+
+    return () => {
+      desktopQuery.removeEventListener('change', syncScrollSnap);
+      rootEl.classList.remove('journey-page-active');
+      rootEl.classList.remove('journey-page-scroll-snap');
+    };
   }, []);
 
   useEffect(() => {
@@ -295,6 +308,7 @@ export function Journey() {
     const list = navListRef.current;
     const activeLink = list?.querySelector(`[data-nav-index="${activeIndex}"]`);
     if (!list || !activeLink) return;
+    if (window.matchMedia('(max-width: 720px)').matches) return;
 
     activeLink.scrollIntoView({
       block: 'nearest',
@@ -302,6 +316,24 @@ export function Journey() {
       behavior: 'smooth',
     });
   }, [activeIndex]);
+
+  const handleEraClick = useCallback((event, index) => {
+    event.preventDefault();
+
+    const section = groupRefs.current[index];
+    if (!section) return;
+
+    const isMobile = window.matchMedia('(max-width: 720px)').matches;
+    const offset = isMobile ? 92 : 142;
+    const targetTop = section.getBoundingClientRect().top + window.scrollY - offset;
+
+    setActiveIndex(index);
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, []);
 
   return (
     <main className={isFooterVisible ? 'journey-page journey-page--footer-visible' : 'journey-page'}>
@@ -320,6 +352,7 @@ export function Journey() {
                 className={index === activeIndex ? 'journey-era-link journey-era-link--active' : 'journey-era-link'}
                 href={`#${era.id}`}
                 data-nav-index={index}
+                onClick={(event) => handleEraClick(event, index)}
               >
                 <span className="journey-era-link__indicator" aria-hidden="true" />
                 <span className="journey-era-link__text">
