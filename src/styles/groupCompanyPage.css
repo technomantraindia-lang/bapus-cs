@@ -842,3 +842,152 @@
     flex-wrap: wrap;
   }
 }
+
+@media (max-width: 900px) {
+  .group-company-page {
+    overflow-x: clip;
+  }
+
+  .group-company-page .contact-hero .gcp-hero-bg {
+    object-position: 62% center;
+  }
+
+  .gcp-hero-accent-blob {
+    display: none;
+  }
+
+  .gcp-about,
+  .gcp-portfolio,
+  .gcp-values,
+  .gcp-global,
+  .gcp-cta {
+    padding: 52px 14px;
+  }
+
+  .gcp-about__grid,
+  .gcp-global__grid,
+  .gcp-cta__inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .gcp-about__copy h2,
+  .gcp-portfolio__head h2,
+  .gcp-values__intro h2,
+  .gcp-global__copy h2,
+  .gcp-cta__copy h2 {
+    font-size: clamp(1.75rem, 8vw, 2.55rem);
+    line-height: 1.12;
+  }
+
+  .gcp-kicker-line {
+    gap: 10px;
+    font-size: 0.66rem;
+    line-height: 1.35;
+  }
+
+  .gcp-kicker-line::before {
+    flex-basis: 38px;
+  }
+
+  .gcp-about__stats-card,
+  .gcp-portfolio-card,
+  .gcp-values__row li,
+  .gcp-global__map,
+  .gcp-cta__inner {
+    border-radius: 16px;
+  }
+
+  .gcp-about__stats-card,
+  .gcp-cta__copy {
+    padding: 24px 18px;
+  }
+
+  .gcp-stats-grid,
+  .gcp-portfolio__cards,
+  .gcp-values__row,
+  .gcp-global__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .gcp-values__row {
+    overflow: visible;
+    grid-auto-flow: row;
+    padding-bottom: 0;
+  }
+
+  .gcp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gcp-global__map {
+    min-height: 260px;
+    padding: 16px;
+  }
+
+  .gcp-global__map img {
+    max-height: 250px;
+    object-fit: contain;
+  }
+
+  .gcp-map-pin {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 560px) {
+  .gcp-about,
+  .gcp-portfolio,
+  .gcp-values,
+  .gcp-global,
+  .gcp-cta {
+    padding: 42px 11px;
+  }
+
+  .gcp-about__copy p,
+  .gcp-portfolio-card p,
+  .gcp-values__row p,
+  .gcp-cta__copy p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .gcp-stat,
+  .gcp-portfolio-card,
+  .gcp-values__row li,
+  .gcp-global__stats li {
+    padding: 18px 16px;
+  }
+
+  .gcp-stat__value {
+    font-size: 1.7rem;
+  }
+
+  .gcp-cta__image img {
+    min-height: 220px;
+  }
+}
+
+.gcp-btn {
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.gcp-btn--dark:hover {
+  color: #061625;
+  background: linear-gradient(135deg, #ffc84a 0%, #f2a30c 100%);
+  border-color: rgba(255, 200, 74, 0.72);
+  box-shadow: 0 18px 42px rgba(245, 170, 22, 0.28);
+}
+
+.gcp-btn--gold:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #08233f 0%, #0b4774 100%);
+  border-color: rgba(245, 170, 22, 0.52);
+  box-shadow: 0 18px 42px rgba(8, 35, 63, 0.26);
+}
