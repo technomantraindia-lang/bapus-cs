@@ -1,5 +1,6 @@
 import { AboutGroup } from '../components/AboutGroup.jsx';
 import { CoreBusinesses } from '../components/CoreBusinesses.jsx';
+import { DryDockFacility } from '../components/DryDockFacility.jsx';
 import { FleetAssets } from '../components/FleetAssets.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { GroupCompanies } from '../components/GroupCompanies.jsx';
@@ -30,6 +31,11 @@ export function Home() {
       <div className="home-band home-band--fleet">
         <ScrollReveal direction="left">
           <FleetAssets />
+        </ScrollReveal>
+      </div>
+      <div className="home-band home-band--drydock">
+        <ScrollReveal direction="right">
+          <DryDockFacility />
         </ScrollReveal>
       </div>
       <ScrollReveal direction="up">
