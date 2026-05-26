@@ -288,6 +288,18 @@ a {
   }
 }
 
+@keyframes aboutPageRevealRightNoScale {
+  from {
+    opacity: 0;
+    transform: translate3d(64px, 22px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @keyframes aboutPageRevealUp {
   from {
     opacity: 0;
@@ -7737,14 +7749,12 @@ a {
   animation: softFloat 4.8s ease-in-out infinite;
 }
 
-.presence-map,
 .footer-cta-image img {
   transition:
     filter 260ms ease,
     transform 520ms ease;
 }
 
-.presence-section:hover .presence-map,
 .footer-cta:hover .footer-cta-image img {
   filter: saturate(1.12) contrast(1.06);
   transform: scale(1.04);
@@ -12056,10 +12066,13 @@ a {
 }
 
 .about-page-reveal:not(.scroll-reveal--visible) .about-legacy-copy,
-.about-page-reveal:not(.scroll-reveal--visible) .about-presence-map,
 .about-page-reveal:not(.scroll-reveal--visible) .about-service-grid article:nth-child(even),
 .about-page-reveal:not(.scroll-reveal--visible) .about-commitment-grid article:nth-child(even) {
   transform: translate3d(64px, 22px, 0) scale(0.97);
+}
+
+.about-page-reveal:not(.scroll-reveal--visible) .about-presence-map {
+  transform: translate3d(64px, 22px, 0);
 }
 
 .about-page-reveal:not(.scroll-reveal--visible) .about-values-row article,
@@ -12096,10 +12109,13 @@ a {
 }
 
 .about-page-reveal.scroll-reveal--visible .about-legacy-copy,
-.about-page-reveal.scroll-reveal--visible .about-presence-map,
 .about-page-reveal.scroll-reveal--visible .about-service-grid article:nth-child(even),
 .about-page-reveal.scroll-reveal--visible .about-commitment-grid article:nth-child(even) {
   animation-name: aboutPageRevealRight;
+}
+
+.about-page-reveal.scroll-reveal--visible .about-presence-map {
+  animation-name: aboutPageRevealRightNoScale;
 }
 
 .about-page-reveal.scroll-reveal--visible .about-values-row article,
@@ -12711,7 +12727,6 @@ a {
   opacity: 0.94;
   filter: drop-shadow(0 0 26px rgba(126, 203, 255, 0.38));
   transform-origin: center;
-  animation: aboutPageMapDrift 7s ease-in-out infinite;
 }
 
 .about-services-section {
@@ -17976,6 +17991,30 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
 
 .category-businesses-page {
   --hero-wave-fill: #eef6fb;
+}
+
+.category-businesses-hero h1 {
+  max-width: 640px;
+  font-size: clamp(2.9rem, 4.45vw, 4.35rem);
+  line-height: 0.98;
+}
+
+.category-businesses-hero h1 span {
+  display: block;
+}
+
+.category-businesses-hero h1 span:first-child {
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.category-businesses-hero h1 span:last-child {
+  background: linear-gradient(108deg, #ffd27a 0%, #f5aa16 52%, #e8940c 100%);
+  background-size: 120% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 24px 60px rgba(245, 170, 22, 0.15);
 }
 
 .fleet-page {

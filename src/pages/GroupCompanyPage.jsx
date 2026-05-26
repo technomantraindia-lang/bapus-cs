@@ -37,7 +37,7 @@ const aboutStats = [
   { icon: Building2, value: '12+', label: 'Group Companies' },
   { icon: Anchor, value: '30+', label: 'Marine Assets' },
   { icon: Landmark, value: '25+', label: 'Ports & Locations' },
-  { icon: Users, value: '1500+', label: 'Professionals Worldwide' },
+  { icon: Users, value: '200+', label: 'Professionals Worldwide' },
   { icon: Ship, value: '25K+', label: 'Vessels Served' },
   { icon: Globe2, value: '30+', label: 'Years of Operations' },
 ];
@@ -102,7 +102,7 @@ const globalStats = [
   { icon: Globe2, value: '25+', label: 'Countries & regions served' },
   { icon: Anchor, value: '25+', label: 'Ports & locations' },
   { icon: Ship, value: '200+', label: 'Assets managed' },
-  { icon: Users, value: '1500+', label: 'Employees & associates' },
+  { icon: Users, value: '200+', label: 'Employees & associates' },
 ];
 
 /** Pin positions (% of map box) — decorative markers */

@@ -10,7 +10,6 @@ const presenceStats = [
     icon: Ship,
     value: '30+',
     label: 'PORTS &\nLOCATIONS',
-    countUp: false,
   },
   {
     icon: ShipWheel,

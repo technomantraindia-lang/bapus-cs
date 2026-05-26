@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import {
   Anchor,
   Award,
@@ -20,6 +21,7 @@ import {
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { ScrollReveal } from '../components/ScrollReveal.jsx';
+import { AnimatedStatValue } from '../components/AnimatedStatValue.jsx';
 import { appHref } from '../lib/routePath.js';
 import aboutImage from '../assets/hero/about.jpg';
 import mapImage from '../assets/hero/map.png';
@@ -123,6 +125,27 @@ const commitments = [
 ];
 
 export function About() {
+  const presenceStatsRef = useRef(null);
+  const [presenceStatsActive, setPresenceStatsActive] = useState(false);
+
+  useEffect(() => {
+    const el = presenceStatsRef.current;
+    if (!el) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPresenceStatsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.28, rootMargin: '0px 0px -8% 0px' },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="app-shell about-page">
       <Header />
@@ -210,15 +233,21 @@ export function About() {
             </a>
           </div>
 
-          <div className="about-presence-stats">
-            {presenceStats.map((item) => {
+          <div ref={presenceStatsRef} className="about-presence-stats">
+            {presenceStats.map((item, index) => {
               const Icon = item.icon;
 
               return (
                 <article key={item.label}>
                   <Icon size={30} aria-hidden="true" />
                   <div>
-                    <strong>{item.value}</strong>
+                    <strong>
+                      <AnimatedStatValue
+                        value={item.value}
+                        active={presenceStatsActive}
+                        delayMs={index * 110}
+                      />
+                    </strong>
                     <span>{item.label}</span>
                   </div>
                 </article>
