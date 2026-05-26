@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Award, CheckCircle2, Menu, Phone, X } from 'lucide-react';
 import { ContactPopup } from './ContactPopup.jsx';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
@@ -7,6 +7,7 @@ import { appHref, getAppPath } from '../lib/routePath.js';
 export function Header() {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const path = getAppPath();
   const isAbout = path === '/about' || path === '/about-us';
   const isBusinesses = path === '/businesses' || path === '/category' || path === '/categories';
@@ -18,8 +19,26 @@ export function Header() {
     path === '/group-companies' ||
     path === '/groupcompany';
 
+  useEffect(() => {
+    const updateHeaderState = () => {
+      setIsScrolled(window.scrollY > 12);
+    };
+
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    return () => window.removeEventListener('scroll', updateHeaderState);
+  }, []);
+
   return (
-    <header className={`site-header${isMenuOpen ? ' site-header--menu-open' : ''}`}>
+    <header
+      className={[
+        'site-header',
+        isMenuOpen ? 'site-header--menu-open' : '',
+        isScrolled ? 'site-header--scrolled' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <div className="header-inner">
         <div className="top-strip" aria-label="Company highlights">
           <span>

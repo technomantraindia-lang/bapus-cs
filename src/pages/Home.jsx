@@ -3,6 +3,7 @@ import { CoreBusinesses } from '../components/CoreBusinesses.jsx';
 import { FleetAssets } from '../components/FleetAssets.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { GroupCompanies } from '../components/GroupCompanies.jsx';
+import { Header } from '../components/Header.jsx';
 import { Hero } from '../components/Hero.jsx';
 import { HowWeDeliver } from '../components/HowWeDeliver.jsx';
 import { PresenceSection } from '../components/PresenceSection.jsx';
@@ -13,6 +14,7 @@ import { WhyChooseFuture } from '../components/WhyChooseFuture.jsx';
 export function Home() {
   return (
     <main className="app-shell">
+      <Header />
       <Hero />
       <div className="home-band home-band--about">
         <AboutGroup />

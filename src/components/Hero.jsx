@@ -10,7 +10,6 @@ import {
   Waves,
 } from 'lucide-react';
 import heroVideo from '../assets/hero/aerial-follow-footage-of-a-feeder-type-container-s-2025-12-17-04-25-16-utc.mp4';
-import { Header } from './Header.jsx';
 import { appHref } from '../lib/routePath.js';
 
 const stats = [
@@ -102,7 +101,6 @@ export function Hero() {
         </video>
       </div>
       <div className="hero-overlay" aria-hidden="true" />
-      <Header />
 
       <div className="hero-content">
         <div className="hero-copy">
