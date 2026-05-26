@@ -288,6 +288,43 @@ a {
   }
 }
 
+/* Fixed header offset: keep routed page heroes comfortably below the nav. */
+.contact-hero__content,
+.about-page-hero__content,
+.fleet-page .contact-hero.fleet-page-hero .contact-hero__content,
+.journey-hero__content {
+  padding-top: clamp(148px, 11vw, 178px);
+}
+
+.category-businesses-hero .contact-hero__content {
+  padding-top: clamp(148px, 11vw, 178px) !important;
+}
+
+@media (max-width: 900px) {
+  .contact-hero__content,
+  .about-page-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content,
+  .journey-hero__content,
+  .category-businesses-hero .contact-hero__content {
+    padding-top: 166px !important;
+  }
+
+  .journey-page .site-header {
+    position: fixed !important;
+    z-index: 1000 !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-hero__content,
+  .about-page-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content,
+  .journey-hero__content,
+  .category-businesses-hero .contact-hero__content {
+    padding-top: 154px !important;
+  }
+}
+
 @keyframes aboutPageRevealRightNoScale {
   from {
     opacity: 0;
@@ -986,6 +1023,66 @@ a {
   html.journey-page-active .journey-milestone.journey-milestone--ref {
     scroll-snap-align: unset !important;
     scroll-snap-stop: unset !important;
+  }
+}
+
+/* Final header clearance for pages whose late mobile/desktop rules reset hero padding. */
+.contact-page:not(.category-businesses-page) .contact-hero__content {
+  padding-top: clamp(168px, 12vw, 205px) !important;
+}
+
+.fleet-page .contact-hero.fleet-page-hero .contact-hero__content {
+  padding-top: clamp(168px, 12vw, 205px) !important;
+}
+
+@media (max-width: 900px) {
+  .contact-page:not(.category-businesses-page) .contact-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content {
+    padding-top: 178px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-page:not(.category-businesses-page) .contact-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content {
+    padding-top: 166px !important;
+  }
+}
+
+/* Fixed header offset: final override for routed page heroes. */
+.contact-hero__content,
+.about-page-hero__content,
+.fleet-page .contact-hero.fleet-page-hero .contact-hero__content,
+.journey-hero__content {
+  padding-top: clamp(148px, 11vw, 178px);
+}
+
+.category-businesses-hero .contact-hero__content {
+  padding-top: clamp(148px, 11vw, 178px) !important;
+}
+
+@media (max-width: 900px) {
+  .contact-hero__content,
+  .about-page-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content,
+  .journey-hero__content,
+  .category-businesses-hero .contact-hero__content {
+    padding-top: 166px !important;
+  }
+
+  .journey-page .site-header {
+    position: fixed !important;
+    z-index: 1000 !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-hero__content,
+  .about-page-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content,
+  .journey-hero__content,
+  .category-businesses-hero .contact-hero__content {
+    padding-top: 154px !important;
   }
 }
 
@@ -19207,5 +19304,28 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
   html.journey-page-active .journey-milestone.journey-milestone--ref {
     scroll-snap-align: unset !important;
     scroll-snap-stop: unset !important;
+  }
+}
+
+/* Final header clearance for Fleet and Contact heroes. */
+.contact-page:not(.category-businesses-page) .contact-hero__content {
+  padding-top: clamp(168px, 12vw, 205px) !important;
+}
+
+.fleet-page .contact-hero.fleet-page-hero .contact-hero__content {
+  padding-top: clamp(168px, 12vw, 205px) !important;
+}
+
+@media (max-width: 900px) {
+  .contact-page:not(.category-businesses-page) .contact-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content {
+    padding-top: 178px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-page:not(.category-businesses-page) .contact-hero__content,
+  .fleet-page .contact-hero.fleet-page-hero .contact-hero__content {
+    padding-top: 166px !important;
   }
 }

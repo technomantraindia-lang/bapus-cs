@@ -70,6 +70,7 @@
 .group-company-page .contact-hero__content {
   position: relative;
   z-index: 2;
+  padding-top: clamp(148px, 11vw, 178px);
 }
 
 .group-company-page .contact-hero h1 span.gcp-hero-accent {
@@ -166,7 +167,7 @@
 
   .group-company-page .contact-hero__content {
     width: min(100% - 34px, 430px);
-    padding-top: 116px;
+    padding-top: 154px;
     padding-left: 14px;
     padding-right: 14px;
     padding-bottom: 92px;
