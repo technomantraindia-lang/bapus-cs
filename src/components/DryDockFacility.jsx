@@ -8,19 +8,19 @@ import {
   UsersRound,
   Wrench,
 } from 'lucide-react';
-import dryDockImage from '../assets/hero/feet/seap2.png';
+import dryDockImage from '../assets/hero/feet/seap6.png';
+import bapusLogo from '../assets/hero/BAPUS TITLE.png';
 
 const services = [
   { icon: Wrench, title: 'Vessel Repair' },
   { icon: Cog, title: 'Maintenance Support' },
-  { icon: SearchCheck, title: 'Inspection & Survey' },
+  { icon: SearchCheck, title: 'Inspection' },
   { icon: ShipWheel, title: 'Marine Engineering' },
 ];
 
 const stats = [
   { icon: Clock3, value: '24/7', label: 'Support' },
-  { icon: Anchor, value: '150+', label: 'Projects' },
-  { icon: ShieldCheck, value: 'Safety', label: 'First' },
+  { icon: ShieldCheck, value: 'Safety First', label: 'Always' },
   { icon: UsersRound, value: 'Experienced', label: 'Team' },
 ];
 
@@ -28,19 +28,9 @@ export function DryDockFacility() {
   return (
     <section className="drydock-section" aria-labelledby="drydock-title">
       <div className="drydock-shell">
-        <div className="drydock-media">
-          <img src={dryDockImage} alt="Marine vessel prepared for dry dock support" />
-          <span className="drydock-anchor-badge" aria-hidden="true">
-            <Anchor size={34} strokeWidth={1.8} />
-          </span>
-        </div>
-
         <div className="drydock-content">
-          <div className="drydock-kicker">
-            <span aria-hidden="true">
-              <Anchor size={20} strokeWidth={1.8} />
-            </span>
-            <p>Bapu&apos;s Group</p>
+          <div className="drydock-brand">
+            <img src={bapusLogo} alt="Bapu's Group" />
           </div>
 
           <h2 id="drydock-title">Dry Dock Facility</h2>
@@ -70,6 +60,13 @@ export function DryDockFacility() {
               </article>
             ))}
           </div>
+        </div>
+
+        <div className="drydock-media">
+          <img src={dryDockImage} alt="Marine vessel prepared inside a dry dock facility" />
+          <span className="drydock-anchor-badge" aria-hidden="true">
+            <Anchor size={34} strokeWidth={1.8} />
+          </span>
         </div>
       </div>
     </section>

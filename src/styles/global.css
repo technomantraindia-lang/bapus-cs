@@ -6183,46 +6183,60 @@ a {
 
 .drydock-section::before {
   position: absolute;
-  top: -10px;
-  right: 8px;
-  width: min(230px, 22vw);
-  height: min(330px, 30vw);
+  right: 2%;
+  bottom: 8%;
+  width: min(420px, 34vw);
+  height: min(420px, 34vw);
   content: "";
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.22;
   background:
-    linear-gradient(#0b3560 0 0) 50% 0 / 2px 100% no-repeat,
-    linear-gradient(90deg, transparent 0 28%, #0b3560 28% 29%, transparent 29% 100%),
-    radial-gradient(ellipse at 50% 72%, transparent 0 58%, #0b3560 59% 60%, transparent 61%);
-  border: 1px solid rgba(11, 53, 96, 0.28);
-  border-top: 0;
-  border-radius: 0 0 48% 48%;
+    radial-gradient(circle, rgba(255, 196, 83, 0.18), transparent 55%),
+    repeating-radial-gradient(circle, rgba(126, 203, 255, 0.14) 0 1px, transparent 1px 30px);
+  border: 0;
+  border-radius: 999px;
 }
 
 .drydock-shell {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(390px, 0.9fr) minmax(430px, 1fr);
+  grid-template-columns: minmax(360px, 0.92fr) minmax(430px, 1.08fr);
   align-items: center;
-  gap: clamp(34px, 4.8vw, 64px);
-  padding: clamp(12px, 2vw, 18px);
-  border: 1px solid rgba(8, 47, 93, 0.08);
-  border-radius: 28px;
+  gap: clamp(28px, 4vw, 54px);
+  overflow: hidden;
+  padding: clamp(26px, 4vw, 52px);
+  border: 1px solid rgba(126, 203, 255, 0.16);
+  border-radius: 30px;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.88)),
-    radial-gradient(circle at 78% 18%, rgba(245, 170, 22, 0.08), transparent 32%);
+    radial-gradient(circle at 15% 18%, rgba(245, 170, 22, 0.2), transparent 27%),
+    radial-gradient(circle at 92% 15%, rgba(126, 203, 255, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(8, 45, 82, 0.98) 0%, rgba(4, 23, 43, 0.98) 52%, rgba(2, 13, 26, 0.98) 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 28px 72px rgba(8, 35, 63, 0.1);
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 36px 90px rgba(0, 8, 18, 0.32);
+}
+
+.drydock-shell::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 88%, transparent);
 }
 
 .drydock-media {
   position: relative;
-  min-height: clamp(380px, 34vw, 455px);
-  padding: 18px 16px 18px 18px;
+  z-index: 1;
+  min-height: clamp(380px, 35vw, 500px);
+  padding: 0;
   border-radius: 26px;
-  background:
-    linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(201, 162, 39, 0.02) 26%, rgba(8, 47, 93, 0.08));
+  background: transparent;
 }
 
 .drydock-media::before,
@@ -6233,58 +6247,68 @@ a {
 }
 
 .drydock-media::before {
-  top: -8px;
-  left: -8px;
-  width: min(220px, 38%);
-  height: min(160px, 34%);
-  border-top: 2px solid rgba(201, 162, 39, 0.82);
-  border-left: 2px solid rgba(201, 162, 39, 0.82);
-  border-radius: 26px 0 0 0;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  width: 124px;
+  height: 124px;
+  border-top: 2px solid rgba(245, 170, 22, 0.72);
+  border-left: 2px solid rgba(245, 170, 22, 0.72);
+  border-radius: 20px 0 0 0;
 }
 
 .drydock-media::after {
-  top: -30px;
-  left: 0;
+  top: 34px;
+  left: 42px;
+  z-index: 2;
   width: 130px;
   height: 44px;
-  opacity: 0.45;
-  background-image: radial-gradient(circle, #c9a227 1px, transparent 1.5px);
+  opacity: 0.42;
+  background-image: radial-gradient(circle, #f5aa16 1px, transparent 1.5px);
   background-size: 10px 10px;
 }
 
 .drydock-media img {
   display: block;
   width: 100%;
-  height: clamp(360px, 32vw, 430px);
+  height: clamp(380px, 35vw, 500px);
   object-fit: cover;
-  object-position: 70% center;
-  border-radius: 22px 22px 22px 8px;
+  object-position: 66% center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
   filter: saturate(1.05) contrast(1.06);
-  box-shadow: 0 26px 60px rgba(8, 35, 63, 0.2);
+  box-shadow:
+    0 30px 70px rgba(0, 8, 18, 0.42),
+    18px 18px 0 rgba(245, 170, 22, 0.12);
 }
 
 .drydock-anchor-badge {
   position: absolute;
-  bottom: -20px;
-  left: -18px;
+  right: -10px;
+  bottom: 28px;
   display: grid;
-  width: 68px;
-  height: 68px;
+  width: 74px;
+  height: 74px;
   place-items: center;
-  border: 1px solid rgba(201, 162, 39, 0.45);
+  border: 0;
   border-radius: 999px;
-  color: #d49a22;
-  background: #ffffff;
-  box-shadow: 0 18px 36px rgba(8, 35, 63, 0.16);
+  color: #061f45;
+  background: linear-gradient(180deg, #ffd27a, #f5aa16);
+  box-shadow:
+    0 20px 44px rgba(0, 8, 18, 0.34),
+    0 0 0 10px rgba(255, 255, 255, 0.08);
 }
 
 .drydock-content {
   position: relative;
   z-index: 1;
-  padding: clamp(22px, 3vw, 38px);
+  padding: clamp(30px, 3.8vw, 48px);
   border-radius: 24px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(246, 251, 254, 0.72));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 249, 253, 0.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 28px 70px rgba(0, 8, 18, 0.18);
 }
 
 .drydock-kicker {
@@ -6325,7 +6349,7 @@ a {
   margin: 0;
   color: #061f45;
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: clamp(2.75rem, 4.6vw, 4.75rem);
+  font-size: clamp(2.55rem, 4.4vw, 4.45rem);
   font-weight: 800;
   line-height: 0.96;
   letter-spacing: 0;
@@ -6357,12 +6381,12 @@ a {
 
 .drydock-services article {
   display: grid;
-  min-height: 122px;
-  padding: 18px 10px 16px;
+  min-height: 116px;
+  padding: 18px 10px 15px;
   place-items: center;
   gap: 10px;
   border: 1px solid rgba(126, 203, 255, 0.16);
-  border-radius: 12px;
+  border-radius: 14px;
   color: #ffffff;
   background:
     radial-gradient(circle at 50% 0%, rgba(126, 203, 255, 0.18), transparent 48%),
@@ -6445,6 +6469,674 @@ a {
   color: #445f7b;
   font-size: 0.72rem;
   font-weight: 750;
+}
+
+@media (max-width: 1024px) {
+  .drydock-shell {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .drydock-media,
+  .drydock-media img {
+    min-height: 0;
+    height: clamp(300px, 52vw, 460px);
+  }
+
+  .drydock-content h2,
+  .drydock-lede {
+    max-width: 720px;
+  }
+
+  .drydock-services,
+  .drydock-stats {
+    max-width: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-band--drydock {
+    padding-block: 48px 58px;
+  }
+
+  .drydock-section {
+    width: min(100% - 28px, 720px);
+  }
+
+  .drydock-shell {
+    gap: 28px;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .drydock-media img {
+    height: 300px;
+    border-radius: 22px;
+    box-shadow: 0 22px 48px rgba(0, 8, 18, 0.36);
+  }
+
+  .drydock-anchor-badge {
+    right: 12px;
+    bottom: -18px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .drydock-content {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  .drydock-kicker {
+    gap: 10px;
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+  }
+
+  .drydock-kicker::before,
+  .drydock-kicker::after {
+    width: 28px;
+  }
+
+  .drydock-content h2 {
+    font-size: clamp(2.25rem, 12vw, 3.35rem);
+  }
+
+  .drydock-services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .drydock-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px;
+  }
+
+  .drydock-stats article {
+    padding: 14px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(6, 31, 69, 0.14);
+  }
+
+  .drydock-stats article:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .drydock-services,
+  .drydock-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .drydock-services article {
+    min-height: 96px;
+  }
+
+  .drydock-stats article {
+    padding-inline: 4px;
+  }
+
+  .drydock-stats article:nth-last-child(-n + 2) {
+    border-bottom: 1px solid rgba(6, 31, 69, 0.14);
+  }
+
+  .drydock-stats article:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* Reference-style dry dock card */
+.home-band--drydock {
+  padding-block: clamp(58px, 6.5vw, 88px);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(8, 35, 63, 0.08), transparent 28%),
+    linear-gradient(180deg, #f8f8f7 0%, #ffffff 48%, #f4f6f8 100%);
+}
+
+.drydock-section {
+  width: min(1290px, calc(100% - 36px));
+  color: #061f45;
+}
+
+.drydock-section::before {
+  display: none;
+}
+
+.drydock-shell {
+  display: grid;
+  grid-template-columns: minmax(460px, 0.54fr) minmax(400px, 0.46fr);
+  gap: clamp(24px, 3vw, 38px);
+  min-height: clamp(560px, 43vw, 640px);
+  padding: clamp(38px, 4vw, 56px) clamp(34px, 3.4vw, 48px) clamp(36px, 3.5vw, 52px)
+    clamp(42px, 4vw, 58px);
+  overflow: hidden;
+  border: 1px solid rgba(8, 35, 63, 0.08);
+  border-radius: 34px;
+  background: #ffffff;
+  box-shadow:
+    0 34px 90px rgba(8, 35, 63, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.drydock-shell::before {
+  position: absolute;
+  top: -118px;
+  right: 20%;
+  width: 560px;
+  height: 340px;
+  content: "";
+  opacity: 0.32;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(
+      ellipse at 100% 0%,
+      transparent 0 18px,
+      rgba(201, 144, 45, 0.28) 19px 20px,
+      transparent 21px 34px
+    );
+}
+
+.drydock-shell::after {
+  position: absolute;
+  right: 46%;
+  bottom: -72px;
+  width: 560px;
+  height: 190px;
+  content: "";
+  opacity: 0.3;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(
+      ellipse at 50% 100%,
+      transparent 0 24px,
+      rgba(8, 35, 63, 0.16) 25px 26px,
+      transparent 27px 44px
+    );
+}
+
+.drydock-content {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.drydock-brand {
+  display: flex;
+  align-items: center;
+  width: min(218px, 52vw);
+  margin-bottom: clamp(34px, 4vw, 50px);
+}
+
+.drydock-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.drydock-content h2 {
+  max-width: 600px;
+  color: #061f45;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(2.45rem, 3.45vw, 3.65rem);
+  font-weight: 800;
+  line-height: 1.06;
+  text-shadow: none;
+}
+
+.drydock-wave {
+  width: 82px;
+  height: 7px;
+  margin: 18px 0 18px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, #c98f2d 0 84%, rgba(201, 143, 45, 0.14) 84% 100%);
+}
+
+.drydock-lede {
+  max-width: 560px;
+  margin-bottom: 28px;
+  color: #263247;
+  font-size: clamp(1rem, 0.95vw, 1.14rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.drydock-services {
+  display: grid;
+  width: min(620px, 100%);
+  max-width: none;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.drydock-services article {
+  min-height: 118px;
+  padding: 17px 12px 15px;
+  border: 1px solid rgba(8, 35, 63, 0.12);
+  border-radius: 16px;
+  color: #061f45;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 12px 28px rgba(8, 35, 63, 0.06);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.drydock-services article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 143, 45, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 18px 36px rgba(8, 35, 63, 0.1);
+}
+
+.drydock-services svg {
+  width: 38px;
+  height: 38px;
+  color: #c98f2d;
+}
+
+.drydock-services strong {
+  max-width: 12ch;
+  color: #061f45;
+  font-size: 0.9rem;
+  font-weight: 760;
+  line-height: 1.18;
+}
+
+.drydock-stats {
+  display: grid;
+  width: min(640px, 100%);
+  max-width: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+  padding: 14px 18px;
+  border: 1px solid rgba(8, 35, 63, 0.11);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 12px 28px rgba(8, 35, 63, 0.05);
+}
+
+.drydock-stats article {
+  gap: 12px;
+  padding: 0 18px;
+  border-right: 1px solid rgba(201, 143, 45, 0.44);
+}
+
+.drydock-stats article:first-child {
+  padding-left: 12px;
+}
+
+.drydock-stats article:last-child {
+  padding-right: 12px;
+  border-right: 0;
+}
+
+.drydock-stats svg {
+  width: 32px;
+  height: 32px;
+  color: #061f45;
+}
+
+.drydock-stats strong {
+  color: #061f45;
+  font-size: 1rem;
+  font-weight: 760;
+  line-height: 1.08;
+}
+
+.drydock-stats span {
+  color: #061f45;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.drydock-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-width: 230px;
+  min-height: 56px;
+  margin-top: 28px;
+  padding: 14px 24px;
+  border: 2px solid #c98f2d;
+  border-radius: 12px;
+  color: #c98f2d;
+  background: #062648;
+  box-shadow: 0 14px 28px rgba(8, 35, 63, 0.18);
+  font-size: 1rem;
+  font-weight: 760;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.drydock-cta:hover {
+  transform: translateY(-2px);
+  background: #041d38;
+  box-shadow: 0 18px 34px rgba(8, 35, 63, 0.23);
+}
+
+.drydock-media {
+  position: relative;
+  z-index: 2;
+  align-self: stretch;
+  min-height: 0;
+  height: 100%;
+  padding: 8px 8px 8px 54px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  animation: none;
+}
+
+.drydock-media::before {
+  display: none;
+}
+
+.drydock-media::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  content: "";
+  pointer-events: none;
+  background: #ffffff;
+  clip-path: polygon(17% 0, 100% 0, 100% 100%, 17% 100%, 0 50%);
+  filter: drop-shadow(0 24px 46px rgba(8, 35, 63, 0.18));
+}
+
+.drydock-media img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 462px;
+  object-fit: cover;
+  object-position: 52% center;
+  border: 0;
+  border-radius: 26px;
+  clip-path: polygon(17% 0, 100% 0, 100% 100%, 17% 100%, 0 50%);
+  filter: saturate(1.02) contrast(1.04);
+  box-shadow: none;
+  animation: drydockImageSlideIn 900ms cubic-bezier(0.18, 0.8, 0.2, 1) both;
+}
+
+.drydock-brand,
+.drydock-content h2,
+.drydock-wave,
+.drydock-lede,
+.drydock-stats {
+  animation: drydockFadeUp 680ms cubic-bezier(0.2, 0.78, 0.22, 1) both;
+}
+
+.drydock-brand {
+  animation-delay: 80ms;
+}
+
+.drydock-content h2 {
+  animation-delay: 150ms;
+}
+
+.drydock-wave {
+  animation-delay: 210ms;
+}
+
+.drydock-lede {
+  animation-delay: 270ms;
+}
+
+.drydock-services article {
+  animation: drydockFadeUp 620ms cubic-bezier(0.2, 0.78, 0.22, 1) both;
+}
+
+.drydock-services article:nth-child(1) {
+  animation-delay: 340ms;
+}
+
+.drydock-services article:nth-child(2) {
+  animation-delay: 410ms;
+}
+
+.drydock-services article:nth-child(3) {
+  animation-delay: 480ms;
+}
+
+.drydock-services article:nth-child(4) {
+  animation-delay: 550ms;
+}
+
+.drydock-stats {
+  animation-delay: 620ms;
+}
+
+.drydock-anchor-badge {
+  display: none;
+}
+
+.drydock-media > span::after {
+  position: absolute;
+  top: 19px;
+  bottom: 19px;
+  left: 54px;
+  z-index: 4;
+  width: 5px;
+  height: auto;
+  content: "";
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(201, 143, 45, 0.22), #c98f2d 16%, #c98f2d 84%, rgba(201, 143, 45, 0.22));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.72),
+    0 14px 28px rgba(201, 143, 45, 0.28);
+  transform: skewX(-17deg);
+  transform-origin: center;
+}
+
+@keyframes drydockImageSlideIn {
+  from {
+    opacity: 0;
+    transform: translate3d(72px, 0, 0) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes drydockFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drydock-media,
+  .drydock-media img,
+  .drydock-brand,
+  .drydock-content h2,
+  .drydock-wave,
+  .drydock-lede,
+  .drydock-services article,
+  .drydock-stats {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .drydock-shell {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 36px;
+  }
+
+  .drydock-brand {
+    margin-bottom: 36px;
+  }
+
+  .drydock-media {
+    min-height: 420px;
+    order: 2;
+  }
+
+  .drydock-media img {
+    min-height: 420px;
+    clip-path: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-band--drydock {
+    padding-block: 36px 48px;
+  }
+
+  .drydock-section {
+    width: min(100% - 24px, 430px);
+  }
+
+  .drydock-shell {
+    gap: 24px;
+    padding: 22px 18px 24px;
+    border-radius: 24px;
+  }
+
+  .drydock-brand {
+    width: 178px;
+    margin-bottom: 24px;
+  }
+
+  .drydock-content h2 {
+    max-width: 8ch;
+    font-size: clamp(2.2rem, 11vw, 2.9rem);
+    line-height: 1.02;
+  }
+
+  .drydock-lede {
+    margin-bottom: 24px;
+    font-size: 0.93rem;
+    line-height: 1.58;
+  }
+
+  .drydock-services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .drydock-services article {
+    min-height: 112px;
+    padding: 16px 8px 14px;
+    border-color: rgba(201, 143, 45, 0.24);
+    border-radius: 14px;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.92),
+      0 10px 24px rgba(8, 35, 63, 0.055);
+  }
+
+  .drydock-services svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .drydock-services strong {
+    font-size: 0.78rem;
+    line-height: 1.16;
+  }
+
+  .drydock-stats {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 18px;
+    padding: 8px 16px;
+    border-radius: 16px;
+  }
+
+  .drydock-stats article,
+  .drydock-stats article:first-child,
+  .drydock-stats article:last-child {
+    padding: 14px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(201, 143, 45, 0.32);
+  }
+
+  .drydock-stats article:last-child {
+    border-bottom: 0;
+  }
+
+  .drydock-stats svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .drydock-stats strong {
+    font-size: 0.98rem;
+  }
+
+  .drydock-stats span {
+    font-size: 0.74rem;
+  }
+
+  .drydock-cta {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .drydock-media {
+    min-height: 360px;
+    padding: 0;
+  }
+
+  .drydock-media::before,
+  .drydock-anchor-badge {
+    display: none;
+  }
+
+  .drydock-media::after {
+    display: none;
+  }
+
+  .drydock-media img {
+    min-height: 360px;
+    border: 6px solid #ffffff;
+    border-radius: 24px;
+    clip-path: none;
+    object-position: center;
+    box-shadow:
+      0 18px 42px rgba(8, 35, 63, 0.16),
+      0 0 0 1px rgba(201, 143, 45, 0.16);
+  }
+}
+
+@media (max-width: 430px) {
+  .drydock-services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .drydock-services article {
+    min-height: 104px;
+  }
+
+  .drydock-media,
+  .drydock-media img {
+    min-height: 330px;
+  }
 }
 
 /* Fleet cards compact premium layout */
