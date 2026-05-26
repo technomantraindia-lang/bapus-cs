@@ -5000,7 +5000,7 @@ a {
   flex: 0 1 auto;
   margin: 0 auto;
   transform: translateX(clamp(-104px, -6vw, -36px));
-  padding: 92px 0 36px;
+  padding: 168px 0 36px;
 }
 
 .hero-copy {
@@ -5130,7 +5130,7 @@ a {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   width: min(1290px, calc(100% - 36px));
-  margin: 0 auto 0;
+  margin: 34px auto 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   background:
     linear-gradient(180deg, rgba(5, 28, 48, 0.9) 0%, rgba(2, 14, 28, 0.96) 100%);
@@ -15301,7 +15301,7 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
   .journey-hero__content {
     width: min(100% - 28px, 720px);
     margin-inline: auto;
-    padding-top: 148px;
+    padding-top: 194px;
     padding-bottom: 48px;
   }
 
@@ -15371,7 +15371,7 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
     bottom: auto;
     left: auto;
     width: min(100% - 28px, 720px);
-    margin: 0 auto;
+    margin: 24px auto 0;
   }
 
   .business-section,
@@ -18162,7 +18162,7 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
 
   .hero-content {
     width: min(100% - 40px, 420px);
-    padding-top: 132px;
+    padding-top: 180px;
     padding-bottom: 28px;
   }
 
@@ -18220,7 +18220,7 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
 
   .stats-bar {
     width: min(100% - 40px, 420px);
-    margin-top: 10px;
+    margin-top: 28px;
     overflow: hidden;
     border-radius: 0;
   }
