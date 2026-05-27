@@ -193,6 +193,32 @@ const timeline = [
       'Focusing on sustainable infrastructure, Apex Renewable initiated processes under the Gujarat Government PPP Scheme to establish an Authorized Automated Scrap Yard, seamlessly aligning with upcoming mandatory vehicle scrapping laws.',
     ],
   },
+  {
+    years: '2024',
+    label: 'Expanding Automotive Horizons',
+    icon: Wrench,
+    image: heroImage,
+    title: 'Bapus Autobiz strengthened the Group\'s regional automotive presence.',
+    copy: [
+      'Broadening our regional automotive presence, Bapus Autobiz Pvt. Ltd. was established to operate as an authorized Toyota dealership under the brand name Apex Toyota.',
+      'Serving the Bhuj-Kutch region through a complete 3S facility for Sales, Service, and Spares, our customer-centric approach integrates all dealership services under one roof.',
+      'We continue to emphasize quality service, transparency, and long-term customer relationships, ensuring a seamless experience and efficient after-sales support.',
+    ],
+  },
+  {
+    years: '2025 - 2026',
+    label: 'Pioneering a Sustainable Maritime Future',
+    icon: Leaf,
+    image: offshoreImage,
+    title: 'A landmark MoU advanced green bunkering, transportation, and shipbuilding at Kandla Port.',
+    copy: [
+      'Through its flagship entity Bapu\'s Shipping Jamnagar Pvt. Ltd., the Group signed a comprehensive Memorandum of Understanding with the Deendayal Port Authority, under the Ministry of Ports, Shipping and Waterways, Government of India, during Indian Maritime Week 2025.',
+      'The agreement encompasses the development of green methanol bunkering and transportation infrastructure, alongside a state-of-the-art shipbuilding yard at Kandla Port capable of constructing vessels up to 120 meters LOA.',
+      'This strategic initiative aligns with Atmanirbhar Bharat and Viksit Bharat 2047 while supporting the Government of India\'s "Make in India" program and strengthening domestic shipbuilding capabilities.',
+      'Under this collaboration, Bapu\'s Group will play a pioneering role in India\'s first Methanol and Green Fuel Bunkering initiative, including infrastructure for methanol bunkering and efficient marine fuel transportation.',
+      'The Group is also planning next-generation green vessels, including India\'s first green methanol delivery tanker, electric tugs, and other sustainable port support vessels.',
+    ],
+  },
 ];
 
 const journeyIntro =
