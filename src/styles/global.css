@@ -1234,6 +1234,37 @@ main.journey-page > .site-header .main-nav nav a {
   box-shadow: 0 22px 46px rgba(6, 31, 69, 0.28);
 }
 
+.drydock-detail-benefits::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(245, 170, 22, 0.22), transparent 38%),
+    radial-gradient(circle at 92% 110%, rgba(126, 203, 255, 0.14), transparent 46%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 55%);
+  opacity: 0.9;
+}
+
+.drydock-detail-benefits::after {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 16px;
+  height: 1px;
+  content: "";
+  pointer-events: none;
+  opacity: 0.55;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 170, 22, 0.65),
+    rgba(255, 255, 255, 0.16),
+    transparent
+  );
+}
+
 .drydock-detail-benefits h2 {
   margin: 0 0 16px;
   color: rgba(255, 255, 255, 0.92);
@@ -1324,6 +1355,31 @@ main.journey-page > .site-header .main-nav nav a {
   text-align: left;
 }
 
+.drydock-detail-support article {
+  overflow: hidden;
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms ease,
+    border-color 220ms ease;
+}
+
+.drydock-detail-support article::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(201, 143, 45, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(6, 31, 69, 0.02), transparent 60%);
+  opacity: 0.9;
+}
+
+.drydock-detail-support article:hover {
+  transform: translateY(-8px);
+  border-color: rgba(6, 31, 69, 0.18);
+  box-shadow: 0 22px 46px rgba(6, 31, 69, 0.12);
+}
+
 .drydock-detail-support__title {
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr);
@@ -1347,6 +1403,18 @@ main.journey-page > .site-header .main-nav nav a {
   aspect-ratio: 1.16;
   object-fit: cover;
   border-radius: 7px;
+}
+
+.drydock-detail-support img {
+  transform: scale(1.02);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 320ms ease;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+.drydock-detail-support article:hover img {
+  transform: scale(1.07);
+  filter: saturate(1.06) contrast(1.04);
 }
 
 .drydock-detail-vessels {
@@ -1393,6 +1461,28 @@ main.journey-page > .site-header .main-nav nav a {
   text-align: center;
 }
 
+.drydock-detail-vessels__list span {
+  border-radius: 10px;
+  padding: 12px 10px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(6, 31, 69, 0.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 12px 28px rgba(6, 31, 69, 0.06);
+  transition:
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms ease,
+    border-color 200ms ease;
+}
+
+.drydock-detail-vessels__list span:hover {
+  transform: translateY(-6px);
+  border-color: rgba(6, 31, 69, 0.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 18px 42px rgba(6, 31, 69, 0.1);
+}
+
 .drydock-detail-vessels svg {
   color: var(--drydock-blue);
 }
@@ -1414,6 +1504,18 @@ main.journey-page > .site-header .main-nav nav a {
   box-shadow: 0 18px 42px rgba(6, 31, 69, 0.12);
 }
 
+.drydock-detail-info > img {
+  transform: scale(1.01);
+  filter: saturate(1.02) contrast(1.02);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 360ms ease;
+}
+
+.drydock-detail-page .drydock-detail-info:hover > img {
+  transform: scale(1.05);
+  filter: saturate(1.08) contrast(1.04);
+}
+
 .drydock-detail-info__copy {
   display: grid;
   gap: 22px;
@@ -1428,6 +1530,20 @@ main.journey-page > .site-header .main-nav nav a {
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0 14px 34px rgba(6, 31, 69, 0.08);
+}
+
+.drydock-detail-info__copy article {
+  border: 1px solid rgba(6, 31, 69, 0.06);
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms ease,
+    border-color 220ms ease;
+}
+
+.drydock-detail-info__copy article:hover {
+  transform: translateY(-8px);
+  border-color: rgba(6, 31, 69, 0.12);
+  box-shadow: 0 22px 52px rgba(6, 31, 69, 0.12);
 }
 
 .drydock-detail-info__copy svg {
@@ -1706,11 +1822,10 @@ main.journey-page > .site-header .main-nav nav a {
     linear-gradient(180deg, rgba(0, 19, 38, 0.18), rgba(0, 19, 38, 0.86));
 }
 
-.drydock-detail-page .drydock-detail-contact-hero + .drydock-detail-benefits {
+.drydock-detail-page .drydock-detail-contact-hero + .scroll-reveal {
   margin-top: clamp(44px, 5vw, 72px);
 }
 
-.drydock-detail-benefits,
 .drydock-detail-support,
 .drydock-detail-vessels,
 .drydock-detail-info,
@@ -1963,7 +2078,7 @@ main.journey-page > .site-header .main-nav nav a {
     padding-top: 0;
   }
 
-  .drydock-detail-page .drydock-detail-contact-hero + .drydock-detail-benefits {
+  .drydock-detail-page .drydock-detail-contact-hero + .scroll-reveal {
     margin-top: 34px;
   }
 }
