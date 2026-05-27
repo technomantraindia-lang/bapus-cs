@@ -14,6 +14,7 @@ export function Header() {
   const isContact = path === '/contact' || path === '/contact-us';
   const isFleet = path === '/fleet' || path === '/marine-assets' || path.startsWith('/fleet/');
   const isJourney = path === '/our-journey' || path === '/journey';
+  const isDryDock = path === '/dry-dock-facility' || path === '/drydock-facility';
   const isGroupCompany =
     path === '/group-company' ||
     path === '/group-companies' ||
@@ -70,7 +71,7 @@ export function Header() {
             <a
               className={
                 !isAbout && !isBusinesses && !isContact && !isFleet && !isGroupCompany
-                  && !isJourney
+                  && !isJourney && !isDryDock
                   ? 'active'
                   : undefined
               }

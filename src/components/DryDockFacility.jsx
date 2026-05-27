@@ -1,5 +1,6 @@
 import {
   Anchor,
+  ArrowRight,
   Clock3,
   Cog,
   SearchCheck,
@@ -10,6 +11,7 @@ import {
 } from 'lucide-react';
 import dryDockImage from '../assets/hero/feet/seap6.png';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
+import { appHref } from '../lib/routePath.js';
 
 const services = [
   { icon: Wrench, title: 'Vessel Repair' },
@@ -60,6 +62,11 @@ export function DryDockFacility() {
               </article>
             ))}
           </div>
+
+          <a className="drydock-cta" href={appHref('/dry-dock-facility')}>
+            View Detail
+            <ArrowRight size={20} strokeWidth={1.9} aria-hidden="true" />
+          </a>
         </div>
 
         <div className="drydock-media">

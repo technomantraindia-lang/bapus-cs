@@ -3,6 +3,7 @@ import { Home } from './pages/Home.jsx';
 import { Category } from './pages/Category.jsx';
 import { About } from './pages/About.jsx';
 import { Contact } from './pages/Contact.jsx';
+import { DryDockDetail } from './pages/DryDockDetail.jsx';
 import { Fleet } from './pages/Fleet.jsx';
 import { FleetDetail } from './pages/FleetDetail.jsx';
 import { GroupCompanyPage } from './pages/GroupCompanyPage.jsx';
@@ -78,6 +79,10 @@ export default function App() {
 
   if (path === '/contact' || path === '/contact-us') {
     return <Contact />;
+  }
+
+  if (path === '/dry-dock-facility' || path === '/drydock-facility') {
+    return <DryDockDetail />;
   }
 
   if (path.startsWith('/fleet/') || path.startsWith('/marine-assets/')) {
