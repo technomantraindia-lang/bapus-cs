@@ -9,7 +9,7 @@ import {
   UsersRound,
   Wrench,
 } from 'lucide-react';
-import dryDockImage from '../assets/hero/feet/seap6.png';
+import dryDockImage from '../assets/photo/DRYDOCK.png';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
 import { appHref } from '../lib/routePath.js';
 

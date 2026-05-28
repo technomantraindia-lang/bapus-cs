@@ -23,7 +23,7 @@ import { Header } from '../components/Header.jsx';
 import { ScrollReveal } from '../components/ScrollReveal.jsx';
 import { AnimatedStatValue } from '../components/AnimatedStatValue.jsx';
 import { appHref } from '../lib/routePath.js';
-import aboutImage from '../assets/hero/about.jpg';
+import aboutImage from '../assets/photo/DRYDOCK TEAM.png';
 import mapImage from '../assets/hero/map.png';
 import storyVideo from '../assets/hero/cargo-ships-moored-near-urban-coastline-at-sunrise-2026-01-21-12-14-11-utc.mp4';
 

@@ -20,18 +20,19 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { appHref } from '../lib/routePath.js';
-import seap2 from '../assets/hero/feet/seap2.png';
-import seap4 from '../assets/hero/feet/seap4.png';
-import seap5 from '../assets/hero/feet/seap5.png';
-import seap6 from '../assets/hero/feet/seap6.png';
-import yardImage from '../assets/hero/feet/seap4.png';
+import dryDockHeroImage from '../assets/photo/DRYDOCK.png';
+import dryDockAerialImage from '../assets/photo/DRY DOCK ARIEL.jpeg';
+import dryDockRawAerialImage from '../assets/photo/DRY DOCK RAW ARIEL 2.jpeg';
+import bargeAtDryDockImage from '../assets/photo/BARGE AT DRYDOCK.png';
+import vesselAtDryDockImage from '../assets/photo/VESSEL AT DRYDOCK.png';
+import yardImage from '../assets/photo/DRY DOCK ARIEL 3.jpeg';
 
 const supports = [
   {
     icon: Factory,
     title: 'Dry docking and statutory inspections',
     blurb: 'Class surveys, docking plans and regulatory inspections.',
-    image: seap6,
+    image: dryDockAerialImage,
     imagePosition: '58% center',
     alt: 'Large vessel positioned inside a graving dry dock',
   },
@@ -39,7 +40,7 @@ const supports = [
     icon: Wrench,
     title: 'Ship repair and maintenance',
     blurb: 'Hull, machinery and systems serviced to class standards.',
-    image: seap2,
+    image: vesselAtDryDockImage,
     imagePosition: '50% 42%',
     alt: 'Coastal tanker undergoing repair at the shipyard',
   },
@@ -47,7 +48,7 @@ const supports = [
     icon: HardHat,
     title: 'Vessel conversion and retrofitting',
     blurb: 'Upgrades, modifications and compliance-driven retrofits.',
-    image: seap4,
+    image: bargeAtDryDockImage,
     imagePosition: '48% center',
     alt: 'Vessel alongside jetty for conversion work',
   },
@@ -55,7 +56,7 @@ const supports = [
     icon: Building2,
     title: 'New vessel construction',
     blurb: 'New-build support for coastal and support craft.',
-    image: seap5,
+    image: dryDockRawAerialImage,
     imagePosition: '52% 38%',
     alt: 'New-build hull and outfitting at the yard',
   },
@@ -166,7 +167,7 @@ export function DryDockDetail() {
       <Header />
 
       <section className="contact-hero drydock-detail-contact-hero drydock-hero--motion" aria-label="Dry dock facility">
-        <img src={seap6} alt="" aria-hidden="true" className="drydock-hero-bg" />
+        <img src={dryDockHeroImage} alt="" aria-hidden="true" className="drydock-hero-bg" />
         <div className="contact-hero__overlay drydock-hero-overlay-shine" aria-hidden="true" />
         <div className="drydock-hero-blob drydock-hero-blob--a" aria-hidden="true" />
         <div className="drydock-hero-blob drydock-hero-blob--b" aria-hidden="true" />

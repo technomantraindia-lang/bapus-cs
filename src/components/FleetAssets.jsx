@@ -11,16 +11,15 @@ import {
 } from 'lucide-react';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 import { appHref } from '../lib/routePath.js';
-import seap1 from '../assets/hero/feet/seap1.png';
-import seap2 from '../assets/hero/feet/seap2.png';
-import seap3 from '../assets/hero/feet/seap3.png';
-import seap4 from '../assets/hero/feet/seap4.png';
-import seap5 from '../assets/hero/feet/seap5.png';
+import bunkerBargeImage from '../assets/photo/BUNKERING OPS.png';
+import tugBoatImage from '../assets/photo/BARGE SUNSET AT KANDLA.png';
+import freshwaterBargeImage from '../assets/photo/BARGE SUNSET KANDLA.png';
+import offshoreVesselImage from '../assets/photo/BARGES AT KANDLA.png';
 
 const fleetItems = [
   {
     slug: 'bunker-barges',
-    image: seap1,
+    image: bunkerBargeImage,
     title: 'Bunker Barges',
     detail:
       'Reliable bunker barges for efficient fuel supply and vessel-to-vessel marine bunkering operations.',
@@ -28,21 +27,21 @@ const fleetItems = [
  
   {
     slug: 'tug-boats',
-    image: seap3,
+    image: tugBoatImage,
     title: 'Tug Boats',
     detail:
       'Powerful tug boats for towing, berthing assistance, harbour support and emergency operations.',
   },
   {
     slug: 'freshwater-barges',
-    image: seap4,
+    image: freshwaterBargeImage,
     title: 'Freshwater Barges',
     detail:
       'Freshwater barges supporting offshore platforms, anchored vessels and marine logistics needs.',
   },
   {
     slug: 'offshore-vessels',
-    image: seap5,
+    image: offshoreVesselImage,
     title: 'Offshore Vessels',
     detail:
       'Offshore support vessels for crew transfer, light cargo movement and marine field operations.',

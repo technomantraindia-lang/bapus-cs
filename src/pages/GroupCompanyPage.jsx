@@ -23,7 +23,7 @@ import { Header } from '../components/Header.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { AnimatedStatValue } from '../components/AnimatedStatValue.jsx';
 import { appHref } from '../lib/routePath.js';
-import heroImage from '../assets/hero/hero2.png';
+import heroImage from '../assets/photo/BARGES AT KANDLA.png';
 import presenceImage from '../assets/hero/presence-across-india.png';
 
 const heroPillars = [

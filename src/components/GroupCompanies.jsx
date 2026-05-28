@@ -14,10 +14,9 @@ import hpLogo from '../assets/hero/client/hp.png';
 import indianLogo from '../assets/hero/client/indian.png';
 import sciLogo from '../assets/hero/client/sci.png';
 import wilhelLogo from '../assets/hero/client/wilhel.png';
-import arjunabhImage from '../assets/hero/directors/Arjunabh.png';
-import bhupendrasinhImage from '../assets/hero/directors/Bhupendrasinh.png';
-
-import vishalbhaiImage from '../assets/hero/directors/Vishalbhai.png';
+import bhupendrasinhImage from '../assets/hero/directors/BHUPENDRASINH JADEJA.png';
+import hirenJoshiImage from '../assets/hero/directors/Hiren Joshi.png';
+import vishalsinhImage from '../assets/hero/directors/Vishalsinh Jadeja.png';
 
 const companies = [
   {
@@ -72,12 +71,11 @@ const companies = [
 
 const directors = [
   {
-    image: vishalbhaiImage,
+    image: vishalsinhImage,
     name: 'Mr. Vishalsinh Jadeja',
   },
-
   {
-    image: arjunabhImage,
+    image: hirenJoshiImage,
     name: 'Mr. Hiren Joshi',
   },
 ];

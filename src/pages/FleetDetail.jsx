@@ -12,11 +12,13 @@ import {
 import { Header } from '../components/Header.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { appHref, getAppPath } from '../lib/routePath.js';
-import heroImage from '../assets/hero/feet/seap2.png';
-import seap1 from '../assets/hero/feet/seap1.png';
-import seap3 from '../assets/hero/feet/seap3.png';
-import seap4 from '../assets/hero/feet/seap4.png';
-import seap5 from '../assets/hero/feet/seap5.png';
+import heroImage from '../assets/photo/BUNKER LOADING OJ 8.png';
+import bunkerOpsImage from '../assets/photo/BUNKERING OPS.png';
+import bunkeringImage from '../assets/photo/BUNKERING 2.jpeg';
+import tugImage from '../assets/photo/BARGE SUNSET AT KANDLA.png';
+import tugAltImage from '../assets/photo/BARGE SUNSET KANDLA.png';
+import freshwaterImage from '../assets/photo/BARGES AT KANDLA.png';
+import offshoreImage from '../assets/photo/BARGE AT DRYDOCK 4.png';
 
 const detailPages = {
   'bunker-barges': {
@@ -35,16 +37,16 @@ const detailPages = {
     listTitle: 'Our Bunker Barge Fleet',
     vessels: [
       { name: 'DWARKESH', image: heroImage, capacity: 'Upto 1200 KL', length: '48 M', breadth: '12 M', className: 'RSV IV' },
-      { name: 'VAILANKANNI', image: seap1, capacity: 'Upto 1200 KL', length: '58 M', breadth: '12 M', className: 'RSV II' },
-      { name: 'SUCCESS DIGNITY', image: seap3, capacity: 'Upto 600 KL', length: '46 M', breadth: '9 M', className: 'GMB' },
-      { name: 'SOMNATH', image: seap4, capacity: 'Upto 500 KL', length: '43 M', breadth: '9 M', className: 'GMB' },
+      { name: 'VAILANKANNI', image: bunkerOpsImage, capacity: 'Upto 1200 KL', length: '58 M', breadth: '12 M', className: 'RSV II' },
+      { name: 'SUCCESS DIGNITY', image: bunkeringImage, capacity: 'Upto 600 KL', length: '46 M', breadth: '9 M', className: 'GMB' },
+      { name: 'SOMNATH', image: heroImage, capacity: 'Upto 500 KL', length: '43 M', breadth: '9 M', className: 'GMB' },
     ],
   },
   'tug-boats': {
     breadcrumb: 'Tug Boats',
     title: 'Tug Boat',
     accent: 'Fleet',
-    image: seap3,
+    image: tugImage,
     intro:
       'Strong tug assets supporting berthing, towing, harbour movement and emergency marine operations.',
     stats: [
@@ -55,23 +57,23 @@ const detailPages = {
     ],
     listTitle: 'Our Tug Boat Fleet',
     vessels: [
-      { name: 'MANALI 2', image: seap3, length: '20 M', breadth: '6 M', className: 'GMB' },
-      { name: 'MANALI 3', image: seap3, length: '18 M', breadth: '6 M', className: 'GMB' },
-      { name: 'MANALI 5', image: seap3, length: '25 M', breadth: '8 M', className: 'GMB' },
-      { name: 'DUL DUL', image: seap3, length: '19 M', breadth: '6 M', className: 'GMB' },
-      { name: 'MALARA PRIDE', image: seap3, length: '22 M', breadth: '6 M', className: 'GMB' },
-      { name: 'ADINATH 8', image: seap3, length: '27 M', breadth: '8 M', className: 'GMB' },
-      { name: 'SUCCESS KING', image: seap3, length: '29 M', breadth: '8 M', className: 'GMB' },
-      { name: 'SUCCESS NETRAVATI', image: seap3, length: '28 M', breadth: '8 M', className: 'GMB' },
-      { name: 'TULIP 1', image: seap3, length: '24 M', breadth: '7 M', className: 'GMB' },
-      { name: 'MAHADEV', image: seap3, length: '20 M', breadth: '6 M', className: 'GMB' },
+      { name: 'MANALI 2', image: tugImage, length: '20 M', breadth: '6 M', className: 'GMB' },
+      { name: 'MANALI 3', image: tugAltImage, length: '18 M', breadth: '6 M', className: 'GMB' },
+      { name: 'MANALI 5', image: tugImage, length: '25 M', breadth: '8 M', className: 'GMB' },
+      { name: 'DUL DUL', image: tugAltImage, length: '19 M', breadth: '6 M', className: 'GMB' },
+      { name: 'MALARA PRIDE', image: tugImage, length: '22 M', breadth: '6 M', className: 'GMB' },
+      { name: 'ADINATH 8', image: tugAltImage, length: '27 M', breadth: '8 M', className: 'GMB' },
+      { name: 'SUCCESS KING', image: tugImage, length: '29 M', breadth: '8 M', className: 'GMB' },
+      { name: 'SUCCESS NETRAVATI', image: tugAltImage, length: '28 M', breadth: '8 M', className: 'GMB' },
+      { name: 'TULIP 1', image: tugImage, length: '24 M', breadth: '7 M', className: 'GMB' },
+      { name: 'MAHADEV', image: tugAltImage, length: '20 M', breadth: '6 M', className: 'GMB' },
     ],
   },
   'freshwater-barges': {
     breadcrumb: 'Freshwater Barges',
     title: 'Freshwater Barge',
     accent: 'Fleet',
-    image: seap4,
+    image: freshwaterImage,
     intro:
       'Freshwater barges built to support anchored vessels, offshore platforms and coastal marine logistics.',
     stats: [
@@ -82,15 +84,15 @@ const detailPages = {
     ],
     listTitle: ['Our Freshwater Barge', 'Fleet'],
     vessels: [
-      { name: 'RAMA', image: seap4, capacity: 'Upto 350 KL', length: '41 M', breadth: '9 M', className: 'GMB' },
-      { name: 'SUCCESS GLORY', image: seap4, capacity: 'Upto 250 KL', length: '41 M', breadth: '9 M', className: 'GMB' },
+      { name: 'RAMA', image: freshwaterImage, capacity: 'Upto 350 KL', length: '41 M', breadth: '9 M', className: 'GMB' },
+      { name: 'SUCCESS GLORY', image: tugAltImage, capacity: 'Upto 250 KL', length: '41 M', breadth: '9 M', className: 'GMB' },
     ],
   },
   'offshore-vessels': {
     breadcrumb: 'Offshore Vessels',
     title: 'Offshore Vessel',
     accent: 'Fleet',
-    image: seap5,
+    image: offshoreImage,
     intro:
       'Offshore support vessels for crew movement, cargo support and reliable marine field operations.',
     stats: [
@@ -101,8 +103,8 @@ const detailPages = {
     ],
     listTitle: 'Our Offshore Vessel Fleet',
     vessels: [
-      { name: 'ADINATH 8', image: seap5, length: '27 M', breadth: '8 M', className: 'GMB' },
-      { name: 'IVY', image: seap5, length: '29 M', breadth: '9 M', className: 'GMB' },
+      { name: 'ADINATH 8', image: offshoreImage, length: '27 M', breadth: '8 M', className: 'GMB' },
+      { name: 'IVY', image: freshwaterImage, length: '29 M', breadth: '9 M', className: 'GMB' },
     ],
   },
 };

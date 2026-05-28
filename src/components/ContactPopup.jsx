@@ -14,7 +14,7 @@ import {
   UserRound,
   X,
 } from 'lucide-react';
-import heroImage from '../assets/hero/hero2.png';
+import heroImage from '../assets/photo/BARGE SUNSET KANDLA.png';
 
 export function ContactPopup({ isOpen, onClose }) {
   useEffect(() => {

@@ -10,6 +10,7 @@ import {
   Ship,
   TrendingUp,
   Wrench,
+  X,
 } from 'lucide-react';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
@@ -19,10 +20,16 @@ import bsaImage from '../assets/hero/BSA & BSAPL -1997 & 2007.jpg.jpeg';
 import logoImage from '../assets/hero/BSJPL LOGO-  -2007 & 2010.jpg.jpeg';
 import malaraImage from '../assets/hero/MALARA SEA LOGISTICS - 2012.jpg.jpeg';
 import offshoreImage from '../assets/hero/BSSG OFSHORE - 2022.jpg.jpeg';
-import heroImage from '../assets/hero/hero2.png';
-import seap2 from '../assets/hero/feet/seap2.png';
-import seap4 from '../assets/hero/feet/seap4.png';
-import seap6 from '../assets/hero/feet/seap6.png';
+import heroImage from '../assets/photo/BARGES AT KANDLA.png';
+import bunkeringImage from '../assets/photo/BUNKERING OPS.png';
+import bunkerLoadingImage from '../assets/photo/BUNKER LOADING OJ 8.png';
+import bargeSunsetImage from '../assets/photo/BARGE SUNSET AT KANDLA.png';
+import dryDockImage from '../assets/photo/DRYDOCK.png';
+import dryDockTeamImage from '../assets/photo/DRYDOCK TEAM.png';
+import mouImage from '../assets/photo/MOU 1.png';
+import mouSigningImage from '../assets/photo/MoU 4.jpeg';
+import mouDelegationImage from '../assets/photo/MoU 5.jpeg';
+import mouCeremonyImage from '../assets/photo/MoU 6.jpeg';
 
 const timeline = [
   {
@@ -52,7 +59,7 @@ const timeline = [
     years: '2008',
     label: 'Expanding Presence',
     icon: Ship,
-    image: seap2,
+    image: bargeSunsetImage,
     title: 'The maritime fleet expanded significantly.',
     copy: [
       'The maritime fleet expanded significantly with the induction of tugs "VIKRANTA" and "VISHNU," alongside barges "SAMBA PRASAD" and "SUCCESS GLORY".',
@@ -86,7 +93,7 @@ const timeline = [
     years: '2011',
     label: 'Charting a Course for Success',
     icon: Award,
-    image: seap4,
+    image: bunkerLoadingImage,
     title: 'Indian Oil Corporation Limited selected the company as maritime transport partner.',
     copy: [
       'The company was chosen as the maritime transport partner by Fortune 500 company Indian Oil Corporation Limited for bunker sea transportation in the Kandla and Sikka region.',
@@ -131,7 +138,7 @@ const timeline = [
     years: '2015',
     label: 'Steaming Ahead',
     icon: Ship,
-    image: seap2,
+    image: bunkeringImage,
     title: 'Strategic fleet additions positioned the company for robust growth.',
     copy: [
       'Accommodating growing business requirements, we acquired the RSV class bunker barge "VAILANKINNI" and the RSV-IV tug "ADINATH-8".',
@@ -152,7 +159,7 @@ const timeline = [
     years: '2018-2020',
     label: 'Cruising Along',
     icon: Ship,
-    image: seap6,
+    image: dryDockImage,
     title: 'Fleet growth and strategic alliances created Apex Offshore LLP.',
     copy: [
       'The Group expanded its fleet with the acquisition of the MS Class barge "DWARKESH" and the MS Class tug "TULIP-1".',
@@ -164,7 +171,7 @@ const timeline = [
     years: '2021',
     label: 'Sailing into a New Dawn',
     icon: HardHat,
-    image: seap6,
+    image: dryDockTeamImage,
     title: 'A major marine infrastructure milestone was achieved.',
     copy: [
       'A major milestone was achieved with the establishment of a self-sufficient marine support facility in the Gulf of Kachchh at Kandla.',
@@ -209,8 +216,14 @@ const timeline = [
     years: '2025 - 2026',
     label: 'Pioneering a Sustainable Maritime Future',
     icon: Leaf,
-    image: offshoreImage,
+    image: mouImage,
     title: 'A landmark MoU advanced green bunkering, transportation, and shipbuilding at Kandla Port.',
+    gallery: [
+      { image: mouImage, caption: 'MoU exchange at Indian Maritime Week 2025' },
+      { image: mouSigningImage, caption: 'Green bunkering and shipbuilding collaboration' },
+      { image: mouDelegationImage, caption: 'Bapu\'s Group and Deendayal Port Authority delegation' },
+      { image: mouCeremonyImage, caption: 'Strategic partnership for Kandla Port infrastructure' },
+    ],
     copy: [
       'Through its flagship entity Bapu\'s Shipping Jamnagar Pvt. Ltd., the Group signed a comprehensive Memorandum of Understanding with the Deendayal Port Authority, under the Ministry of Ports, Shipping and Waterways, Government of India, during Indian Maritime Week 2025.',
       'The agreement encompasses the development of green methanol bunkering and transportation infrastructure, alongside a state-of-the-art shipbuilding yard at Kandla Port capable of constructing vessels up to 120 meters LOA.',
@@ -242,6 +255,7 @@ export function Journey() {
   const navListRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [selectedGalleryPhoto, setSelectedGalleryPhoto] = useState(null);
 
   const navItems = useMemo(
     () =>
@@ -342,6 +356,24 @@ export function Journey() {
       behavior: 'smooth',
     });
   }, [activeIndex]);
+
+  useEffect(() => {
+    if (!selectedGalleryPhoto) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedGalleryPhoto(null);
+      }
+    };
+
+    document.body.classList.add('journey-lightbox-open');
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.classList.remove('journey-lightbox-open');
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedGalleryPhoto]);
 
   const handleEraClick = useCallback((event, index) => {
     event.preventDefault();
@@ -515,6 +547,23 @@ export function Journey() {
                             <figure className="journey-milestone__figure">
                               <img src={item.image} alt="" loading="lazy" />
                             </figure>
+                            {item.gallery ? (
+                              <div className="journey-milestone__gallery" aria-label={`${item.years} MoU photo gallery`}>
+                                {item.gallery.map((photo) => (
+                                  <figure key={photo.caption}>
+                                    <button
+                                      type="button"
+                                      className="journey-milestone__gallery-button"
+                                      onClick={() => setSelectedGalleryPhoto(photo)}
+                                      aria-label={`Open ${photo.caption}`}
+                                    >
+                                      <img src={photo.image} alt={photo.caption} loading="lazy" />
+                                      <figcaption>{photo.caption}</figcaption>
+                                    </button>
+                                  </figure>
+                                ))}
+                              </div>
+                            ) : null}
                           </div>
                         </ScrollReveal>
                       </article>
@@ -528,6 +577,33 @@ export function Journey() {
       </div>
 
       <FooterCta />
+
+      {selectedGalleryPhoto ? (
+        <div
+          className="journey-photo-lightbox"
+          role="presentation"
+          onClick={() => setSelectedGalleryPhoto(null)}
+        >
+          <div
+            className="journey-photo-lightbox__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedGalleryPhoto.caption}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="journey-photo-lightbox__close"
+              onClick={() => setSelectedGalleryPhoto(null)}
+              aria-label="Close image preview"
+            >
+              <X size={22} aria-hidden="true" />
+            </button>
+            <img src={selectedGalleryPhoto.image} alt={selectedGalleryPhoto.caption} />
+            <p>{selectedGalleryPhoto.caption}</p>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }

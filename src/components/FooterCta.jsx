@@ -5,7 +5,7 @@ import {
   Waves,
 } from 'lucide-react';
 import bapusLogo from '../assets/hero/BAPUS TITLE.png';
-import ctaImage from '../assets/hero/hero2.png';
+import ctaImage from '../assets/photo/BARGE SUNSET AT KANDLA.png';
 import { appHref } from '../lib/routePath.js';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 

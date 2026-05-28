@@ -22,12 +22,12 @@ import { Header } from '../components/Header.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { ScrollReveal } from '../components/ScrollReveal.jsx';
 import { appHref } from '../lib/routePath.js';
-import heroImage from '../assets/hero/hero2.png';
-import seap1 from '../assets/hero/feet/seap1.png';
-import seap2 from '../assets/hero/feet/seap2.png';
-import seap3 from '../assets/hero/feet/seap3.png';
-import seap4 from '../assets/hero/feet/seap4.png';
-import seap5 from '../assets/hero/feet/seap5.png';
+import heroImage from '../assets/photo/BARGES AT KANDLA.png';
+import bunkerBargeImage from '../assets/photo/BUNKERING OPS.png';
+import bunkerDetailImage from '../assets/photo/BUNKER LOADING OJ 8.png';
+import tugBoatImage from '../assets/photo/BARGE SUNSET AT KANDLA.png';
+import freshwaterBargeImage from '../assets/photo/BARGE SUNSET KANDLA.png';
+import offshoreVesselImage from '../assets/photo/BARGES AT KANDLA.png';
 
 const fleetStats = [
   { icon: Ship, value: '30+', label: 'Marine Assets' },
@@ -40,8 +40,8 @@ const fleetCategories = [
   {
     slug: 'bunker-barges',
     icon: Ship,
-    image: seap1,
-    detailImage: seap2,
+    image: bunkerBargeImage,
+    detailImage: bunkerDetailImage,
     title: 'Bunker Barges',
     text: 'Reliable fuel supply for vessel-to-vessel operations.',
     description:
@@ -74,8 +74,8 @@ const fleetCategories = [
   {
     slug: 'tug-boats',
     icon: LifeBuoy,
-    image: seap3,
-    detailImage: seap3,
+    image: tugBoatImage,
+    detailImage: tugBoatImage,
     title: 'Tug Boats',
     text: 'Strong tug support for berthing and towing.',
     description:
@@ -108,8 +108,8 @@ const fleetCategories = [
   {
     slug: 'freshwater-barges',
     icon: Droplets,
-    image: seap4,
-    detailImage: seap4,
+    image: freshwaterBargeImage,
+    detailImage: freshwaterBargeImage,
     title: 'Freshwater Barges',
     text: 'Freshwater supply for offshore and anchored vessels.',
     description:
@@ -142,8 +142,8 @@ const fleetCategories = [
   {
     slug: 'offshore-vessels',
     icon: Waves,
-    image: seap5,
-    detailImage: seap5,
+    image: offshoreVesselImage,
+    detailImage: offshoreVesselImage,
     title: 'Offshore Vessels',
     text: 'Crew transfer, cargo and field support vessels.',
     description:
@@ -260,7 +260,7 @@ export function Fleet() {
             </div>
 
             <div className="fleet-page-hero__visual" aria-hidden="true">
-              <img src={seap2} alt="" />
+              <img src={bunkerDetailImage} alt="" />
             </div>
           </div>
         </div>

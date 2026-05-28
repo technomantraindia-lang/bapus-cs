@@ -879,7 +879,7 @@ a {
 .hero {
   position: relative;
   display: flex;
-  min-height: 720px;
+  min-height: clamp(860px, 100svh, 980px);
   overflow: hidden;
   background: #031b33;
   isolation: isolate;
@@ -894,11 +894,11 @@ a {
 }
 
 .hero-video {
-  width: 116%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  transform: translateX(8%);
+  object-position: 50% 50%;
+  transform: none;
 }
 
 .hero-overlay {
@@ -1054,6 +1054,85 @@ a {
   .contact-page:not(.category-businesses-page) .contact-hero__content,
   .fleet-page .contact-hero.fleet-page-hero .contact-hero__content {
     padding-top: 166px !important;
+  }
+}
+
+/* Contact page photo: keep the vessel and sunset in frame. */
+main.contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero {
+  min-height: clamp(610px, 48vw, 720px);
+}
+
+main.contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero > img {
+  object-position: center 74%;
+}
+
+@media (max-width: 720px) {
+  main.contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero {
+    min-height: 640px !important;
+  }
+
+  main.contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero > img {
+    object-position: 52% 72% !important;
+  }
+}
+
+/* Home hero video: avoid cropping the top of the footage. */
+.hero {
+  min-height: clamp(860px, 100svh, 980px) !important;
+}
+
+.hero .hero-video {
+  width: 100% !important;
+  object-position: 50% 50% !important;
+  transform: none !important;
+}
+
+.hero .hero-content {
+  padding-top: clamp(248px, 26vh, 305px) !important;
+}
+
+.hero .stats-bar {
+  margin-top: 52px !important;
+  margin-bottom: clamp(18px, 3vh, 34px) !important;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 100svh !important;
+  }
+
+  .hero .hero-video {
+    object-position: 58% 50% !important;
+  }
+
+  .hero .hero-content {
+    padding-top: 180px !important;
+  }
+
+  .hero .stats-bar {
+    margin-top: 28px !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 850px) {
+  .hero {
+    min-height: 100svh !important;
+  }
+
+  .hero .hero-content {
+    padding-top: clamp(168px, 20vh, 210px) !important;
+    padding-bottom: 24px !important;
+  }
+
+  .hero .stats-bar {
+    margin-top: clamp(20px, 3vh, 34px) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .hero .stat-item {
+    min-height: 82px;
+    padding-block: 14px;
   }
 }
 
@@ -6578,10 +6657,10 @@ main.journey-page > .site-header .main-nav nav a {
   justify-content: space-between;
   gap: clamp(34px, 5vw, 80px);
   width: min(1290px, calc(100% - 36px));
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   margin: 0 auto;
   transform: translateX(clamp(-104px, -6vw, -36px));
-  padding: 168px 0 36px;
+  padding: clamp(248px, 26vh, 305px) 0 36px;
 }
 
 .hero-copy {
@@ -6711,7 +6790,7 @@ main.journey-page > .site-header .main-nav nav a {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   width: min(1290px, calc(100% - 36px));
-  margin: 34px auto 0;
+  margin: 52px auto clamp(18px, 3vh, 34px);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   background:
     linear-gradient(180deg, rgba(5, 28, 48, 0.9) 0%, rgba(2, 14, 28, 0.96) 100%);
@@ -7079,7 +7158,7 @@ main.journey-page > .site-header .main-nav nav a {
 .green-panel {
   background:
     linear-gradient(90deg, rgba(6, 44, 65, 0.94) 0%, rgba(20, 83, 91, 0.72) 52%, rgba(22, 69, 76, 0.34) 100%),
-    url("../assets/hero/hero2.png");
+    url("../assets/photo/BARGES AT KANDLA.png");
   background-position: center right;
   background-size: cover;
 }
@@ -8031,6 +8110,29 @@ main.journey-page > .site-header .main-nav nav a {
     0 14px 28px rgba(201, 143, 45, 0.28);
   transform: skewX(-17deg);
   transform-origin: center;
+}
+
+.drydock-section .drydock-media,
+.drydock-section .drydock-media img {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Final About hero clearance: keep content below the fixed header. */
+.about-page .about-page-hero__content {
+  padding-top: clamp(156px, 12vw, 190px) !important;
+}
+
+@media (max-width: 900px) {
+  .about-page .about-page-hero__content {
+    padding-top: 168px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-page .about-page-hero__content {
+    padding-top: 154px !important;
+  }
 }
 
 @keyframes drydockImageSlideIn {
@@ -9770,16 +9872,17 @@ main.journey-page > .site-header .main-nav nav a {
 .portrait-image {
   display: block;
   width: 100%;
-  height: 135px;
+  height: 172px;
   border-radius: 8px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   background: rgba(255, 255, 255, 0.12);
 }
 
 .portrait-image.large {
   height: 260px;
   align-self: end;
+  object-position: center center;
 }
 
 .directors-card,
@@ -9789,10 +9892,10 @@ main.journey-page > .site-header .main-nav nav a {
 
 .director-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(108px, 1fr));
+  grid-template-columns: repeat(2, minmax(132px, 1fr));
   gap: 18px;
   align-items: start;
-  max-width: 260px;
+  max-width: 340px;
   margin: 0 auto;
 }
 
@@ -13127,7 +13230,7 @@ main.journey-page > .site-header .main-nav nav a {
   margin-top: 48px;
   background:
     linear-gradient(90deg, rgba(3, 25, 47, 0.93) 0%, rgba(5, 61, 72, 0.74) 54%, rgba(9, 78, 84, 0.36) 100%),
-    url("../assets/hero/hero2.png");
+    url("../assets/photo/BARGES AT KANDLA.png");
   background-position: center right;
   background-size: cover;
   clip-path: polygon(0 12%, 100% 0, 100% 100%, 7% 100%, 0 88%);
@@ -14996,7 +15099,7 @@ main.journey-page > .site-header .main-nav nav a {
 .about-trust-badge {
   position: absolute;
   left: -18px;
-  bottom: 76px;
+  bottom: 18px;
   display: grid;
   place-items: center;
   width: 136px;
@@ -15634,7 +15737,7 @@ main.journey-page > .site-header .main-nav nav a {
 
   .about-trust-badge {
     left: 18px;
-    bottom: 18px;
+    bottom: 4px;
     width: 118px;
     height: 118px;
   }
@@ -17500,6 +17603,139 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
   transform: scale(1.025);
 }
 
+.journey-milestone__gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+.journey-milestone__gallery figure {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 33, 71, 0.08);
+  border-radius: 12px;
+  background: #eef4fb;
+  box-shadow: 0 8px 20px rgba(8, 40, 74, 0.07);
+}
+
+.journey-milestone__gallery-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.journey-milestone__gallery-button:focus-visible {
+  outline: 3px solid rgba(245, 170, 22, 0.9);
+  outline-offset: -3px;
+}
+
+.journey-milestone__gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.3s ease;
+}
+
+.journey-milestone__gallery figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 28px 10px 9px;
+  color: #ffffff;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 21, 45, 0.82) 100%);
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.journey-milestone__gallery figure:hover img,
+.journey-milestone__gallery-button:focus-visible img {
+  filter: saturate(1.04) contrast(1.03);
+  transform: scale(1.035);
+}
+
+body.journey-lightbox-open {
+  overflow: hidden;
+}
+
+.journey-photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  padding: clamp(18px, 4vw, 44px);
+  background: rgba(1, 12, 28, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  place-items: center;
+}
+
+.journey-photo-lightbox__dialog {
+  position: relative;
+  width: min(94vw, 1040px);
+  max-height: min(88vh, 760px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+}
+
+.journey-photo-lightbox__dialog img {
+  display: block;
+  width: 100%;
+  max-height: calc(88vh - 74px);
+  object-fit: contain;
+  background: #071729;
+}
+
+.journey-photo-lightbox__dialog p {
+  margin: 0;
+  padding: 14px 18px 16px;
+  color: #102a45;
+  font-size: clamp(0.9rem, 0.4vw + 0.82rem, 1rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.journey-photo-lightbox__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(0, 18, 40, 0.74);
+  cursor: pointer;
+  place-items: center;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.journey-photo-lightbox__close:hover,
+.journey-photo-lightbox__close:focus-visible {
+  background: rgba(0, 18, 40, 0.94);
+  transform: scale(1.04);
+}
+
 @media (min-width: 900px) {
   .journey-milestone:not(.journey-milestone--hero) .journey-milestone__card {
     grid-template-columns: minmax(0, 1.62fr) minmax(240px, 1fr);
@@ -17527,6 +17763,12 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
     aspect-ratio: auto;
     min-height: min(240px, 36vh);
   }
+
+  .journey-milestone__gallery {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: clamp(18px, 2vw, 26px);
+  }
 }
 
 @media (max-width: 899px) {
@@ -17551,6 +17793,10 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
   .journey-milestone__pillar::before,
   .journey-milestone__pillar::after {
     display: none;
+  }
+
+  .journey-milestone__gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -17840,7 +18086,7 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
 
   .hero-video {
     width: 100%;
-    object-position: 58% center;
+    object-position: 58% 18%;
     transform: none;
   }
 
@@ -18465,7 +18711,7 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
 
   .about-trust-badge {
     left: 14px;
-    bottom: 14px;
+    bottom: 2px;
     width: 104px;
     height: 104px;
     border-width: 4px;
@@ -21647,6 +21893,34 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
   .journey-milestone__figure img {
     max-height: 190px;
     aspect-ratio: 16 / 10;
+  }
+
+  .journey-milestone__gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .journey-milestone__gallery figcaption {
+    font-size: 0.68rem;
+  }
+
+  .journey-photo-lightbox {
+    padding: 14px;
+  }
+
+  .journey-photo-lightbox__dialog {
+    width: 100%;
+    max-height: 86vh;
+    border-radius: 14px;
+  }
+
+  .journey-photo-lightbox__dialog img {
+    max-height: calc(86vh - 72px);
+  }
+
+  .journey-photo-lightbox__close {
+    width: 38px;
+    height: 38px;
   }
 
   .journey-page .footer-cta {

@@ -8,7 +8,7 @@ import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { ScrollReveal } from '../components/ScrollReveal.jsx';
 import { appHref } from '../lib/routePath.js';
-import heroImage from '../assets/hero/hero2.png';
+import heroImage from '../assets/photo/BARGES AT KANDLA.png';
 
 export function Category() {
   return (
