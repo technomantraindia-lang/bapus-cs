@@ -16,27 +16,33 @@ import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { ScrollReveal } from '../components/ScrollReveal.jsx';
 import journeyImage from '../assets/hero/BAPUS SHIPPING JAMNAGAR PVT LTD.jpg.jpeg';
-import bsaImage from '../assets/hero/BSA & BSAPL -1997 & 2007.jpg.jpeg';
-import logoImage from '../assets/hero/BSJPL LOGO-  -2007 & 2010.jpg.jpeg';
-import malaraImage from '../assets/hero/MALARA SEA LOGISTICS - 2012.jpg.jpeg';
-import offshoreImage from '../assets/hero/BSSG OFSHORE - 2022.jpg.jpeg';
 import heroImage from '../assets/photo/BARGES AT KANDLA.png';
-import bunkeringImage from '../assets/photo/BUNKERING OPS.png';
 import bunkerLoadingImage from '../assets/photo/BUNKER LOADING OJ 8.png';
-import bargeSunsetImage from '../assets/photo/BARGE SUNSET AT KANDLA.png';
-import dryDockImage from '../assets/photo/DRYDOCK.png';
 import dryDockTeamImage from '../assets/photo/DRYDOCK TEAM.png';
 import mouImage from '../assets/photo/MOU 1.png';
 import mouSigningImage from '../assets/photo/MoU 4.jpeg';
 import mouDelegationImage from '../assets/photo/MoU 5.jpeg';
 import mouCeremonyImage from '../assets/photo/MoU 6.jpeg';
+import journey1997Image from '../assets/our joruny/1997.png';
+import journey2007Image from '../assets/our joruny/2007.png';
+import journey2008Image from '../assets/our joruny/2008.png';
+import journey2009Image from '../assets/our joruny/2009.png';
+import journey2010Image from '../assets/our joruny/2010.png';
+import journey2012Image from '../assets/our joruny/2012.png';
+import journey2013Image from '../assets/our joruny/2013.png';
+import journey2014Image from '../assets/our joruny/2014.png';
+import journey2015Image from '../assets/our joruny/2015.png';
+import journey2016Image from '../assets/our joruny/2016.png';
+import journey2018To2020Image from '../assets/our joruny/2018-2020.png';
+import journey2022Image from '../assets/our joruny/2022.png';
+import journey2024Image from '../assets/our joruny/2024.png';
 
 const timeline = [
   {
     years: '1997',
     label: 'The Voyage Begins',
     icon: Anchor,
-    image: bsaImage,
+    image: journey1997Image,
     title: "The journey of Bapu's Shipping Agency commenced.",
     copy: [
       'The journey of "BAPU\'S SHIPPING AGENCY" commenced under the leadership of Shri Bhupendrasinh Jadeja and Shri Hiren Joshi, specializing in ship chandling, container, and ship repairing.',
@@ -47,7 +53,7 @@ const timeline = [
     years: '2007',
     label: 'Gathering Knots',
     icon: Ship,
-    image: journeyImage,
+    image: journey2007Image,
     title: 'A new chapter unfolded with fleet and bonded products expansion.',
     copy: [
       '"BAPU\'S SHIPPING JAMNAGAR" was established by Shri Bhupendrasinh and a consortium of entrepreneurs, aiming to build a specialized fleet of tugs and barges.',
@@ -59,7 +65,7 @@ const timeline = [
     years: '2008',
     label: 'Expanding Presence',
     icon: Ship,
-    image: bargeSunsetImage,
+    image: journey2008Image,
     title: 'The maritime fleet expanded significantly.',
     copy: [
       'The maritime fleet expanded significantly with the induction of tugs "VIKRANTA" and "VISHNU," alongside barges "SAMBA PRASAD" and "SUCCESS GLORY".',
@@ -70,7 +76,7 @@ const timeline = [
     years: '2009',
     label: 'Testing Newer Waters',
     icon: TrendingUp,
-    image: heroImage,
+    image: journey2009Image,
     title: 'The Group diversified operations and strengthened key partnerships.',
     copy: [
       '"APEX LUBRICANT" was established to operate as the Clearing and Forwarding Agent (CFA) for Hindustan Petroleum Corporation Limited, managing the storage and distribution of lubes for the Kutch and Jamnagar districts.',
@@ -82,7 +88,7 @@ const timeline = [
     years: '2010',
     label: 'Navigating Further',
     icon: Fuel,
-    image: logoImage,
+    image: journey2010Image,
     title: 'A stronger corporate framework supported expanding operations.',
     copy: [
       "To support our expanding operations and establish a stronger corporate framework, the firm transitioned into Bapu's Shipping Jamnagar Pvt. Ltd.",
@@ -104,7 +110,7 @@ const timeline = [
     years: '2012',
     label: 'Exploring New Frontiers',
     icon: TrendingUp,
-    image: malaraImage,
+    image: journey2012Image,
     title: 'Service portfolio and maritime logistics capabilities expanded.',
     copy: [
       'Our service portfolio expanded by securing a primary fresh water supply agreement with Indian Oil Corporation Limited.',
@@ -115,7 +121,7 @@ const timeline = [
     years: '2013',
     label: 'Making Waves',
     icon: Globe2,
-    image: logoImage,
+    image: journey2013Image,
     title: 'Wilhelmsen Maritime Products appointed the company across Gujarat ports.',
     copy: [
       'The company was honored to be appointed as the official Clearing and Forwarding Agent for Wilhelmsen Maritime Products across Gujarat ports.',
@@ -127,7 +133,7 @@ const timeline = [
     years: '2014',
     label: 'Bold New Beginnings',
     icon: Fuel,
-    image: heroImage,
+    image: journey2014Image,
     title: 'The Group expanded service coverage along the Gulf of Khambhat.',
     copy: [
       'We continued to demonstrate our commitment to high-quality service by partnering with Hindustan Petroleum Corporation Limited for bunker sea transportation.',
@@ -138,7 +144,7 @@ const timeline = [
     years: '2015',
     label: 'Steaming Ahead',
     icon: Ship,
-    image: bunkeringImage,
+    image: journey2015Image,
     title: 'Strategic fleet additions positioned the company for robust growth.',
     copy: [
       'Accommodating growing business requirements, we acquired the RSV class bunker barge "VAILANKINNI" and the RSV-IV tug "ADINATH-8".',
@@ -148,7 +154,7 @@ const timeline = [
   {
     years: '2016',
     label: 'Evolution with Growth',
-    image: heroImage,
+    image: journey2016Image,
     icon: Wrench,
     title: 'The Group diversified into the automotive sector.',
     copy: [
@@ -159,7 +165,7 @@ const timeline = [
     years: '2018-2020',
     label: 'Cruising Along',
     icon: Ship,
-    image: dryDockImage,
+    image: journey2018To2020Image,
     title: 'Fleet growth and strategic alliances created Apex Offshore LLP.',
     copy: [
       'The Group expanded its fleet with the acquisition of the MS Class barge "DWARKESH" and the MS Class tug "TULIP-1".',
@@ -183,7 +189,7 @@ const timeline = [
     years: '2022',
     label: 'Riding the Waves',
     icon: Ship,
-    image: offshoreImage,
+    image: journey2022Image,
     title: 'The Group expanded its fleet and moved toward vehicle fitness infrastructure.',
     copy: [
       'The maritime fleet was expanded again with the addition of the 20 MT Bollard Pull Tug vessel "MAHADEV".',
@@ -204,7 +210,7 @@ const timeline = [
     years: '2024',
     label: 'Expanding Automotive Horizons',
     icon: Wrench,
-    image: heroImage,
+    image: journey2024Image,
     title: 'Bapus Autobiz strengthened the Group\'s regional automotive presence.',
     copy: [
       'Broadening our regional automotive presence, Bapus Autobiz Pvt. Ltd. was established to operate as an authorized Toyota dealership under the brand name Apex Toyota.',

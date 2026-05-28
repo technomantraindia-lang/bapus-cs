@@ -14,6 +14,186 @@
     linear-gradient(180deg, #f5f7fa 0%, #f4f8fc 42%, #eef2f6 100%);
 }
 
+/* Keep Group Company hero aligned with the Fleet page hero system. */
+.group-company-page .contact-hero.contact-hero--gcp {
+  min-height: 520px !important;
+  overflow: hidden;
+  color: #ffffff;
+  background: #031b33;
+  isolation: isolate;
+}
+
+.group-company-page .contact-hero.contact-hero--gcp::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(245, 170, 22, 0.18), transparent 24%),
+    radial-gradient(circle at 20% 72%, rgba(245, 170, 22, 0.18), transparent 18%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.group-company-page .contact-hero .gcp-hero-bg {
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.group-company-page .contact-hero__overlay.contact-hero__overlay--gcp-shine {
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(0, 23, 44, 0.98) 0%, rgba(0, 28, 52, 0.92) 28%, rgba(0, 28, 52, 0.38) 58%, rgba(0, 22, 42, 0.5) 100%),
+    linear-gradient(180deg, rgba(0, 19, 38, 0.2), rgba(0, 19, 38, 0.86)) !important;
+  animation: none !important;
+}
+
+.group-company-page .gcp-hero-accent-blob {
+  display: none;
+}
+
+.group-company-page .contact-hero__content {
+  width: min(1290px, calc(100% - 36px)) !important;
+  margin: 0 auto;
+  padding: clamp(168px, 12vw, 205px) 0 150px !important;
+}
+
+.group-company-page .contact-breadcrumb {
+  gap: 12px;
+  margin-bottom: 52px !important;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.group-company-page .contact-hero h1 {
+  position: relative;
+  max-width: 680px;
+  margin: 0 0 42px !important;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(3.3rem, 5.4vw, 5rem) !important;
+  font-weight: 800;
+  line-height: 0.94 !important;
+}
+
+.group-company-page .contact-hero h1::after {
+  position: absolute;
+  left: 0;
+  bottom: -19px !important;
+  width: 96px !important;
+  height: 2px !important;
+  content: "";
+  background: #f5aa16;
+}
+
+.group-company-page .contact-hero p {
+  max-width: 540px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.93);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.72;
+}
+
+.group-company-page .contact-hero-points {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  max-width: 760px;
+  margin-top: 42px;
+}
+
+.group-company-page .contact-hero-points span {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 13px;
+  align-items: center;
+  min-width: 0;
+  padding: 0 34px 0 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.group-company-page .contact-hero-points span:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.group-company-page .contact-hero-points svg {
+  grid-row: span 2;
+  color: #f5aa16;
+}
+
+@media (max-width: 720px) {
+  .group-company-page .contact-hero.contact-hero--gcp {
+    min-height: 590px !important;
+  }
+
+  .group-company-page .contact-hero .gcp-hero-bg {
+    object-position: 64% center !important;
+  }
+
+  .group-company-page .contact-hero__overlay.contact-hero__overlay--gcp-shine {
+    background:
+      linear-gradient(180deg, rgba(3, 24, 45, 0.52) 0%, rgba(3, 24, 45, 0.6) 42%, rgba(3, 24, 45, 0.88) 100%),
+      linear-gradient(90deg, rgba(3, 24, 45, 0.7), rgba(3, 24, 45, 0.18)) !important;
+  }
+
+  .group-company-page .contact-hero__content {
+    width: min(100% - 34px, 430px) !important;
+    padding-top: 166px !important;
+    padding-bottom: 90px !important;
+  }
+
+  .group-company-page .contact-breadcrumb {
+    margin-bottom: 28px !important;
+    font-size: 0.68rem;
+  }
+
+  .group-company-page .contact-hero h1 {
+    max-width: 340px;
+    margin-bottom: 30px !important;
+    font-size: clamp(2.55rem, 12vw, 3.25rem) !important;
+    line-height: 1 !important;
+  }
+
+  .group-company-page .contact-hero h1::after {
+    bottom: -13px !important;
+    width: 78px !important;
+    height: 3px !important;
+  }
+
+  .group-company-page .contact-hero p {
+    max-width: 340px;
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .group-company-page .contact-hero-points {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100%;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .group-company-page .contact-hero-points span {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    min-height: 62px;
+    padding: 12px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+}
+
 .group-company-page > .site-footer {
   position: relative;
   z-index: 2;

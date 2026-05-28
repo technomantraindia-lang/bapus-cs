@@ -21,46 +21,36 @@ const contactDetails = [
   {
     icon: Phone,
     title: 'Phone',
-    lines: ['+91 22 1234 5678', '+91 22 8765 4321'],
+    lines: ['+91 84888 84888'],
   },
   {
     icon: Mail,
     title: 'Email',
-    lines: ['info@bapusgroup.com', 'operations@bapusgroup.com'],
+    lines: ['info@bapus.com'],
   },
   {
     icon: MapPin,
-    title: 'Head Office',
-    lines: ['123 Marine Drive, Nariman Point,', 'Mumbai, Maharashtra - 400021, India'],
+    title: 'Gandhidham (Kandla) Head Office',
+    lines: ['Survey No. 26/5, NH 8A Ext., Anjar-Galpadar Road,', 'Galpadar, Kachchh, Gujarat - 370240, India'],
   },
   {
     icon: Globe2,
     title: 'Website',
-    lines: ['www.bapusgroup.com'],
+    lines: ['www.bapus.com'],
   },
 ];
 
 const offices = [
   {
     icon: Building2,
-    title: 'Mumbai',
+    title: 'Gandhidham (Kandla)',
     accent: '(Head Office)',
-    address: '123 Marine Drive, Nariman Point, Mumbai, Maharashtra - 400021 India',
+    address: 'Survey No. 26/5, NH 8A Ext., Anjar-Galpadar Road, Galpadar, Kachchh, Gujarat - 370240, India',
   },
   {
     icon: Building2,
-    title: 'Port of Kandla',
-    address: 'Kandla Port, Gandhidham, Kutch, Gujarat - 370210 India',
-  },
-  {
-    icon: Building2,
-    title: 'Chennai',
-    address: '25, Harbour Estate, Chennai Port, Chennai, Tamil Nadu - 600001 India',
-  },
-  {
-    icon: Building2,
-    title: 'Offshore Operations',
-    address: 'Offshore Support Base, Arabian Sea, India',
+    title: 'Jamnagar',
+    address: 'Office No. 403, 4th Floor, Corporate House, Opp. St Ann\'s School, P. N. Marg Road, Jamnagar - 361008',
   },
 ];
 
@@ -243,14 +233,14 @@ export function Contact() {
             <Phone size={27} aria-hidden="true" />
             <div>
               <h3>24/7 Helpline</h3>
-              <p>+91 22 1234 5678</p>
+              <p>+91 84888 84888</p>
             </div>
           </article>
           <article>
             <Mail size={27} aria-hidden="true" />
             <div>
               <h3>Email Support</h3>
-              <p>support@bapusgroup.com</p>
+              <p>info@bapus.com</p>
             </div>
           </article>
         </div>

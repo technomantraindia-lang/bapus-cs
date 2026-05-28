@@ -16,7 +16,7 @@ import { AboutPillarsPin } from './AboutPillarsPin.jsx';
 import { ScrollReveal } from './ScrollReveal.jsx';
 import { SectionAnchorRule } from './SectionAnchorRule.jsx';
 import { appHref } from '../lib/routePath.js';
-import aboutVideo from '../assets/photo/DRYDOCK TEAM.png';
+import aboutVideo from '../assets/hero/about.jpg';
 import storyVideo from '../assets/hero/cargo-ships-moored-near-urban-coastline-at-sunrise-2026-01-21-12-14-11-utc.mp4';
 
 const pillars = [

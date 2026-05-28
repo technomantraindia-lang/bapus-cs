@@ -25,9 +25,9 @@ import { appHref } from '../lib/routePath.js';
 import heroImage from '../assets/photo/BARGES AT KANDLA.png';
 import bunkerBargeImage from '../assets/photo/BUNKERING OPS.png';
 import bunkerDetailImage from '../assets/photo/BUNKER LOADING OJ 8.png';
-import tugBoatImage from '../assets/photo/BARGE SUNSET AT KANDLA.png';
-import freshwaterBargeImage from '../assets/photo/BARGE SUNSET KANDLA.png';
-import offshoreVesselImage from '../assets/photo/BARGES AT KANDLA.png';
+import tugBoatImage from '../assets/hero/feet/seap3.png';
+import freshwaterBargeImage from '../assets/hero/feet/seap4.png';
+import offshoreVesselImage from '../assets/hero/feet/seap5.png';
 
 const fleetStats = [
   { icon: Ship, value: '30+', label: 'Marine Assets' },

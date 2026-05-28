@@ -21,9 +21,9 @@ import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { appHref } from '../lib/routePath.js';
 import dryDockHeroImage from '../assets/photo/DRYDOCK.png';
-import dryDockAerialImage from '../assets/photo/DRY DOCK ARIEL.jpeg';
-import dryDockRawAerialImage from '../assets/photo/DRY DOCK RAW ARIEL 2.jpeg';
-import bargeAtDryDockImage from '../assets/photo/BARGE AT DRYDOCK.png';
+import dryDockAerialImage from '../assets/photo/DRY DOCK RAW ARIEL 2.jpeg';
+import dryDockRawAerialImage from '../assets/photo/BARGE AT DRYDOCK.png';
+import bargeAtDryDockImage from '../assets/photo/DRY DOCK ARIEL.jpeg';
 import vesselAtDryDockImage from '../assets/photo/VESSEL AT DRYDOCK.png';
 import yardImage from '../assets/photo/DRY DOCK ARIEL 3.jpeg';
 

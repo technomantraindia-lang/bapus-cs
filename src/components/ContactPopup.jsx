@@ -71,7 +71,7 @@ export function ContactPopup({ isOpen, onClose }) {
               </span>
               <div>
                 <strong>Call Us</strong>
-                <p>+91 22 1234 5678</p>
+                <p>+91 84888 84888</p>
               </div>
             </article>
             <article>
@@ -80,7 +80,7 @@ export function ContactPopup({ isOpen, onClose }) {
               </span>
               <div>
                 <strong>Email Us</strong>
-                <p>info@bapusgroup.com</p>
+                <p>info@bapus.com</p>
               </div>
             </article>
             <article>

@@ -30,7 +30,7 @@ const businesses = [
   'Lubricants, Automotive & Leasing',
 ];
 
-const locations = ['Kandla', 'Mumbai', 'Jamnagar'];
+const locations = ['Gandhidham (Kandla)', 'Jamnagar','Mumbai'];
 
 export function FooterCta({ showCta = true }) {
   const currentYear = new Date().getFullYear();
@@ -115,14 +115,14 @@ export function FooterCta({ showCta = true }) {
           <section className="footer-contact">
             <h3>Get in touch</h3>
             <p>Bapu&apos;s Group of Companies</p>
-            <p>Gujarat, India</p>
-            <a href="tel:+917940000000">
+            <p>Survey No. 26/5, NH 8A Ext., Anjar-Galpadar Road, Galpadar, Kachchh, Gujarat - 370240</p>
+            <a href="tel:+918488884888">
               <Phone size={17} />
-              +91 79 4000 0000
+              +91 84888 84888
             </a>
-            <a href="mailto:info@bapusgroup.com">
+            <a href="mailto:info@bapus.com">
               <Mail size={17} />
-              info@bapusgroup.com
+              info@bapus.com
             </a>
             <a className="footer-enquiry" href={appHref('/contact')}>
               Send enquiry
@@ -134,7 +134,7 @@ export function FooterCta({ showCta = true }) {
         <div className="footer-bottom">
           <p>
             <Waves size={16} aria-hidden="true" />
-            &copy; {currentYear} <span className="footer-credit-brand">Technomantra India</span>. All Rights Reserved.
+            &copy; {currentYear}, <span className="footer-credit-brand">Bapu'sGroupofCompanies</span>. All Rights Reserved.
           </p>
          
         </div>
