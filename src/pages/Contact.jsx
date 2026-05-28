@@ -15,7 +15,7 @@ import {
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { appHref } from '../lib/routePath.js';
-import heroImage from '../assets/photo/BARGE SUNSET KANDLA.png';
+import heroImage from '../assets/photo/BARGES AT KANDLA.png';
 
 const contactDetails = [
   {

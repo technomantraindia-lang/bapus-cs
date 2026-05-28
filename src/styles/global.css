@@ -1068,6 +1068,14 @@ a {
   isolation: isolate;
 }
 
+main.contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero {
+  min-height: 520px !important;
+}
+
+main.contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero > img {
+  object-position: 70% center !important;
+}
+
 .contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero::before,
 .category-businesses-page .category-businesses-hero::before,
 .fleet-detail-page .fleet-detail-hero::before {
@@ -16652,21 +16660,30 @@ main.journey-page > .site-header .main-nav nav a {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 34px;
+  grid-template-columns: repeat(2, minmax(280px, 420px));
+  justify-content: center;
+  gap: clamp(22px, 3vw, 34px);
+  max-width: 920px;
+  margin: 0 auto;
   text-align: left;
 }
 
 .contact-office-grid article {
   position: relative;
-  min-height: 224px;
-  padding: 28px 28px 24px;
-  border: 1px solid rgba(8, 40, 74, 0.1);
-  border-radius: 15px;
-  background: #ffffff;
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 0 22px;
+  min-height: 230px;
+  padding: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(8, 40, 74, 0.09);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, #ffffff 0%, #f8fbff 100%),
+    radial-gradient(circle at 100% 0%, rgba(245, 170, 22, 0.12), transparent 34%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 18px 46px rgba(13, 39, 71, 0.08);
+    0 22px 58px rgba(13, 39, 71, 0.1);
   transition:
     border-color 190ms ease,
     box-shadow 190ms ease,
@@ -16676,14 +16693,28 @@ main.journey-page > .site-header .main-nav nav a {
 
 .contact-office-grid article::before {
   position: absolute;
-  inset: 0 0 auto;
-  height: 4px;
+  inset: 0 auto 0 0;
+  width: 4px;
+  height: auto;
   content: "";
-  border-radius: 15px 15px 0 0;
-  background: linear-gradient(90deg, #f5aa16, rgba(245, 170, 22, 0.32), #f5aa16);
-  background-size: 180% 100%;
+  border-radius: 20px 0 0 20px;
+  background: linear-gradient(180deg, #f5aa16, rgba(245, 170, 22, 0.28), #f5aa16);
+  background-size: 100% 180%;
   opacity: 0.82;
   animation: contactOfficeLine 2.8s ease-in-out infinite;
+}
+
+.contact-office-grid article::after {
+  position: absolute;
+  right: -46px;
+  bottom: -58px;
+  width: 150px;
+  height: 150px;
+  content: "";
+  border: 1px solid rgba(245, 170, 22, 0.14);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(245, 170, 22, 0.08), transparent 62%);
+  pointer-events: none;
 }
 
 .contact-office-grid article:nth-child(1) { animation-delay: 0.08s; }
@@ -16701,11 +16732,19 @@ main.journey-page > .site-header .main-nav nav a {
 }
 
 .contact-office-grid article > span {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  place-items: center;
   width: 70px;
   height: 70px;
-  margin-bottom: 24px;
+  margin: 0;
   border: 1px solid rgba(245, 170, 22, 0.22);
   border-radius: 999px;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(245, 170, 22, 0.22), transparent 34%),
+    linear-gradient(180deg, #08284a, #031b33);
+  box-shadow: 0 16px 30px rgba(8, 40, 74, 0.16);
   animation: contactOfficeIconFloat 3.4s ease-in-out infinite;
 }
 
@@ -16716,9 +16755,10 @@ main.journey-page > .site-header .main-nav nav a {
 .contact-office-grid article:nth-child(4) > span { animation-delay: 0.9s; }
 
 .contact-office-grid h3 {
-  margin: 0 0 10px;
+  grid-column: 2;
+  margin: 4px 0 12px;
   color: #0b2848;
-  font-size: 1.02rem;
+  font-size: 1.12rem;
   font-weight: 950;
   line-height: 1.3;
 }
@@ -16728,11 +16768,12 @@ main.journey-page > .site-header .main-nav nav a {
 }
 
 .contact-office-grid p {
+  grid-column: 2;
   margin: 0;
   color: #536a82;
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   font-weight: 650;
-  line-height: 1.62;
+  line-height: 1.68;
 }
 
 .contact-help-strip {
@@ -17819,6 +17860,38 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
 .journey-milestone:hover .journey-milestone__figure img {
   filter: saturate(1.04) contrast(1.03);
   transform: scale(1.025);
+}
+
+/* Final polish for two real office cards. */
+.contact-offices-section .contact-office-grid {
+  grid-template-columns: repeat(2, minmax(300px, 430px)) !important;
+  justify-content: center;
+  max-width: 930px;
+  margin-inline: auto;
+}
+
+@media (max-width: 720px) {
+  .contact-offices-section .contact-office-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-office-grid article {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    min-height: 0;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .contact-office-grid article > span,
+  .contact-office-grid h3,
+  .contact-office-grid p {
+    grid-column: 1;
+  }
+
+  .contact-office-grid article > span {
+    justify-self: center;
+  }
 }
 
 .journey-milestone__gallery {
