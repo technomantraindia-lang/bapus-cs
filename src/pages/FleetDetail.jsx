@@ -13,8 +13,7 @@ import { Header } from '../components/Header.jsx';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { appHref, getAppPath } from '../lib/routePath.js';
 import heroImage from '../assets/photo/BUNKER LOADING OJ 8.png';
-import bunkerOpsImage from '../assets/photo/BUNKERING OPS.png';
-import bunkeringImage from '../assets/photo/BUNKERING 2.jpeg';
+import bunkerBapusImage from '../assets/photo/BUNKER BARGE BAPUS.png';
 import tugImage from '../assets/hero/feet/seap3.png';
 import freshwaterImage from '../assets/hero/feet/seap4.png';
 import offshoreImage from '../assets/hero/feet/seap5.png';
@@ -36,10 +35,10 @@ const detailPages = {
     ],
     listTitle: 'Our Bunker Barge Fleet',
     vessels: [
-      { name: 'DWARKESH', image: heroImage, capacity: 'Upto 1200 KL', length: '48 M', breadth: '12 M', className: 'RSV IV' },
-      { name: 'VAILANKANNI', image: bunkerOpsImage, capacity: 'Upto 1200 KL', length: '58 M', breadth: '12 M', className: 'RSV II' },
-      { name: 'SUCCESS DIGNITY', image: bunkeringImage, capacity: 'Upto 600 KL', length: '46 M', breadth: '9 M', className: 'GMB' },
-      { name: 'SOMNATH', image: heroImage, capacity: 'Upto 500 KL', length: '43 M', breadth: '9 M', className: 'GMB' },
+      { name: 'DWARKESH', image: bunkerBapusImage, capacity: 'Upto 1200 KL', length: '48 M', breadth: '12 M', className: 'RSV IV' },
+      { name: 'VAILANKANNI', image: bunkerBapusImage, capacity: 'Upto 1200 KL', length: '58 M', breadth: '12 M', className: 'RSV II' },
+      { name: 'SUCCESS DIGNITY', image: bunkerBapusImage, capacity: 'Upto 600 KL', length: '46 M', breadth: '9 M', className: 'GMB' },
+      { name: 'SOMNATH', image: bunkerBapusImage, capacity: 'Upto 500 KL', length: '43 M', breadth: '9 M', className: 'GMB' },
     ],
   },
   'tug-boats': {
