@@ -1057,6 +1057,100 @@ a {
   }
 }
 
+/* Final mobile polish for the Our Presence stat cards. */
+@media (max-width: 640px) {
+  .presence-section {
+    width: min(100% - 18px, 430px) !important;
+    padding: 0 !important;
+  }
+
+  .presence-card {
+    width: 100% !important;
+    margin: 26px auto !important;
+    padding: 22px 16px 18px !important;
+    border-radius: 22px !important;
+  }
+
+  .presence-card .presence-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+
+  .presence-card .presence-stats article {
+    min-height: 128px !important;
+    padding: 14px 12px !important;
+    border-radius: 16px !important;
+    gap: 8px !important;
+    background:
+      radial-gradient(circle at 100% 100%, rgba(245, 170, 22, 0.13), transparent 35%),
+      linear-gradient(160deg, #ffffff 0%, #f7fbff 100%) !important;
+    box-shadow: 0 14px 30px rgba(13, 39, 71, 0.08) !important;
+  }
+
+  .presence-card .presence-stats article::after {
+    right: -34px !important;
+    bottom: -40px !important;
+    width: 86px !important;
+    height: 86px !important;
+  }
+
+  .presence-stat-icon {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 7px !important;
+    border-radius: 11px !important;
+  }
+
+  .presence-card .presence-stats strong {
+    font-size: clamp(1.45rem, 8vw, 1.85rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  .presence-stat-label {
+    max-width: 10ch;
+    font-size: 0.58rem !important;
+    line-height: 1.22 !important;
+    letter-spacing: 0.065em !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .presence-card .presence-stats {
+    gap: 8px !important;
+  }
+
+  .presence-card .presence-stats article {
+    min-height: 118px !important;
+    padding: 12px 10px !important;
+  }
+
+  .presence-card .presence-stats strong {
+    font-size: 1.42rem !important;
+  }
+
+  .presence-stat-label {
+    font-size: 0.54rem !important;
+  }
+}
+
+/* Final mobile sizing for the About showcase image. */
+@media (max-width: 760px) {
+  .about-hero-visual .about-image-panel {
+    width: calc(100% + 28px) !important;
+    margin-right: -28px !important;
+    margin-left: 0 !important;
+    aspect-ratio: 1.28 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-hero-visual .about-image-panel {
+    width: calc(100% + 22px) !important;
+    margin-right: -22px !important;
+  }
+}
+
 /* Fleet-style hero system shared by routed service pages. */
 .contact-page:not(.category-businesses-page):not(.drydock-detail-page) .contact-hero,
 .category-businesses-page .category-businesses-hero,
@@ -17891,6 +17985,81 @@ html.journey-page-scroll-snap .journey-milestone.journey-milestone--ref {
 
   .contact-office-grid article > span {
     justify-self: center;
+  }
+}
+
+/* Phone hero: keep stats below the video instead of covering it. */
+@media (max-width: 720px) {
+  .hero {
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+    overflow: hidden;
+    background: #f4f8fc;
+  }
+
+  .hero-background,
+  .hero-overlay {
+    inset: 0 0 auto;
+    height: min(76svh, 620px);
+    min-height: 560px;
+  }
+
+  .hero-content {
+    min-height: min(76svh, 620px);
+    padding-top: 178px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .stats-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px;
+    width: min(100% - 28px, 430px) !important;
+    margin: 22px auto 36px !important;
+    padding: 0;
+    border: 0;
+    border-radius: 18px;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .stats-bar .stat-item {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 10px;
+    min-height: 104px;
+    padding: 18px 16px;
+    border: 1px solid rgba(8, 40, 74, 0.08);
+    border-radius: 16px;
+    background:
+      linear-gradient(145deg, #ffffff 0%, #f8fbff 100%),
+      radial-gradient(circle at 100% 0%, rgba(245, 170, 22, 0.12), transparent 36%);
+    box-shadow: 0 16px 34px rgba(13, 39, 71, 0.08);
+  }
+
+  .stats-bar .stat-item svg {
+    width: 28px;
+    height: 28px;
+    color: #f5aa16;
+    filter: drop-shadow(0 8px 18px rgba(245, 170, 22, 0.22));
+  }
+
+  .stats-bar .stat-item strong {
+    color: #08284a;
+    font-size: 1.02rem;
+  }
+
+  .stats-bar .stat-item span {
+    margin-top: 4px;
+    color: #51677d;
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.045em;
+  }
+
+  .stats-bar .stat-item--text-only span {
+    color: #51677d;
+    font-size: 0.64rem;
   }
 }
 
