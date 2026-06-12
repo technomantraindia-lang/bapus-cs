@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import {
   Anchor,
@@ -15,8 +15,32 @@ import {
   X,
 } from 'lucide-react';
 import heroImage from '../assets/photo/BARGE SUNSET KANDLA.png';
+import { submitWeb3Form } from '../lib/web3Forms.js';
 
 export function ContactPopup({ isOpen, onClose }) {
+  const [formStatus, setFormStatus] = useState({ type: 'idle', message: '' });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    setFormStatus({ type: 'submitting', message: '' });
+
+    try {
+      await submitWeb3Form(form, 'Quick Enquiry');
+      form.reset();
+      setFormStatus({
+        type: 'success',
+        message: 'Thank you for your enquiry! Our team will contact you shortly.',
+      });
+    } catch {
+      setFormStatus({
+        type: 'error',
+        message: 'Sorry, your enquiry could not be sent. Please try again.',
+      });
+    }
+  };
+
   useEffect(() => {
     if (!isOpen) return undefined;
 
@@ -95,7 +119,7 @@ export function ContactPopup({ isOpen, onClose }) {
           </div>
         </aside>
 
-        <form className="contact-popup__form">
+        <form className="contact-popup__form" onSubmit={handleSubmit}>
           <div className="contact-popup__heading">
             <h2 id="contact-popup-title">Get in Touch</h2>
             <p>We&apos;d love to hear from you. Send us an enquiry and our team will get back to you shortly.</p>
@@ -105,15 +129,15 @@ export function ContactPopup({ isOpen, onClose }) {
           <div className="contact-popup__grid">
             <label>
               <UserRound size={20} aria-hidden="true" />
-              <input type="text" name="fullName" placeholder="Full Name" />
+              <input type="text" name="fullName" placeholder="Full Name" required />
             </label>
             <label>
               <Mail size={20} aria-hidden="true" />
-              <input type="email" name="email" placeholder="Email Address" />
+              <input type="email" name="email" placeholder="Email Address" required />
             </label>
             <label>
               <Phone size={20} aria-hidden="true" />
-              <input type="tel" name="phone" placeholder="Phone Number" />
+              <input type="tel" name="phone" placeholder="Phone Number" required />
             </label>
             <label>
               <Building2 size={20} aria-hidden="true" />
@@ -121,7 +145,7 @@ export function ContactPopup({ isOpen, onClose }) {
             </label>
             <label className="contact-popup__wide">
               <BriefcaseBusiness size={20} aria-hidden="true" />
-              <select name="service" defaultValue="">
+              <select name="service" defaultValue="" required>
                 <option value="" disabled>
                   Select Service
                 </option>
@@ -133,19 +157,29 @@ export function ContactPopup({ isOpen, onClose }) {
             </label>
             <label className="contact-popup__wide">
               <FileText size={20} aria-hidden="true" />
-              <input type="text" name="subject" placeholder="Subject" />
+              <input type="text" name="subject" placeholder="Subject" required />
             </label>
             <label className="contact-popup__wide contact-popup__message">
               <PencilLine size={20} aria-hidden="true" />
-              <textarea name="message" placeholder="Message" rows="3" />
+              <textarea name="message" placeholder="Message" rows="3" required />
             </label>
           </div>
 
-          <button className="contact-popup__submit" type="button">
+          <button className="contact-popup__submit" type="submit" disabled={formStatus.type === 'submitting'}>
             <Anchor size={26} aria-hidden="true" />
-            <span>Send Enquiry</span>
+            <span>{formStatus.type === 'submitting' ? 'Sending...' : 'Send Enquiry'}</span>
             <ArrowRight size={28} aria-hidden="true" />
           </button>
+
+          {formStatus.message ? (
+            <p
+              className={`form-status contact-popup__status form-status--${formStatus.type}`}
+              role="status"
+              aria-live="polite"
+            >
+              {formStatus.message}
+            </p>
+          ) : null}
 
           <p className="contact-popup__promise">
             <span aria-hidden="true" />

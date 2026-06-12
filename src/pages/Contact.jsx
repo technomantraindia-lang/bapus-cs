@@ -12,9 +12,11 @@ import {
   Phone,
   ShieldCheck,
 } from 'lucide-react';
+import { useState } from 'react';
 import { FooterCta } from '../components/FooterCta.jsx';
 import { Header } from '../components/Header.jsx';
 import { appHref } from '../lib/routePath.js';
+import { submitWeb3Form } from '../lib/web3Forms.js';
 import heroImage from '../assets/photo/BARGES AT KANDLA.png';
 
 const contactDetails = [
@@ -55,6 +57,29 @@ const offices = [
 ];
 
 export function Contact() {
+  const [formStatus, setFormStatus] = useState({ type: 'idle', message: '' });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    setFormStatus({ type: 'submitting', message: '' });
+
+    try {
+      await submitWeb3Form(form, 'Contact Page Message');
+      form.reset();
+      setFormStatus({
+        type: 'success',
+        message: 'Thank you for your message! Our team will get back to you shortly.',
+      });
+    } catch {
+      setFormStatus({
+        type: 'error',
+        message: 'Sorry, your message could not be sent. Please try again.',
+      });
+    }
+  };
+
   return (
     <main className="app-shell contact-page">
       <Header />
@@ -127,7 +152,7 @@ export function Contact() {
           </div>
         </div>
 
-        <form className="contact-form-card">
+        <form className="contact-form-card" onSubmit={handleSubmit}>
           <div className="contact-form-ribbon" aria-hidden="true">
             Operations Desk
           </div>
@@ -145,35 +170,46 @@ export function Contact() {
           <div className="contact-form-grid">
             <label>
               First Name *
-              <input type="text" name="firstName" placeholder="Your first name" />
+              <input type="text" name="firstName" placeholder="Your first name" required />
             </label>
             <label>
               Last Name *
-              <input type="text" name="lastName" placeholder="Your last name" />
+              <input type="text" name="lastName" placeholder="Your last name" required />
             </label>
             <label>
               Email Address *
-              <input type="email" name="email" placeholder="your@email.com" />
+              <input type="email" name="email" placeholder="your@email.com" required />
             </label>
             <label>
               Phone Number *
-              <input type="tel" name="phone" placeholder="+91 98765 43210" />
+              <input type="tel" name="phone" placeholder="+91 98765 43210" required />
             </label>
             <label className="contact-form-wide">
               Subject *
-              <input type="text" name="subject" placeholder="How can we help you?" />
+              <input type="text" name="subject" placeholder="How can we help you?" required />
             </label>
             <label className="contact-form-wide">
               Message *
-              <textarea name="message" placeholder="Type your message here..." rows="6" />
+              <textarea name="message" placeholder="Type your message here..." rows="6" required />
             </label>
           </div>
 
           <div className="contact-form-actions">
-            <button type="button">
-              Send Message
-              <ArrowRight size={15} aria-hidden="true" />
-            </button>
+            <div className="contact-form-submit-group">
+              <button type="submit" disabled={formStatus.type === 'submitting'}>
+                {formStatus.type === 'submitting' ? 'Sending...' : 'Send Message'}
+                <ArrowRight size={15} aria-hidden="true" />
+              </button>
+              {formStatus.message ? (
+                <p
+                  className={`form-status form-status--${formStatus.type}`}
+                  role="status"
+                  aria-live="polite"
+                >
+                  {formStatus.message}
+                </p>
+              ) : null}
+            </div>
             <p>
               <LockKeyhole size={14} aria-hidden="true" />
               Your information is safe with us.

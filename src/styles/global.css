@@ -6934,6 +6934,19 @@ main.journey-page > .site-header .main-nav nav a {
     0 18px 34px rgba(148, 99, 28, 0.3);
 }
 
+.contact-popup__status {
+  margin: 12px 0 0;
+  text-align: center;
+}
+
+.contact-popup__status.form-status--success {
+  color: #167443;
+}
+
+.contact-popup__status.form-status--error {
+  color: #b3261e;
+}
+
 .contact-popup__promise {
   display: grid;
   grid-template-columns: 1fr auto auto 1fr;
@@ -16628,6 +16641,27 @@ main.journey-page > .site-header .main-nav nav a {
   margin-top: 22px;
 }
 
+.contact-form-submit-group {
+  display: grid;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.form-status {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.contact-form-actions .form-status--success {
+  color: #8ff0b5;
+}
+
+.contact-form-actions .form-status--error {
+  color: #ffaaa3;
+}
+
 .contact-form-tags {
   position: relative;
   z-index: 1;
@@ -16677,6 +16711,13 @@ main.journey-page > .site-header .main-nav nav a {
 
 .contact-form-actions button {
   padding: 0 28px;
+}
+
+.contact-form-actions button:disabled,
+.contact-popup__submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
 }
 
 .contact-form-actions button:hover,

@@ -92,7 +92,6 @@ export function AboutPillarsPin({
 
       const lockY = getLockY();
       const y = getScrollY();
-      const endY = pinDocumentTop(el) + Math.max(el.offsetHeight - window.innerHeight, 0);
 
       if (y < lockY - Math.min(220, window.innerHeight * 0.28) && stepRef.current !== 0) {
         stepRef.current = 0;
