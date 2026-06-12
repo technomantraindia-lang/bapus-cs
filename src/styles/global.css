@@ -1057,6 +1057,61 @@ a {
   }
 }
 
+/* Keep the mobile navigation readable above every page hero. */
+@media (max-width: 900px) {
+  .site-header .main-nav nav {
+    padding: 8px !important;
+    overflow-x: hidden;
+    background: #ffffff !important;
+    border-color: rgba(8, 40, 74, 0.16) !important;
+    box-shadow: 0 22px 54px rgba(0, 16, 32, 0.3) !important;
+    text-shadow: none !important;
+  }
+
+  .site-header.site-header--menu-open .main-nav nav a {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+    color: #08233f !important;
+    opacity: 1;
+    text-shadow: none;
+  }
+
+  .site-header.site-header--menu-open .main-nav nav a:hover {
+    color: #08233f !important;
+    background: rgba(8, 35, 63, 0.07);
+    transform: none;
+  }
+
+  .site-header.site-header--menu-open .main-nav nav a.active {
+    color: #061625 !important;
+    background: rgba(245, 170, 22, 0.2);
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header .header-inner {
+    width: calc(100% - 16px);
+  }
+
+  .site-header .brand {
+    width: min(220px, 58vw) !important;
+    padding: 6px 7px !important;
+  }
+
+  .site-header .main-nav {
+    gap: 6px;
+  }
+
+  .site-header .touch-button,
+  .site-header .menu-toggle {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
+}
+
 /* Final mobile polish for the Our Presence stat cards. */
 @media (max-width: 640px) {
   .presence-section {
@@ -22262,8 +22317,8 @@ body.journey-lightbox-open {
   .journey-hero__content {
     width: min(100% - 34px, 430px);
     padding: 72px 0 72px;
-    text-align: left;
-    justify-items: start;
+    text-align: center;
+    justify-items: center;
   }
 
   .journey-hero__year {
@@ -22285,6 +22340,8 @@ body.journey-lightbox-open {
   }
 
   .journey-hero__content > p:last-child {
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 20px;
     font-size: 0.88rem;
     line-height: 1.65;
@@ -22467,6 +22524,10 @@ body.journey-lightbox-open {
     min-height: 100vh !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .journey-body {
+    padding-top: 96px !important;
   }
 
   .journey-scroll {
